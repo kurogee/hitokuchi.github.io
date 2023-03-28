@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>hitokuchi - Mes</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="pagestyle.css">
+    </head>
+    <body>
+        <div id="box">
+            <a href="index.html">ホームに戻る</a>
+            <h3>
+                <div id="getmes" class="card">
+                    <span id="title_text">ユーザー名</span>: <span id="user_name">運営</span><br>
+                    <span id="title_text">本文</span><br><br>
+                    <span id="message">「メッセージを受け取る」を押してメッセージを受け取ってみよう！</span>
+                </div>
+            </h3>
+            
+            自分のユーザー名を入れてください: <input type="text" id="user"><br>
+            <form>
+                <input type="hidden" value="get" id="type">
+                <input type="button" value="メッセージを受け取る！" id="button" onclick="get_mes();">
+            </form>
+            <small id="status"></small>
+        </div>
+        <script src="get_massage.js"></script>
+    </body>
+</html>

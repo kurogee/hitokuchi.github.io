@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>hitokuchi - Send</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="pagestyle.css">
+    </head>
+    <body>
+        <div id="box">
+            <a href="index.html">ホームに戻る</a>
+            <h3>メッセージを作成する</h3>
+
+            <form>
+                <input type="hidden" value="send" id="type">
+                ユーザー名(本名を入れずに、毎回同じユーザー名にしてください): <br><input type="text" id="user"><br>
+                メッセージ(メッセージに個人情報を入れないでください): <br><textarea id="area"></textarea>
+                <input type="button" value="メッセージを送信する！" id="button" onclick="send_mes();">
+            </form>
+            <small id="status"></small>
+        </div>
+        <script src="send_message.js"></script>
+    </body>
+</html>
