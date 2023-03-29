@@ -3,7 +3,7 @@ async function get_mes() {
 
     if (document.getElementById("user").value != "") {
         const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbyO6U6tMg2DVvX6SWDwNWWCe0X8E2muzYGI7-hAN8tKotHroS7na7x08VXUqGBtB_lV7Q/exec",
+            "https://script.google.com/macros/s/AKfycbyZUMF4F932tAg6ztXMJ95nIQrb4tteMVne19MitpmOlphucLaMx1ChqzB5jRSBW4VFQg/exec",
             {
                 method: "POST",
                 body: JSON.stringify({
