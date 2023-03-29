@@ -1,7 +1,7 @@
 async function send_mes() {
     document.getElementById("status").innerHTML = "お待ちください...";
     
-    if (document.getElementById("user").value != "" && document.getElementById("area").value.replace("\n", "") != "") {
+    if (document.getElementById("user").value != "" || document.getElementById("area").value.replace("\n", "") != "") {
         const response = await fetch(
             "https://script.google.com/macros/s/AKfycbyO6U6tMg2DVvX6SWDwNWWCe0X8E2muzYGI7-hAN8tKotHroS7na7x08VXUqGBtB_lV7Q/exec",
             {
