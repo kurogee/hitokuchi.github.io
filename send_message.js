@@ -2,7 +2,7 @@ async function send_mes() {
     document.getElementById("status").innerHTML = "お待ちください...";
     
     const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwHjj8vxfB-2BbnTaYWr14jTgIHmjUa8_DQj-BThCt7ZLn9WwMU5m7ZYm7IVHjEJliOBQ/exec",
+        "https://script.google.com/macros/s/AKfycbyO6U6tMg2DVvX6SWDwNWWCe0X8E2muzYGI7-hAN8tKotHroS7na7x08VXUqGBtB_lV7Q/exec",
         {
             method: "POST",
             body: JSON.stringify({
@@ -19,4 +19,13 @@ async function send_mes() {
     })
 
     document.getElementById("status").innerHTML = "送信完了";
+    document.getElementById("area").value = "";
+    localStorage.setItem("user", document.getElementById("user").value);
+}
+
+window.onload = () => {
+    const username = localStorage.getItem("user");
+    if (username != null) {
+        document.getElementById("user").value = username;
+    }
 }
