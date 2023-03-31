@@ -1,19 +1,21 @@
 async function get_mes() {
     document.getElementById("status").innerHTML = "お待ちください...";
 
+    /*
     if (document.cookie.split(";")[0].split("=")[1] == "yes") {
         document.getElementById("status").innerHTML = "12時間に取得できるメッセージの最大は5通です。12時間後にまた来てください。";
         return;
-    } else {
+    } else if (document.cookie == "") {
         localStorage.setItem("count", 0);
-    }
+    }*/
 
     if (document.getElementById("user").value != "") {
+        /*
         if (localStorage.getItem("count") != null && parseInt(localStorage.getItem("count")) >= 6) {
             document.cookie = "seigen=yes; max-age=43200";
             document.getElementById("status").innerHTML = "12時間に取得できるメッセージの最大は5通です。12時間後にまた来てください。";
             return;
-        }
+        }*/
 
         const response = await fetch(
             "https://script.google.com/macros/s/AKfycbyZUMF4F932tAg6ztXMJ95nIQrb4tteMVne19MitpmOlphucLaMx1ChqzB5jRSBW4VFQg/exec",
@@ -41,11 +43,12 @@ async function get_mes() {
 
         document.getElementById("status").innerHTML = "";
 
+        /*
         if (localStorage.getItem("count") != null) {
             localStorage.setItem("count", parseInt(localStorage.getItem("count"))+1);
         } else {
             localStorage.setItem("count", 1);
-        }
+        }*/
         
     } else {
         document.getElementById("status").innerHTML = "ユーザー名を入力してください！";
@@ -57,8 +60,9 @@ window.onload = () => {
     if (username != null) {
         document.getElementById("user").value = username;
     }
+    /*
     const count = localStorage.getItem("count");
     if (count == null) {
         localStorage.setItem("count", 0);
-    }
+    }*/
 }
