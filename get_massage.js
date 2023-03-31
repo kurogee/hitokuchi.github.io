@@ -4,6 +4,8 @@ async function get_mes() {
     if (document.cookie.split(";")[0].split("=")[1] == "yes") {
         document.getElementById("status").innerHTML = "12時間に取得できるメッセージの最大は5通です。12時間後にまた来てください。";
         return;
+    } else {
+        localStorage.setItem("count", 0);
     }
 
     if (document.getElementById("user").value != "") {
