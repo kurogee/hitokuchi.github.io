@@ -41,7 +41,9 @@ async function get_mes() {
         document.getElementById("status").innerHTML = "";
 
         if (localStorage.getItem("count") != null) {
-            localStorage.setItem("count", parseInt(localStorage.getItem("count"))+1);
+            if (message != "申し訳ございません。只今あなたが受け取れるメッセージが一つもない状況です。<br>ぜひメッセージを新しく送信してください！") {
+                localStorage.setItem("count", parseInt(localStorage.getItem("count"))+1);
+            }
         } else {
             localStorage.setItem("count", 1);
         }
