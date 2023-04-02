@@ -19,8 +19,12 @@ html {
     font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
-*:not(input) {
+*:not(input, small) {
     font-size: 30px;
+}
+
+small {
+    font-size: 20px;
 }
 
 #user, #area, #button {
@@ -43,7 +47,7 @@ html {
 
 .card {
     border: 5px inset blue;
-    width: 60%;
+    width: 80%;
     height: 500px;
     border-radius: 30px 0px;
     background-image: url("frame.webp");
