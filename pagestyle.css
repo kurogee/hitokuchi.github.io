@@ -2,8 +2,16 @@
 
 @media screen and (min-width:981px) {
     html {
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-image: url("background-phone.webp");
+    }
+
+    *:not(input, small) {
+        font-size: 25px;
+    }
+
+    small {
+        font-size: 15px;
     }
 }
 
@@ -35,14 +43,18 @@ small {
 #box, .box {
     border: 3px solid black;
     border-radius: 20px 0px;
-    width: 85%;
+    width: 90%;
     background-color: lightblue;
 }
 
 #button {
     border: 2px solid silver;
-    width: 50%;
+    width: 95%;
     height: 50px;
+}
+
+#user {
+    width: 95%;
 }
 
 .card {
