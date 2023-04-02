@@ -49,7 +49,7 @@ async function get_mes() {
         }
         
     } else {
-        document.getElementById("status").innerHTML = "ユーザー名を入力してください！";
+        document.getElementById("status").innerHTML = "あなたはまだこの機能を利用いただけません<br>一回でもメッセージを送信してください！";
     }
 }
 
