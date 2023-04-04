@@ -63,8 +63,4 @@ window.onload = () => {
     if (count == null) {
         localStorage.setItem("count", 0);
     }
-
-    if (document.cookie == "") {
-        localStorage.setItem("count", 0);
-    }
 }
