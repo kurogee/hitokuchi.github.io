@@ -15,7 +15,7 @@ async function get_mes() {
         }
 
         const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbyZUMF4F932tAg6ztXMJ95nIQrb4tteMVne19MitpmOlphucLaMx1ChqzB5jRSBW4VFQg/exec",
+            "https://script.google.com/macros/s/AKfycbz6qPDDmKHDK47zU85nuveTkOGBDZPBdOpM2Z4gJYDbuqMXsxa01K9D5HAHUiH2DMeqVg/exec",
             {
                 method: "POST",
                 body: JSON.stringify({
