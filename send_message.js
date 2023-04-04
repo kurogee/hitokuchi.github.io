@@ -16,12 +16,17 @@ async function send_mes() {
         .then(response => response.text())
 
         .then(data => {
+            document.getElementById("status").innerHTML = "送信完了";
+            document.getElementById("area").value = "";
+            localStorage.setItem("user", document.getElementById("user").value);
             return JSON.parse(data);
         })
 
-        document.getElementById("status").innerHTML = "送信完了";
-        document.getElementById("area").value = "";
-        localStorage.setItem("user", document.getElementById("user").value);
+        .catch(err => {
+            console.error(err);
+            document.getElementById("status").innerHTML = "エラー";
+            return;
+        })
     } else {
         document.getElementById("status").innerHTML = "ユーザー名・テキストを入力してください！"
     }
