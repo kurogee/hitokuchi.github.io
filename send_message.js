@@ -9,7 +9,7 @@ async function send_mes() {
                 body: JSON.stringify({
                     "type": document.getElementById("type").value,
                     "user": document.getElementById("user").value,
-                    "message": document.getElementById("area").value.replace("\n", "<br>")
+                    "message": document.getElementById("area").value.split("\n").join("<br>")
                 })
             }
         )
