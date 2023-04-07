@@ -15,8 +15,13 @@
         </div>
         <br>
         <div id="box">
+            <h3>イベント情報</h3>
+            <p id="events">特になし</p>
+        </div>
+        <br>
+        <div id="box">
             <p>
-                hitokuchi(ひとくち)は登録不要で知らない誰かにメッセージを送ったり、<br>
+                hitokuchi(ひとくち)は登録不要で知らない誰かにメッセージを送ったり、
                 知らない誰かから受け取ったりできるメッセージングサービスです！<br>
             </p>
             <p>
@@ -28,7 +33,7 @@
             <br>
             ▶<a href="./mes.html">メッセージを受け取る</a>◀
             <br>
-            <small>【12時間毎に5通まで無料】</small>
+            <small>【12時間毎に基本5通まで無料】</small>
         </div>
         <br>
         <div id="box">
@@ -36,5 +41,14 @@
             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi" data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
+
+        <script>
+            window.onload = () => {
+                const day = new Date().getDay();
+                if (day == 0 || day == 6 || day == 5) {
+                    document.getElementById("events").innerHTML = "金曜日・土曜日・日曜日は8通の日！<br>12時間にメッセージを8通取得できます！";
+                }
+            }
+        </script>
     </body>
 </html>
