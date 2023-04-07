@@ -7,6 +7,10 @@
     }
 }
 
+:root {
+    --default-font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
 html {
     background-repeat: no-repeat;
     background-image: url("background.webp");
@@ -16,7 +20,7 @@ html {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-family: var(--default-font-family);
 }
 
 *:not(input, small) {
@@ -55,7 +59,7 @@ small {
     height: 500px;
     border-radius: 30px 0px;
     background-image: url("frame.webp");
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
 }
 
 #title_text {
