@@ -1,14 +1,8 @@
 async function get_mes() {
     document.getElementById("status").innerHTML = "お待ちください...";
 
-    if (document.cookie != "") {
-        document.getElementById("status").innerHTML = "12時間に取得できるメッセージの最大は5通です。12時間後にまた来てください。";
-        localStorage.setItem("count", 0);
-        return;
-    }
-
     if (document.getElementById("user").value != "") {
-        if (localStorage.getItem("count") != null && parseInt(localStorage.getItem("count")) >= 5) {
+        if ( (localStorage.getItem("count") != null && parseInt(localStorage.getItem("count")) >= 5) || document.cookie.match("yes") ) {
             document.cookie = "seigen=yes; max-age=43200";
             document.getElementById("status").innerHTML = "12時間に取得できるメッセージの最大は5通です。12時間後にまた来てください。";
             return;
@@ -41,7 +35,7 @@ async function get_mes() {
         document.getElementById("status").innerHTML = "";
 
         if (localStorage.getItem("count") != null) {
-            if (message != "申し訳ございません。只今あなたが受け取れるメッセージが一つもない状況です。<br>ぜひメッセージを新しく送信してください！") {
+            if (message != "申し訳ございません。只今あなたが受け取れるメッセージが一つもない状況です。<br>ぜひメッセージを新しく送信してください！<br>※もう一度メッセージを取得すると治るかもしれません") {
                 localStorage.setItem("count", parseInt(localStorage.getItem("count"))+1);
             }
         } else {
@@ -61,6 +55,11 @@ window.onload = () => {
     
     const count = localStorage.getItem("count");
     if (count == null) {
+        localStorage.setItem("count", 0);
+    }
+
+    if (document.cookie == "" || document.cookie == null) {
+        document.cookie = "seigen=no";
         localStorage.setItem("count", 0);
     }
 }
