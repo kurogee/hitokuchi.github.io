@@ -16,8 +16,13 @@
 
             <form>
                 <input type="hidden" value="send" id="type">
-                ユーザー名(本名を入れずに、毎回同じユーザー名にしてください): <br><input type="text" id="user"><br>
-                メッセージ(メッセージに個人情報を入れないでください): <br><textarea id="area"></textarea>
+                ユーザー名<br>
+                <small>【本名を入れずに、毎回同じユーザー名にしてください】</small>
+                <input type="text" id="user"><br>
+
+                メッセージ<br>
+                <small>【メッセージに個人情報を含めないでください】</small>
+                <textarea id="area"></textarea>
                 <input type="button" value="メッセージを送信する！" id="button" onclick="send_mes();">
             </form>
             <small id="status"></small>
