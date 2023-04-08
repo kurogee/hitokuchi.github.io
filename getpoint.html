@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>ポイントを貯める</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+        <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="pagestyle.css">
+    </head>
+    <body>
+        <div id="box">
+            <a href="index.html">◀ホームに戻る</a>
+            <h2>ポイントポータル</h2>
+        </div>
+        <br>
+        <div id="box">
+            <h3>現在開催中のポイントイベント</h3>
+            <div>
+                <a href="https://forms.gle/sq1ZTNSEqaZaWoHH8" target="_blank">野菜に関するアンケート [10pt]</a><br>
+            </div>
+        </div>
+        <br>
+        <div id="box">
+            <h3>アカウントステータス</h3>
+            <div id="alert">
+                しばらくお待ちください...
+            </div>
+        </div>
+
+        <script>
+            async function get_point(user) {
+                const res = await fetch("https://script.google.com/macros/s/AKfycbz4EWqBOmSCQNYiJiv-XG6gO39bur4CLlgeGn7BzBU0ITRMgGoMb7NuNnffCQK1b7d-GQ/exec",
+                            {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    "id": user,
+                                    "req": "check_point"
+                                })
+                            })
+                            .then(res => { return res.text() })
+                            .then(data => { return JSON.parse(data) });
+                return res;
+            }
+
+            window.onload = async () => {
+                const alert = document.getElementById("alert");
+                const user = localStorage.getItem("login_data_name");
+                const res = await get_point(user);
+
+                if (user != null && user != "") {
+                    alert.innerHTML = `現在 ${user} としてログインしています<br>
+                    現在のポイント数: ${res.result}<br>
+                    <form>
+                        <input type="hidden" name="type" value="logout">
+                        <input type="button" value="ログアウト" onclick="logout()">
+                    </form>
+                    <hr>
+                    <h3>ポイント交換</h3>
+                    <form>
+                        <input type="text" name="uuid" id="uuid" placeholder="ポイント交換ID" size="50"><br>
+                        <input type="hidden" name="req" id="req" value="change_point">
+                        <input type="hidden" name="user_id" id="user_id" value="${user}">
+                        <input type="button" value="交換する！" onclick="send_change()">　<input type="reset" value="取り消し">
+                    </form>
+                    <small id="states"></small>
+                    <hr>
+                    <div>
+                        <h3>ポイントを使う</h3>
+                        <div>
+                            交換できる内容は近日公開！したい！<br>
+                            今思っているのは、メッセージの背景画像の変更をできるようにしたりしたいなと<br>
+                            思って開発中です！
+                        </div>
+                    </div>`;
+                } else {
+                    alert.innerHTML = `アカウント登録がお済みでない方は、ここから登録してください<br>
+                    <a href="account.html">アカウント登録</a> | <a href="account_login.html">ログイン</a>`;
+                }
+            }
+        </script>
+        <script src="point.js"></script>
+    </body>
+</html>

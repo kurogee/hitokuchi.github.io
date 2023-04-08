@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>ログイン</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+        <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="pagestyle.css">
+    </head>
+    <body>
+        <div id="box">
+            <a href="index.html">◀ホームに戻る</a> | <a href="getpoint.html">ポイントポータルに戻る▶</a>
+            <h2>アカウントログイン</h2>
+        </div>
+        <br>
+        <div id="box">
+            <h3>ログイン</h3>
+            <form>
+                ユーザー名: <input type="text" name="username" id="user_id"><br>
+                合言葉: <input type="password" name="password" id="user_pass"><br>
+                <input type="hidden" id="req" value="login">
+                <input type="button" value="ログイン" onclick="login()">　<input type="reset" value="取り消し">
+            </form>
+            <small id="states"></small>
+        </div>
+        <a href="" id="url"></a>
+
+        <script>
+            async function login() {
+                const states = document.getElementById("states");
+                states.innerHTML = "お待ちください...";
+                states.style.color = "red";
+
+                if (document.getElementById("user_id").value != "" && document.getElementById("user_pass").value != "") {
+                    const response = await fetch(
+                        "https://script.google.com/macros/s/AKfycby5ov2Fa-0CmKpDUmxXGxrb1Wrq5aoG8v26VCBdoKHj07e1oA05M6h3zOzJVIJPJ4nR/exec",
+                        {
+                            method: "POST",
+                            body: JSON.stringify({
+                                "id": document.getElementById("user_id").value,
+                                "pass": document.getElementById("user_pass").value,
+                                "req": document.getElementById("req").value
+                            })
+                        }
+                    )
+                    .then((response) => response.text())
+
+                    .then((data)=>{
+                        return JSON.parse(data);
+                    })
+
+                    .catch((error) => {
+                        return "posterror";
+                    });
+
+                    if (response.result.match("no")) {
+                        states.innerHTML = "エラー: パスワードまたはIDが違います";
+                        console.log(response)
+                    
+                    } else if (response.result.match("go")) {
+                        const url = document.getElementById("url");
+
+                        localStorage.setItem("login_data_name", document.getElementById("user_id").value);
+
+                        url.href = "./getpoint.html";
+                        url.click();
+                    }
+                } else {
+                    states.innerHTML = "エラー: あいことばもIDも入力してください";
+                }
+
+            }
+
+            document.getElementsByTagName('html')[0].oncontextmenu = () => {
+                return false;
+            }
+        </script>
+        <script src="point.js"></script>
+    </body>
+</html>

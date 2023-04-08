@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>サインアップ</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+        <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="pagestyle.css">
+    </head>
+    <body>
+        <div id="box">
+            <a href="index.html">◀ホームに戻る</a> | <a href="getpoint.html">ポイントポータルに戻る▶</a>
+            <h2>アカウント作成</h2>
+        </div>
+        <br>
+        <div id="box">
+            <h3>アカウント作成</h3>
+            <form>
+                ユーザー名: <input type="text" name="username" id="user_id"><br>
+                合言葉: <input type="password" name="password" id="user_pass"><br>
+                <input type="hidden" id="req" value="join">
+                <input type="button" value="登録" onclick="signup()">　<input type="reset" value="取り消し">
+            </form>
+            <small id="states"></small>
+        </div>
+        <br>
+        <div id="box">
+            <p>
+                注意: 「パスワード」ではなく「合言葉」です。<br>
+                セキュリティで保護されていないので、本当のパスワードを入れないでください
+            </p>
+        </div>
+        <a href="" id="url"></a>
+
+        <script>
+            async function signup() {
+                const states = document.getElementById("states");
+                states.innerHTML = "お待ちください...";
+                states.style.color = "red";
+
+                if (document.getElementById("user_id").value != "" && document.getElementById("user_pass").value != "") {
+                    const response = await fetch(
+                        "https://script.google.com/macros/s/AKfycbyn9Q5x8Sxd2AgfKrHhkfnJd6_dyPk0_LqpGI-qV7U2Qct6Mdm9JQkq8I7rgoxobNU69w/exec",
+                        {
+                            method: "POST",
+                            body: JSON.stringify({
+                                "id": document.getElementById("user_id").value,
+                                "pass": document.getElementById("user_pass").value,
+                                "req": document.getElementById("req").value
+                            })
+                        }
+                    )
+                    .then((response) => response.text())
+
+                    .then((data)=>{
+                        return JSON.parse(data);
+                    })
+
+                    .catch((error) => {
+                        return "posterror";
+                    });
+
+                    if (response.result.match("no")) {
+                        states.innerHTML = "エラー: 同じIDがすでに登録されています";
+                        console.log(response)
+                    
+                    } else if (response.result.match("ok")) {
+                        const url = document.getElementById("url")
+
+                        states.innerHTML = "登録完了";
+                    }
+                } else {
+                    states.innerHTML = "エラー: あいことばもIDも入力してください";
+                }
+                
+                document.getElementById("user_id").value = "";
+                document.getElementById("user_pass").value = "";
+            }
+
+            document.getElementsByTagName('html')[0].oncontextmenu = () => {
+                return false;
+            }
+        </script>
+        <script src="point.js"></script>
+    </body>
+</html>
