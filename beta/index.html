@@ -33,7 +33,7 @@
                 console.log(new Date(start))
                 console.log(new Date(end))
             
-                fetch('https://www.googleapis.com/fitness/v1/users/me/dataSources/derived:com.google.activity.segment: 3:********:activity_from_steps/datasets/'+start.toString()+'000000'+'-'+end.toString()+'000000?access_token=' + access_token)
+                fetch('https://www.googleapis.com/fitness/v1/users/me/dataSources/derived:com.google.activity.segment:********:activity_from_steps/datasets/'+start.toString()+'000000'+'-'+end.toString()+'000000?access_token=' + access_token)
                     .then(response => {
                         return response.json()
                     })
