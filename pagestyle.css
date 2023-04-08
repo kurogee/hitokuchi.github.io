@@ -23,7 +23,7 @@ html {
     font-family: var(--default-font-family);
 }
 
-*:not(input, small) {
+*:not(input, small, h2, h3, button) {
     font-size: 20px;
 }
 
@@ -69,6 +69,10 @@ small {
 #area {
     width: 95%;
     height: 430px;
+}
+
+.no_warp {
+    display: inline-block;
 }
 
 hr {
