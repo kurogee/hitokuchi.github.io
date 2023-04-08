@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script src="https://apis.google.com/js/client.js"></script>
+        <script>
+            const client_id = '642671464314-r30aa881c9bnqvgrqp8k2ll48ar5e4lm.apps.googleusercontent.com'
+            const scope = ['https://www.googleapis.com/auth/fitness.activity.read']
+            let access_token = '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'
+            
+            function getToken() {
+                gapi.auth.authorize({client_id: client_id, scope: scope, immediate: false, response_type: 'token'}, callback)
+            }
+        
+            function callback(e) {
+                access_token = e.access_token
+                console.log(e)
+                fetch('https://www.googleapis.com/fitness/v1/users/me/dataSources?access_token=' + access_token)
+                    .then(response => {
+                        return response.json()
+                    })
+                    .then(json => {
+                        console.log(json)
+                        getSteps()
+                    })
+            }
+
+            function getSteps() {
+                const start = new Date('2023/3/1 0:00:00').getTime()
+                const end = Date.now()
+                console.log(new Date(start))
+                console.log(new Date(end))
+            
+                fetch('https://www.googleapis.com/fitness/v1/users/me/dataSources/derived:com.google.activity.segment:com.google.android.gms:Google:Pixel 3:********:activity_from_steps/datasets/'+start.toString()+'000000'+'-'+end.toString()+'000000?access_token=' + access_token)
+                    .then(response => {
+                        return response.json()
+                    })
+                    .then(json => {
+                        console.log(json)
+                    })
+            }
+            
+            window.onload = getToken
+        </script>
+    </body>
+</html>
