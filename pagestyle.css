@@ -12,9 +12,8 @@
 }
 
 html {
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-image: url("background.webp");
-    background-size: cover;
 }
 
 * {
@@ -40,6 +39,7 @@ small {
 #box, .box {
     border: 3px solid black;
     border-radius: 20px 0px;
+    height: 100%;
     width: 90%;
     background-color: lightblue;
 }
@@ -57,9 +57,8 @@ small {
 .card {
     border: 5px inset blue;
     width: 95%;
-    height: 500px;
+    height: 70vh;
     border-radius: 30px 0px;
-    background-image: url("flame.webp");
     background-size: cover;
 }
 
