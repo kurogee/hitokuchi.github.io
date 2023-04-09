@@ -50,7 +50,7 @@ small {
     height: 50px;
 }
 
-#user, .button {
+#user, .button, .text {
     width: 95%;
 }
 
