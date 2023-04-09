@@ -49,7 +49,7 @@ small {
     height: 50px;
 }
 
-#user {
+#user, .button {
     width: 95%;
 }
 
