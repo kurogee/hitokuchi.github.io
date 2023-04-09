@@ -6,7 +6,7 @@ async function send_change() {
 
     document.getElementById("states").innerHTML = "お待ちください...";
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzwQqvT-oEpDhCJHaS-HfJcHb-AmpPn_X_723BDs-uqY-WeOcqPXctQ71j7ZFAdukmbLw/exec",
+    const response = await fetch("https://script.google.com/macros/s/AKfycbw1QfZ8nEVZ-pgism-Zf9fO1xvCpZcreSwrCp7ovc3UtbXeQertsFBJN0kPhf31MsPiBw/exec",
         {
             method: "POST",
             body: JSON.stringify({
