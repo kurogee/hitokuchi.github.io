@@ -6,7 +6,7 @@ async function send_change() {
 
     document.getElementById("states").innerHTML = "お待ちください...";
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwIeOz5XYsAhTDo4vVusdntVQq6YOOzNbHVatXP7sVMvwuX1F9RwXRr_D0rov1Yypoumg/exec",
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxM8O9yApq41K0H0tL0MgGZEukHzyRK7GKT5mKGAkrTzhKaVVUnl4-vfy5lBd_sbAa_eQ/exec",
         {
             method: "POST",
             body: JSON.stringify({
@@ -28,6 +28,38 @@ async function send_change() {
         document.getElementById("states").innerHTML = "既に使用されたIDです。";
     } else if (response.result == "ok") {
         document.getElementById("states").innerHTML = "交換完了。再読込してください。";
+    }
+}
+
+async function send_use(flame_type, number) {
+    document.getElementById("states2").innerHTML = "お待ちください...";
+
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxM8O9yApq41K0H0tL0MgGZEukHzyRK7GKT5mKGAkrTzhKaVVUnl4-vfy5lBd_sbAa_eQ/exec",
+        {
+            method: "POST",
+            body: JSON.stringify({
+                "req": document.getElementsByClassName("req2")[number].value,
+                "id": document.getElementsByClassName("user_id2")[number].value,
+                "use": document.getElementsByClassName("use_point")[number].value
+            })
+        })
+    .then(res => {
+        return res.text();
+    })
+    .then(data => {
+        return JSON.parse(data);
+    });
+
+    if (response.result == "ok") {
+        document.getElementById("states2").innerHTML = "交換完了。";
+
+        sessionStorage.flame_type = flame_type;
+        const url = document.getElementById("url");
+        url.href = "send.html";
+        url.click();
+    } else if (response.result == "zero") {
+        document.getElementById("states2").innerHTML = "交換できません。";
+        return;
     }
 }
 
