@@ -17,6 +17,7 @@
         <br>
         <div id="box">
             <h3>現在開催中のポイントイベント</h3>
+            <p>注意: アカウント登録をしないと、アンケートに答えてもポイントを獲得できません。</p>
             <div>
                 <a href="https://forms.gle/sq1ZTNSEqaZaWoHH8" target="_blank">野菜に関するアンケート [10pt]</a><br>
                 <a href="https://forms.gle/ijkzZWJ1BhuqPEGAA" target="_blank">IT・ネットに関するアンケート [10pt]</a><br>
@@ -60,7 +61,7 @@
                     <hr>
                     <h3>ポイント交換</h3>
                     <form>
-                        <input type="text" name="uuid" id="uuid" placeholder="ポイント交換ID" size="50"><br>
+                        <input type="text" name="uuid" id="uuid" placeholder="アンケートの最後に出てきたポイント交換ID"><br>
                         <input type="hidden" name="req" id="req" value="change_point">
                         <input type="hidden" name="user_id" id="user_id" value="${user}">
                         <input type="button" value="交換する！" onclick="send_change()">　<input type="reset" value="取り消し">
