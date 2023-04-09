@@ -20,7 +20,7 @@ async function get_mes() {
         }
 
         const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbz6qPDDmKHDK47zU85nuveTkOGBDZPBdOpM2Z4gJYDbuqMXsxa01K9D5HAHUiH2DMeqVg/exec",
+            "https://script.google.com/macros/s/AKfycbyupdYFWpSQyp-nbizVhpTbGzgp8JxTvyfnEdo9lOf8oP0Io88zCs-R9ZF0RRTugVcPLw/exec",
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -37,11 +37,15 @@ async function get_mes() {
 
         const message = response.message;
         const username = response.user;
+        const flame = response.flame;
 
-        console.log(message);
+        console.log(flame);
 
         document.getElementById("user_name").innerHTML = username;
         document.getElementById("message").innerHTML = message;
+        if (flame != "" && flame != undefined) {
+            document.getElementById("getmes").style.backgroundImage = `url("./flame/Flame_${flame}.webp")`;
+        }
 
         document.getElementById("status").innerHTML = "";
 
