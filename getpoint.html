@@ -8,6 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="pagestyle.css">
+        <link rel="shortcut icon" href="hitokuchi_logo.webp" type="image/webp">
     </head>
     <body>
         <div id="box">
@@ -30,10 +31,11 @@
                 しばらくお待ちください...
             </div>
         </div>
+        <a href="" id="url"></a>
 
         <script>
             async function get_point(user) {
-                const res = await fetch("https://script.google.com/macros/s/AKfycbwIeOz5XYsAhTDo4vVusdntVQq6YOOzNbHVatXP7sVMvwuX1F9RwXRr_D0rov1Yypoumg/exec",
+                const res = await fetch("https://script.google.com/macros/s/AKfycbxM8O9yApq41K0H0tL0MgGZEukHzyRK7GKT5mKGAkrTzhKaVVUnl4-vfy5lBd_sbAa_eQ/exec",
                             {
                                 method: "POST",
                                 body: JSON.stringify({
@@ -59,21 +61,34 @@
                         <input type="button" value="ログアウト" onclick="logout()">
                     </form>
                     <hr>
-                    <h3>ポイント交換</h3>
+                    <h3>ポイント追加</h3>
                     <form>
-                        <input type="text" name="uuid" id="uuid" placeholder="アンケートの最後に出てきたポイント交換ID" class="button"><br>
+                        <input type="text" name="uuid" id="uuid" placeholder="アンケートの最後に出てきたポイント交換ID" class="text"><br>
                         <input type="hidden" name="req" id="req" value="change_point">
-                        <input type="hidden" name="user_id" id="user_id" value="${user}">
-                        <input type="button" value="交換する！" onclick="send_change()">　<input type="reset" value="取り消し">
+                        <input type="hidden" id="user_id" value="${user}">
+                        <input type="button" value="ポイントを追加する！" onclick="send_change()">　<input type="reset" value="取り消し">
                     </form>
                     <small id="states"></small>
                     <hr>
                     <div>
                         <h3>ポイントを使う</h3>
+                        <small id="states2"></small>
                         <div>
-                            交換できる内容は近日公開！したい！<br>
-                            今思っているのは、メッセージの背景画像の変更をできるようにしたりしたいなと<br>
-                            思って開発中です！
+                            <form>
+                                <small>草花フレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('kusabana', 0)">
+                            </form>
+
+                            <form>
+                                <small>コーヒーフレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('coffee', 1)">
+                            </form>
                         </div>
                     </div>`;
                 } else {
