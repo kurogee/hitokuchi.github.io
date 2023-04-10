@@ -45,6 +45,8 @@ async function get_mes() {
         document.getElementById("message").innerHTML = message;
         if (flame != "" && flame != undefined) {
             document.getElementById("getmes").style.backgroundImage = `url("./flame/Flame_${flame}.webp")`;
+        } else {
+            document.getElementById("getmes").style.backgroundImage = 'url("flame.webp")';
         }
 
         document.getElementById("status").innerHTML = "";
