@@ -6,7 +6,7 @@ async function send_change() {
 
     document.getElementById("states").innerHTML = "お待ちください...";
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxM8O9yApq41K0H0tL0MgGZEukHzyRK7GKT5mKGAkrTzhKaVVUnl4-vfy5lBd_sbAa_eQ/exec",
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxd3mqvKtBJn95__0IvnnV1giGUwfl_Vj0ZTWx7x-vvfUVLvIUgVoyW6VRvwKQwOOPkfA/exec",
         {
             method: "POST",
             body: JSON.stringify({
@@ -34,7 +34,7 @@ async function send_change() {
 async function send_use(flame_type, number) {
     document.getElementById("states2").innerHTML = "お待ちください...";
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxM8O9yApq41K0H0tL0MgGZEukHzyRK7GKT5mKGAkrTzhKaVVUnl4-vfy5lBd_sbAa_eQ/exec",
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxd3mqvKtBJn95__0IvnnV1giGUwfl_Vj0ZTWx7x-vvfUVLvIUgVoyW6VRvwKQwOOPkfA/exec",
         {
             method: "POST",
             body: JSON.stringify({

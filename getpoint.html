@@ -23,6 +23,7 @@
                 <a href="https://forms.gle/sq1ZTNSEqaZaWoHH8" target="_blank">野菜に関するアンケート [10pt]</a><br>
                 <a href="https://forms.gle/ijkzZWJ1BhuqPEGAA" target="_blank">IT・ネットに関するアンケート [10pt]</a><br>
                 <a href="https://forms.gle/onXoo59MJeohJhXz7" target="_blank">SNSに関するアンケート [10pt]</a><br>
+                <a href="https://forms.gle/eCaukz43za649SCD8" target="_blank">AIに関するアンケート [10pt]</a><br>
 
             </div>
         </div>
@@ -37,7 +38,7 @@
 
         <script>
             async function get_point(user) {
-                const res = await fetch("https://script.google.com/macros/s/AKfycbxM8O9yApq41K0H0tL0MgGZEukHzyRK7GKT5mKGAkrTzhKaVVUnl4-vfy5lBd_sbAa_eQ/exec",
+                const res = await fetch("https://script.google.com/macros/s/AKfycbxd3mqvKtBJn95__0IvnnV1giGUwfl_Vj0ZTWx7x-vvfUVLvIUgVoyW6VRvwKQwOOPkfA/exec",
                             {
                                 method: "POST",
                                 body: JSON.stringify({
@@ -98,6 +99,22 @@
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
                                 <input type="button" value="交換してメッセージを送る" onclick="send_use('mono', 2)">
+                            </form>
+
+                            <form>
+                                <small>ひまわりフレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('himawari', 3)">
+                            </form>
+
+                            <form>
+                                <small>ポップな音符フレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('onpu', 4)">
                             </form>
                         </div>
                     </div>`;
