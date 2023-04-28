@@ -2,8 +2,8 @@
 <html lang="ja">
     <head>
         <title>風船みたいなSNS - hitokuchi</title>
+
         <meta charset="utf-8">
-        
         <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
         <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,8 +58,18 @@
         <script>
             window.onload = () => {
                 const day = new Date().getDay();
+                document.getElementById("events").innerHTML = "";
+
+                // イベントをお知らせする
                 if (day == 0 || day == 6 || day == 5) {
-                    document.getElementById("events").innerHTML = "金曜日・土曜日・日曜日は8通の日！<br>12時間にメッセージを8通取得できます！";
+                    document.getElementById("events").innerHTML += "金曜日・土曜日・日曜日は8通の日！<br>12時間にメッセージを8通取得できます！";
+                }
+                document.getElementById("events").innerHTML += "<br><br>メッセージのフレーム画像求む<br> \
+                形式はwebp、そして枠の所以外は<wbr>背景透過有りの著作権等の問題がない画像でおねがいします<br>\
+                <a href='https://form.run/embed/@taiti-nakaya--1650354941' target='_blink'>ここ</a>へお願いします";
+
+                if (document.getElementById("events").innerHTML == "") {
+                    document.getElementById("events").innerHTML = "特になし";
                 }
             }
         </script>
