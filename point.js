@@ -29,6 +29,7 @@ async function send_change() {
     } else if (response.result == "ok") {
         document.getElementById("states").innerHTML = "交換完了。再読込してください。";
     }
+    document.getElementById("uuid").value = "";
 }
 
 async function send_use(flame_type, number) {
