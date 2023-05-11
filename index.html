@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>風船みたいなSNS - hitokuchi</title>
+        <title>hitokuchi</title>
 
         <meta charset="utf-8">
-        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+        <meta property="og:title" content="hitokuchi">
         <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,63 +15,14 @@
     <body>
         <div id="box">
             <h2>Welcome to hitokuchi!</h2>
+            <p>Select your language. / 言語を選択してください</p>
         </div>
         <br>
         <div id="box">
-            <h3>イベント情報</h3>
-            <p id="events">特になし</p>
+            <h3>
+                <a href="./ja-JP/index.html">Japanese (Main support)</a><br>
+                <a href="./en-US/index.html">English</a>
+            </h3>
         </div>
-        <br>
-        <div id="box">
-            <h3>ポイントを貯める</h3>
-            <p>
-                アンケートに答えてポイントを貯めると...<br>
-                メッセージの背景画像が変更できるようになったりします！<br>
-                追記: 背景画像変更に対応しました！
-            </p>
-            ▶<a href="./getpoint.html">ポイントポータルに行く</a>◀
-        </div>
-        <br>
-        <div id="box">
-            <p>
-                hitokuchi(ひとくち)は登録不要で知らない誰かにメッセージを送ったり、<br>
-                知らない誰かから受け取ったりできるメッセージングサービスです！<br>
-            </p>
-            <p>
-                しかもこれは、一回送ったきりで会話を続けることができないため、<wbr>風船につけた手紙のような気分が味わえます！
-            </p>
-            ▶<a href="./send.html">メッセージを送る</a>◀
-            <br>
-            <small>【無料】</small>
-            <br>
-            ▶<a href="./mes.html">メッセージを受け取る</a>◀
-            <br>
-            <small>【12時間に基本5通まで無料】</small>
-        </div>
-        <br>
-        <div id="box">
-            <h3>拡散してね！</h3>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi" data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-
-        <script>
-            window.onload = () => {
-                const day = new Date().getDay();
-                document.getElementById("events").innerHTML = "";
-
-                // イベントをお知らせする
-                if (day == 0 || day == 6 || day == 5) {
-                    document.getElementById("events").innerHTML += "金曜日・土曜日・日曜日は8通の日！<br>12時間にメッセージを8通取得できます！";
-                }
-                document.getElementById("events").innerHTML += "<br><br>メッセージのフレーム画像求む<br> \
-                形式はwebp、そして枠の所以外は<wbr>背景透過有りの著作権等の問題がない画像でおねがいします<br>\
-                <a href='https://form.run/embed/@taiti-nakaya--1650354941' target='_blink'>ここ</a>へお願いします";
-
-                if (document.getElementById("events").innerHTML == "") {
-                    document.getElementById("events").innerHTML = "特になし";
-                }
-            }
-        </script>
     </body>
 </html>

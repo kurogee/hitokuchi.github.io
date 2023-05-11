@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>hitokuchi - Send</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="pagestyle.css">
+        <meta property="og:title" content="hitokuchi">
+        <meta property="og:description" content="With hitokuchi, you can send a message to someone you don't know without registering!">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="hitokuchi_logo.webp" type="image/webp">
+    </head>
+    <body>
+        <div id="box">
+            <a href="index.html">◀Back to Home</a>
+            <h3>Create a new message.</h3>
+
+            <form>
+                <input type="hidden" value="send" id="type">
+                User Name<br>
+                <small>【Do not put your real name, but use the same user name each time!】</small>
+                <input type="text" id="user"><br>
+
+                Message<br>
+                <small>【Do not include personal information in your message】</small>
+                <textarea id="area"></textarea>
+                <input type="button" value="Send a message!" id="button" onclick="send_mes();">
+            </form>
+            <small id="status"></small>
+        </div>
+        <script src="send_message.js"></script>
+    </body>
+</html>

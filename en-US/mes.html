@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>hitokuchi - GetMes</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="pagestyle.css">
+        <meta property="og:title" content="hitokuchi">
+        <meta property="og:description" content="With hitokuchi, you can send a message to someone you don't know without registering!">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="hitokuchi_logo.webp" type="image/webp">
+    </head>
+    <body>
+        <div id="box">
+            <a href="index.html">◀Back to Home</a>
+            <h3>
+                <div id="getmes" class="card" style='background-image: url("flame.webp");'>
+                    <span id="title_text">User name</span>: <span id="user_name">Admin</span><br><br>
+                    <span id="title_text">Body</span>: <br>
+                    <span id="message">Press "Get a message!" to receive a message!</span>
+                </div>
+            </h3>
+            
+            User name: <input type="text" id="user" readonly><br>
+            <small>*If you do not send even one message, you will not be able to use the receive function.</small>
+            <form>
+                <input type="hidden" value="get" id="type">
+                <input type="button" value="Get a message!" id="button" onclick="get_mes();">
+            </form>
+            <small id="status"></small>
+        </div>
+        <script src="get_massage.js"></script>
+    </body>
+</html>
