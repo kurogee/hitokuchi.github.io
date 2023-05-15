@@ -1,3 +1,13 @@
+function replace_text(text) {
+    let result = text;
+    result = result.split("<").join("&lt;");
+    result = result.split(">").join("&gt;");
+    result = result.split("&").join("&amp;");
+    result = result.split("\n").join("<br>");
+
+    return result;
+}
+
 async function send_mes() {
     const status = document.getElementById("status");
 
@@ -18,7 +28,7 @@ async function send_mes() {
                 body: JSON.stringify({
                     "type": document.getElementById("type").value,
                     "user": document.getElementById("user").value,
-                    "message": document.getElementById("area").value.split("\n").join("<br>"),
+                    "message": replace_text(document.getElementById("area").value),
                     "flame": flame_type
                 })
             }
