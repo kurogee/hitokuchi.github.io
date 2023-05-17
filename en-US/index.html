@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Balloon-like SNS "hitokuchi"</title>
+        <title>Balloon-like Social Media "hitokuchi"</title>
 
         <meta charset="utf-8">
-        <meta property="og:title" content="hitokuchi">
+        <meta property="og:title" content="Balloon-like SNS hitokuchi">
         <meta property="og:description" content="With hitokuchi, you can send a message to someone you don't know without registering!">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="shortcut icon" href="hitokuchi_logo.webp" type="image/webp">
-        <link rel="stylesheet" href="pagestyle.css">
+        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+        <link rel="stylesheet" href="../pagestyle.css">
     </head>
     <body>
         <div id="box">
@@ -20,7 +20,7 @@
         <br>
         <div id="box">
             <h3>Upcoming Events</h3>
-            <p id="events">We are preparing...</p>
+            <p id="events">There are currently no announcements</p>
         </div>
         <br>
         <div id="box">
@@ -39,5 +39,27 @@
             <br>
             <small>【Free up to 5 basic messages every 12 hours】</small>
         </div>
+        <br>
+        <div id="box">
+            <h3>Let's share!</h3>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi" data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+        <script>
+            window.onload = () => {
+                const day = new Date().getDay();
+                document.getElementById("events").innerHTML = "";
+
+                // イベントをお知らせする
+                if (day == 0 || day == 6 || day == 5) {
+                    document.getElementById("events").innerHTML += "Friday, Saturday and Sunday are 8 message days!<br>You can get 8 messages in 12 hours!";
+                }
+
+                if (document.getElementById("events").innerHTML == "") {
+                    document.getElementById("events").innerHTML = "There are currently no announcements";
+                }
+            }
+        </script>
     </body>
 </html>

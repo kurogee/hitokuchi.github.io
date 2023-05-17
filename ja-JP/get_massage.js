@@ -1,3 +1,25 @@
+const emoji_dir = "../emoji/"
+const emoji_table = [
+    {name: ":hitokuchi:", path: emoji_dir + "hitokuchi.webp"},
+    {name: ":a:", path: emoji_dir + "a!.webp"},
+    {name: ":bikkuri:", path: emoji_dir + "bikkuri.webp"},
+    {name: ":ganbare:", path: emoji_dir + "ganbare.webp"},
+    {name: ":hanataka:", path: emoji_dir + "hanataka.webp"},
+    {name: ":iine:", path: emoji_dir + "iine.webp"},
+    {name: ":sleep:", path: emoji_dir + "sleep.webp"},
+    {name: ":yatta:", path: emoji_dir + "yatta.webp"},
+    {name: ":yorokobi:", path: emoji_dir + "yorokobi.webp"},
+];
+
+function replace_emoji(text) {
+    let result = text;
+    for (const i of emoji_table) {
+        result = result.split(i.name).join(`<img src="${i.path}" class="emoji" alt=" (emoji) ">`);
+    }
+
+    return result;
+}
+
 async function get_mes() {
     document.getElementById("status").innerHTML = "お待ちください...";
 
@@ -35,7 +57,7 @@ async function get_mes() {
             return JSON.parse(data);
         })
 
-        const message = response.message;
+        const message = replace_emoji(response.message);
         const username = response.user;
         const flame = response.flame;
 
