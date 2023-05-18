@@ -7,6 +7,9 @@ function replace_text(text) {
     result = result.split("&").join("&amp;");
     result = result.split("\n").join("<br>");
 
+    result = result.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
+
+    console.log(result);
     return result;
 }
 
