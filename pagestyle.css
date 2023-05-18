@@ -7,6 +7,10 @@
     }
 }
 
+* {
+    font-display: auto;
+}
+
 :root {
     --default-font-family: "M PLUS Rounded 1c", sans-serif;
 }
