@@ -1,15 +1,17 @@
-const emoji_dir = "../emoji/"
+const fetch_url = key.message_fetch_url;
+
+const emoji_dir = "../emoji/";
 const emoji_table = [
-    {name: ":hitokuchi:", path: emoji_dir + "hitokuchi.webp"},
-    {name: ":a:", path: emoji_dir + "a!.webp"},
-    {name: ":bikkuri:", path: emoji_dir + "bikkuri.webp"},
-    {name: ":ganbare:", path: emoji_dir + "ganbare.webp"},
-    {name: ":hanataka:", path: emoji_dir + "hanataka.webp"},
-    {name: ":iine:", path: emoji_dir + "iine.webp"},
-    {name: ":sleep:", path: emoji_dir + "sleep.webp"},
-    {name: ":yatta:", path: emoji_dir + "yatta.webp"},
-    {name: ":yorokobi:", path: emoji_dir + "yorokobi.webp"},
-];
+    {name: ":hitokuchi:", path: "hitokuchi.webp"},
+    {name: ":a:", path: "a!.webp"},
+    {name: ":bikkuri:", path: "bikkuri.webp"},
+    {name: ":ganbare:", path: "ganbare.webp"},
+    {name: ":hanataka:", path: "hanataka.webp"},
+    {name: ":iine:", path: "iine.webp"},
+    {name: ":sleep:", path: "sleep.webp"},
+    {name: ":yatta:", path: "yatta.webp"},
+    {name: ":yorokobi:", path: "yorokobi.webp"},
+].map(i => { return { name: i.name, path: emoji_dir + i.path } });
 
 function replace_emoji(text) {
     let result = text;
@@ -42,7 +44,7 @@ async function get_mes() {
         }
 
         const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbyupdYFWpSQyp-nbizVhpTbGzgp8JxTvyfnEdo9lOf8oP0Io88zCs-R9ZF0RRTugVcPLw/exec",
+            fetch_url,
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -66,9 +68,9 @@ async function get_mes() {
         document.getElementById("user_name").innerHTML = username;
         document.getElementById("message").innerHTML = message;
         if (flame != "" && flame != undefined) {
-            document.getElementById("getmes").style.backgroundImage = `url("./flame/Flame_${flame}.webp")`;
+            document.getElementById("getmes").style.backgroundImage = `url("../frame/Frame_${flame}.webp")`;
         } else {
-            document.getElementById("getmes").style.backgroundImage = 'url("flame.webp")';
+            document.getElementById("getmes").style.backgroundImage = 'url("../frame.webp")';
         }
 
         document.getElementById("status").innerHTML = "";
