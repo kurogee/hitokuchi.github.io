@@ -1,3 +1,5 @@
+const fetch_url = key.message_fetch_url
+
 function replace_text(text) {
     let result = text;
     result = result.split("<").join("&lt;");
@@ -22,7 +24,7 @@ async function send_mes() {
     
     if (document.getElementById("user").value != "" && document.getElementById("area").value.replace("\n", "") != "") {
         const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbyupdYFWpSQyp-nbizVhpTbGzgp8JxTvyfnEdo9lOf8oP0Io88zCs-R9ZF0RRTugVcPLw/exec",
+            fetch_url,
             {
                 method: "POST",
                 body: JSON.stringify({
