@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
+:root {
+    --default-font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
 @media screen and (min-width:981px) {
     html {
         background-repeat: repeat-y;
         background-image: url("background-phone.webp");
     }
-}
-
-:root {
-    --default-font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 html {
@@ -93,5 +93,5 @@ td {
 }
 
 th, td {
-    width: 30%;
+    width: 20%;
 }
