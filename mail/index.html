@@ -155,7 +155,7 @@
                 message = message.split("&").join("&amp;");
                 message = message.split("\n").join("<br>");
 
-                if (from_id.trim() != "" && message.trim() != "") {
+                if (from_id.trim() != "" && message.trim() != "" && ! message.match(",")) {
                     const response = await fetch(
                         url,
                         {
@@ -186,7 +186,7 @@
                         states.innerHTML = "送信済み";
                     }
                 } else {
-                    states.innerHTML = "エラー: あいことばもIDも入力してください";
+                    states.innerHTML = "エラー: あいことばもIDも入力してください<br>または使用できない文字が入力されました";
                 }
 
             }
