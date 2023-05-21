@@ -11,6 +11,7 @@ const emoji_table = [
     {name: ":sleep:", path: "sleep.webp"},
     {name: ":yatta:", path: "yatta.webp"},
     {name: ":yorokobi:", path: "yorokobi.webp"},
+    {name: ":tako:", path: "tako.webp"},
 ].map(i => { return { name: i.name, path: emoji_dir + i.path } });
 
 function replace_emoji(text) {
