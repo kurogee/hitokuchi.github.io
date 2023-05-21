@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+
+:root {
+    --default-font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+@media screen and (min-width:981px) {
+    html {
+        background-repeat: repeat-y;
+        background-image: url("background-phone.webp");
+    }
+}
+
+html {
+    background-repeat: repeat-y;
+    background-image: url("background.webp");
+}
+
+* {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: var(--default-font-family);
+}
+
+*:not(input, small, h2, h3, button) {
+    font-size: 20px;
+}
+
+small {
+    font-size: 15px;
+}
+
+#user, #area, #button {
+    border-radius: 10px 10px;
+    font-size: 25px;
+}
+
+#box, .box {
+    border: 3px solid black;
+    border-radius: 20px 0px;
+    height: 100%;
+    width: 90%;
+    background-color: lightblue;
+}
+
+#button {
+    border: 2px solid silver;
+    width: 95%;
+    height: 50px;
+}
+
+#user, .button, .text {
+    width: 95%;
+}
+
+.emoji {
+    width: 30px;
+    height: 30px;
+}
+
+#title_text {
+    font-family: sans-serif;
+}
+
+#area {
+    width: 95%;
+    height: 430px;
+}
+
+.no_warp {
+    display: inline-block;
+}
+
+hr {
+    width: 80%;
+}
+
+th {
+    border: 3px inset lightblue;
+}
+
+td {
+    border: 3px inset lightblue;
+}
+
+tr {
+    border: 3px inset lightblue;
+}

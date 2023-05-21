@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>hitokuchi Mail</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="hitokuchi mail">
+        <meta property="og:description" content="hitokuchi mailでは登録しあっている人同士で簡易的なメールのやり取りが出来ます！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./pagestyle.css">
+        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+    </head>
+    <body>
+        <div id="box">
+            <h2>hitokuchi mail</h2>
+            <a href="signup.html">サインアップ</a> | <a href="../ja-JP/index.html">hitokuchiへ戻る</a>
+        </div>
+        <br>
+        <div id="box">
+            <h3 id="title">ログイン</h3>
+            <div id="login_box">
+                <form>
+                    ユーザー名: <input type="text" name="username" id="user_id"> @hitokuchi.mail<br>
+                    合言葉: <input type="password" name="password" id="user_pass"><br>
+                    <input type="hidden" id="req" value="login">
+                    <input type="button" value="ログイン" onclick="login()">　<input type="reset" value="取り消し">
+                </form>
+            </div>
+            <small id="states"></small>
+        </div>
+        <br>
+        <div id="box">
+            <h3>連絡先</h3>
+            <p>
+                僕のユーザー名: admin<br>
+                テストがてらぜひ送ってみてください
+            </p>
+        </div>
+
+        <script src="./config.js"></script>
+        <script>
+            const url = key.url;
+
+            async function get_messages(user_id, user_pass) {
+                const states = document.getElementById("states");
+                const message_response = await fetch(
+                        url,
+                        {
+                            method: "POST",
+                            body: JSON.stringify({
+                                "address": user_id,
+                                "password": user_pass,
+                                "request": "get"
+                            })
+                        }
+                    ).then((response) => response.text())
+                    .then((data) => JSON.parse(data))
+                    .catch((error) => "posterror");
+                    
+                if (message_response.result == "wrong_password" || message_response.request == "wrong_account" || message_response == "posterror") {
+                    states.innerHTML = "エラー";
+                } else {
+                    states.innerHTML = "受信中...";
+                    let mesbox = document.getElementById("login_box");
+
+                    let mem = `<table>
+                                        <thead>
+                                            <tr><th class="from">From</th><th class="message_top" colspan="2">Message</th></tr>
+                                        </thead>
+                                        <tbody>`;
+                    for (const i of message_response.result) {
+                        mem += `<tr>
+                                    <td class="from">${i.from}</td>
+                                    <td class="message">${i.mes}</td>
+                                    <td class="menu"><button onclick="delete_message('${i.uuid}')" id="${i.uuid}">削除</button></td>
+                                </tr>`;
+                    }
+
+                    mem += `</tbody>
+                            </table>
+                            <button onclick="get_messages('${user_id}', '${user_pass}')">　再読込み　</button>
+                            <br>
+                            <h3>メール作成</h3>
+                            <form>
+                                宛先: <input type="text" name="username" id="to"> @hitokuchi.mail<br>
+                                差出人: <input type="text" name="username" id="from" value="${user_id}" readonly> @hitokuchi.mail<br>
+                                本文<br><textarea id="message"></textarea><br>
+                                <input type="hidden" id="req2" value="send">
+                                <input type="button" value="送信" onclick="send()">　<input type="reset" value="取り消し">  
+                            </form>`;
+                    
+                    mesbox.innerHTML = mem;
+                    states.innerHTML = "";
+                }
+            }
+
+            async function login() {
+                const states = document.getElementById("states");
+                states.innerHTML = "お待ちください...";
+                states.style.color = "red";
+
+                const user_id = document.getElementById("user_id").value;
+                const user_pass = document.getElementById("user_pass").value;
+
+                if (user_id.trim() != "" && user_pass.trim() != "") {
+                    const response = await fetch(
+                        url,
+                        {
+                            method: "POST",
+                            body: JSON.stringify({
+                                "address": user_id,
+                                "password": user_pass,
+                                "request": document.getElementById("req").value
+                            })
+                        }
+                    )
+                    .then((response) => response.text())
+
+                    .then((data)=>{
+                        return JSON.parse(data);
+                    })
+
+                    .catch((error) => {
+                        return "posterror";
+                    });
+
+                    if (response.result.match("wrong")) {
+                        states.innerHTML = "エラー: あいことばまたはIDが違います";
+                    } else if (response.result.match("ok")) {
+                        console.log("ok");
+                        states.innerHTML = "";
+                        document.getElementById("login_box").innerHTML = "";
+                        document.getElementById("title").innerHTML = "メッセージ";
+
+                        get_messages(user_id, user_pass);
+                        states.innerHTML = "";
+                    }
+                } else {
+                    states.innerHTML = "エラー: あいことばもIDも入力してください";
+                }
+
+            }
+
+            async function send() {
+                const states = document.getElementById("states");
+                states.innerHTML = "お待ちください...";
+                states.style.color = "red";
+
+                const user_id = document.getElementById("to").value;
+                const from_id = document.getElementById("from").value;
+
+                let message = document.getElementById("message").value;
+                message = message.split("<").join("&lt;");
+                message = message.split(">").join("&gt;");
+                message = message.split("&").join("&amp;");
+                message = message.split("\n").join("<br>");
+
+                if (from_id.trim() != "" && message.trim() != "") {
+                    const response = await fetch(
+                        url,
+                        {
+                            method: "POST",
+                            body: JSON.stringify({
+                                "to": user_id,
+                                "from": from_id,
+                                "message": message,
+                                "request": document.getElementById("req2").value
+                            })
+                        }
+                    )
+                    .then((response) => response.text())
+
+                    .then((data)=>{
+                        return JSON.parse(data);
+                    })
+
+                    .catch((error) => {
+                        return "posterror";
+                    });
+
+                    if (response.result.match("wrong_to")) {
+                        states.innerHTML = "エラー: 宛先が誤っています";
+                    } else if (response.result.match("ok")) {
+                        document.getElementById("to").value = "";
+                        document.getElementById("message").value = "";
+                        states.innerHTML = "送信済み";
+                    }
+                } else {
+                    states.innerHTML = "エラー: あいことばもIDも入力してください";
+                }
+
+            }
+
+            async function delete_message(uuid) {
+                const states = document.getElementById("states");
+                states.innerHTML = "お待ちください...";
+                states.style.color = "red";
+
+                const del_response = await fetch(
+                        url,
+                        {
+                            method: "POST",
+                            body: JSON.stringify({
+                                "uuid": uuid,
+                                "request": "delete"
+                            })
+                        }
+                    )
+                    .then((response) => response.text())
+
+                    .then((data)=>{
+                        return JSON.parse(data);
+                    })
+
+                    .catch((error) => {
+                        console.error(error);
+                        return "posterror";
+                    });
+                
+                if (del_response.result == "wrong_uuid" || del_response == "posterror") {
+                    states.innerHTML = "エラー: UUIDの値が不正または通信エラー";
+                } else {
+                    document.getElementById(uuid).innerHTML = "削除済み";
+                    document.getElementById(uuid).disabled = "disabled";
+
+                    states.innerHTML = "";
+                }
+            }
+
+            document.getElementsByTagName('html')[0].oncontextmenu = () => {
+                return false;
+            }
+        </script>
+        <style>
+            table {
+                width: 90%;
+            }
+
+            textarea {
+                width: 70%;
+                height: 30vh;
+            }
+
+            .menu {
+                width: 10%;
+            }
+        </style>
+    </body>
+</html>
