@@ -41,7 +41,7 @@
                 const user_id = document.getElementById("user_id").value;
                 const user_pass = document.getElementById("user_pass").value;
 
-                if (user_id.trim() != "" && user_pass.trim() != "") {
+                if (user_id.trim() != "" && user_pass.trim() != "" && !user_id.match(",")) {
                     const response = await fetch(
                         url,
                         {
