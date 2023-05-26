@@ -72,6 +72,18 @@ small {
     display: inline-block;
 }
 
+.hutoji {
+    font-weight: bold;
+}
+
+.shatai {
+    font-style: oblique;
+}
+
+.torikeshi {
+    text-decoration-line: line-through;
+}
+
 hr {
     width: 80%;
 }

@@ -30,6 +30,15 @@
         </div>
         <br>
         <div id="box">
+            <h3>テキスト編集</h3>
+            <p>
+                <span class="hutoji">リンク</span>: $(URL)[表示するテキスト]<br>
+                <span class="hutoji">取り消し線</span>: [d テキスト]<br>
+                <span class="hutoji">斜体</span>: [i テキスト]<br>
+                <span class="hutoji">太字</span>: [b テキスト]<br>
+                <span class="hutoji">日付</span>: :DATE:
+            </p>
+            <hr>
             <h3>連絡先</h3>
             <p>
                 僕のユーザー名: admin<br>
@@ -43,6 +52,7 @@
 
             async function get_messages(user_id, user_pass) {
                 const states = document.getElementById("states");
+                states.innerHTML = "受信中...";
                 const message_response = await fetch(
                         url,
                         {
@@ -60,7 +70,6 @@
                 if (message_response.result == "wrong_password" || message_response.request == "wrong_account" || message_response == "posterror") {
                     states.innerHTML = "エラー";
                 } else {
-                    states.innerHTML = "受信中...";
                     let mesbox = document.getElementById("login_box");
 
                     let mem = `<table>
@@ -143,6 +152,7 @@
 
             async function send() {
                 const states = document.getElementById("states");
+
                 states.innerHTML = "お待ちください...";
                 states.style.color = "red";
 
@@ -150,10 +160,19 @@
                 const from_id = document.getElementById("from").value;
 
                 let message = document.getElementById("message").value;
-                message = message.split("<").join("&lt;");
+                message = message.split("<").join("&lt;"); // &lt;&gt;
                 message = message.split(">").join("&gt;");
                 message = message.split("&").join("&amp;");
                 message = message.split("\n").join("<br>");
+
+                message = message.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
+                message = message.replace(/\[b (.+?)\]/g, "<span class='hutoji'>$1</span>");
+                message = message.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
+                message = message.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
+                
+                const today = new Date();
+                const today_text = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+                message = message.replace(/:DATE:/g, `<span>${today_text}</span>`);
 
                 if (from_id.trim() != "" && message.trim() != "" && user_id.trim() != "") {
                     const response = await fetch(
