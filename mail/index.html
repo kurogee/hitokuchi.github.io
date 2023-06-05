@@ -160,9 +160,9 @@
                 const from_id = document.getElementById("from").value;
 
                 let message = document.getElementById("message").value;
+                message = message.split("&").join("&amp;"); // 下の&と一緒にreplaceされてしまうので修正
                 message = message.split("<").join("&lt;"); // &lt;&gt;
                 message = message.split(">").join("&gt;");
-                message = message.split("&").join("&amp;");
                 message = message.split("\n").join("<br>");
 
                 message = message.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
