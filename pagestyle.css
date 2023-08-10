@@ -76,6 +76,15 @@ small {
     height: 430px;
 }
 
+#two_box {
+    width: 90%;
+    display: flex;
+}
+
+#two_box > #box {
+    width: 50%;
+}
+
 .no_warp {
     display: inline-block;
 }

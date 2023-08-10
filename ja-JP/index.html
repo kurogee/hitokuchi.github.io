@@ -57,11 +57,96 @@
             <small>サイトの評価や宣伝が出来ます【無料】</small>
         </div>
         <br>
-        <div id="box">
-            <h3>拡散してね！</h3>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi" data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div id="two_box" class="box">
+            <div id="special_box">
+                <h3>拡散してね！</h3>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi" data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <br>
+                <small>hitokuchi 総合index</small>
+                <input type="url" class="text" value="https://hitokuchi.f5.si" readonly><br>
+
+                <small>hitokuchi 日本語index</small>
+                <input type="url" class="text" value="https://hitokuchi.f5.si/ja-JP/index.html" readonly><br>
+
+                <p>URLでの宣伝もよろしくね！</p>
+            </div>
+
+            <div id="special_box">
+                <h3>お問い合わせ</h3>
+                件名<br>
+                <input type="text" id="message_about" class="text"><br>
+                お問い合わせ内容<br>
+                <textarea id="area" style="height: 80px;"></textarea>
+
+                <script src="../mail/config.js"></script>
+                <script>
+                    async function send() {
+                        const url = key.url;
+                        const states = document.getElementById("states");
+
+                        states.innerHTML = "お待ちください...";
+                        states.style.color = "red";
+
+                        const user_id = "admin";
+                        const from_id = `お問い合わせ<br>件名: ${document.getElementById("message_about").value}`;
+
+                        let message = document.getElementById("area").value;
+                        message = message.split("&").join("&amp;"); // 下の&と一緒にreplaceされてしまうので修正
+                        message = message.split("<").join("&lt;"); // &lt;&gt;
+                        message = message.split(">").join("&gt;");
+                        message = message.split("\n").join("<br>");
+
+                        message = message.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
+                        message = message.replace(/\[b (.+?)\]/g, "<span class='hutoji'>$1</span>");
+                        message = message.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
+                        message = message.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
+
+                        const today = new Date();
+                        const today_text = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+                        message = message.replace(/:DATE:/g, `<span>${today_text}</span>`);
+
+                        if (document.getElementById("message_about").value.trim() != "" && message.trim() != "" && user_id.trim() != "") {
+                            const response = await fetch(
+                                url,
+                                {
+                                    method: "POST",
+                                    body: JSON.stringify({
+                                        "to": user_id,
+                                        "from": from_id,
+                                        "message": message,
+                                        "request": "send"
+                                    })
+                                }
+                            )
+                            .then((response) => response.text())
+
+                            .then((data)=>{
+                                return JSON.parse(data);
+                            })
+
+                            .catch((error) => {
+                                return "posterror";
+                            });
+
+                            if (response.result.match("wrong_to")) {
+                                states.innerHTML = "エラー: 宛先が誤っています";
+                            } else if (response.result.match("ok")) {
+                                document.getElementById("message_about").value = "";
+                                document.getElementById("area").value = "";
+                                states.innerHTML = "送信済み";
+                            }
+                        } else {
+                            states.innerHTML = "エラー: メッセージ等を入力してください";
+                        }
+                    }
+                </script>
+
+                <button onclick="send()">送信</button><br>
+                <small id="states"></small>
+            </div>
         </div>
+        
         <br>
         <div id="box">
             <h3>管理人の部屋</h3>
@@ -83,5 +168,14 @@
                 }
             }
         </script>
+        <style>
+            #special_box {
+                border: 3px none black;
+                border-radius: 20px 0px;
+                height: 100%;
+                width: 90%;
+                background-color: lightblue;
+            }
+        </style>
     </body>
 </html>
