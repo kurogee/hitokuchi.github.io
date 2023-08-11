@@ -83,7 +83,7 @@ small {
     display: flex;
 }
 
-#two_box > #box {
+#two_box > #special_box {
     width: 50%;
 }
 
@@ -111,6 +111,7 @@ th, td {
     font-family: var(--source-code-font);
     font-size: 15px;
     text-align: left;
+    overflow: scroll;
 }
 
 #code {
