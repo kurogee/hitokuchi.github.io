@@ -26,7 +26,7 @@
                     <input type="button" value="ログイン" onclick="login()">　<input type="reset" value="取り消し">
                 </form>
             </div>
-            <small id="states"></small>
+            <small id="status"></small>
         </div>
         <br>
         <div id="box">
@@ -50,9 +50,9 @@
         <script>
             const url = key.url;
 
-            async function get_messages(user_id, user_pass) {
-                const states = document.getElementById("states");
-                states.innerHTML = "受信中...";
+            async function get_messages(user_id, user_pass) { // メッセージを受信
+                const status = document.getElementById("status");
+                status.innerHTML = "受信中...";
                 const message_response = await fetch(
                         url,
                         {
@@ -68,7 +68,7 @@
                     .catch((error) => "posterror");
                     
                 if (message_response.result == "wrong_password" || message_response.request == "wrong_account" || message_response == "posterror") {
-                    states.innerHTML = "エラー";
+                    status.innerHTML = "エラー";
                 } else {
                     let mesbox = document.getElementById("login_box");
 
@@ -99,19 +99,19 @@
                             </form>`;
                     
                     mesbox.innerHTML = mem;
-                    states.innerHTML = "";
+                    status.innerHTML = "";
                 }
             }
 
-            async function login() {
-                const states = document.getElementById("states");
-                states.innerHTML = "お待ちください...";
-                states.style.color = "red";
+            async function login() { // ログイン
+                const status = document.getElementById("status");
+                status.innerHTML = "お待ちください...";
+                status.style.color = "red";
 
                 const user_id = document.getElementById("user_id").value;
                 const user_pass = document.getElementById("user_pass").value;
 
-                if (user_id.trim() != "" && user_pass.trim() != "") {
+                if (user_id.trim() != "" && user_pass.trim() != "") { // もし空の場合
                     const response = await fetch(
                         url,
                         {
@@ -134,27 +134,27 @@
                     });
 
                     if (response.result.match("wrong")) {
-                        states.innerHTML = "エラー: あいことばまたはIDが違います";
+                        status.innerHTML = "エラー: あいことばまたはIDが違います";
                     } else if (response.result.match("ok")) {
                         console.log("ok");
-                        states.innerHTML = "";
+                        status.innerHTML = "";
                         document.getElementById("login_box").innerHTML = "";
                         document.getElementById("title").innerHTML = "メッセージ";
 
                         get_messages(user_id, user_pass);
-                        states.innerHTML = "";
+                        status.innerHTML = "";
                     }
                 } else {
-                    states.innerHTML = "エラー: あいことばもIDも入力してください";
+                    status.innerHTML = "エラー: あいことばもIDも入力してください";
                 }
 
             }
 
             async function send() {
-                const states = document.getElementById("states");
+                const status = document.getElementById("status");
 
-                states.innerHTML = "お待ちください...";
-                states.style.color = "red";
+                status.innerHTML = "お待ちください...";
+                status.style.color = "red";
 
                 const user_id = document.getElementById("to").value;
                 const from_id = document.getElementById("from").value;
@@ -198,22 +198,22 @@
                     });
 
                     if (response.result.match("wrong_to")) {
-                        states.innerHTML = "エラー: 宛先が誤っています";
+                        status.innerHTML = "エラー: 宛先が誤っています";
                     } else if (response.result.match("ok")) {
                         document.getElementById("to").value = "";
                         document.getElementById("message").value = "";
-                        states.innerHTML = "送信済み";
+                        status.innerHTML = "送信済み";
                     }
                 } else {
-                    states.innerHTML = "エラー: 宛先またはメッセージ等を入力してください";
+                    status.innerHTML = "エラー: 宛先またはメッセージ等を入力してください";
                 }
 
             }
 
             async function delete_message(uuid) {
-                const states = document.getElementById("states");
-                states.innerHTML = "お待ちください...";
-                states.style.color = "red";
+                const status = document.getElementById("status");
+                status.innerHTML = "お待ちください...";
+                status.style.color = "red";
 
                 const del_response = await fetch(
                         url,
@@ -237,12 +237,12 @@
                     });
                 
                 if (del_response.result == "wrong_uuid" || del_response == "posterror") {
-                    states.innerHTML = "エラー: UUIDの値が不正または通信エラー";
+                    status.innerHTML = "エラー: UUIDの値が不正または通信エラー";
                 } else {
                     document.getElementById(uuid).innerHTML = "削除済み";
                     document.getElementById(uuid).disabled = "disabled";
 
-                    states.innerHTML = "";
+                    status.innerHTML = "";
                 }
             }
 
@@ -250,19 +250,5 @@
                 return false;
             }
         </script>
-        <style>
-            table {
-                width: 90%;
-            }
-
-            textarea {
-                width: 70%;
-                height: 30vh;
-            }
-
-            .menu {
-                width: 10%;
-            }
-        </style>
     </body>
 </html>

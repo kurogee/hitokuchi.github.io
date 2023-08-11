@@ -95,6 +95,8 @@ hr {
     width: 80%;
 }
 
+/* テーブル関連 */
+
 th {
     border: 3px inset lightblue;
 }
@@ -103,9 +105,20 @@ td {
     border: 3px inset lightblue;
 }
 
-th, td {
-    width: 20%;
+table {
+    width: 95%;
 }
+
+textarea {
+    width: 70%;
+    height: 30vh;
+}
+
+.menu {
+    width: 10%;
+}
+
+/* ソースコード関連 */
 
 #code > code > pre {
     font-family: var(--source-code-font);
