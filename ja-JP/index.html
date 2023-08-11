@@ -87,7 +87,7 @@
                 件名<br>
                 <input type="text" id="message_about" class="text"><br>
                 お問い合わせ内容<br>
-                <textarea id="area" style="height: 85px;"></textarea>
+                <textarea id="area" class="toiawase" style="height: 85px;"></textarea>
 
                 <script src="../mail/config.js"></script>
                 <script>
@@ -101,7 +101,7 @@
                         const user_id = "admin";
                         const from_id = `お問い合わせ<br>件名: ${document.getElementById("message_about").value}`;
 
-                        let message = document.getElementById("area").value;
+                        let message = document.getElementsByClassName("toiawase")[0].value;
                         message = message.split("&").join("&amp;"); // 下の&と一緒にreplaceされてしまうので修正
                         message = message.split("<").join("&lt;"); // &lt;&gt;
                         message = message.split(">").join("&gt;");
@@ -143,7 +143,7 @@
                                 states.innerHTML = "エラー: 宛先が誤っています";
                             } else if (response.result.match("ok")) {
                                 document.getElementById("message_about").value = "";
-                                document.getElementById("area").value = "";
+                                document.getElementsByClassName("toiawase")[0].value = "";
                                 states.innerHTML = "送信済み";
                             }
                         } else {
