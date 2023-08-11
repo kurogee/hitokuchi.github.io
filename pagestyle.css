@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 :root {
     --default-font-family: "M PLUS Rounded 1c", sans-serif;
+    --source-code-font: "Source Code Pro", monospace;
 }
 
 @media screen and (min-width:981px) {
@@ -103,4 +105,19 @@ td {
 
 th, td {
     width: 20%;
+}
+
+#code > code > pre {
+    font-family: var(--source-code-font);
+    font-size: 15px;
+    text-align: left;
+}
+
+#code {
+    background-color: rgb(26, 26, 26);
+    color: white;
+
+    border: 3px white solid;
+    height: 100%;
+    width: 90%;
 }
