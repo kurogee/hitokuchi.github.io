@@ -36,15 +36,15 @@
             <textarea id="area"></textarea><br>
             <button onclick="get_review();">送信する</button>
             <br>
-            <small id="states"></small>
+            <small id="status"></small>
         </div>
         <script src="config.js"></script>
         <script>
             const url = key.url;
 
             async function get_review() {
-                const states = document.getElementById("states");
-                states.innerHTML = "送信中...";
+                const status = document.getElementById("status");
+                status.innerHTML = "送信中...";
 
                 let send_url = document.getElementById("send_url").value;
 
@@ -68,13 +68,13 @@
                         ).then((response) => response.text())
                         .then((data) => JSON.parse(data))
                         .catch((error) => {
-                            states.innerHTML = "エラー";
+                            status.innerHTML = "エラー";
                         });
-                    states.innerHTML = "";
+                    status.innerHTML = "";
                     document.getElementById("send_url").value = "";
                     document.getElementById("area").value = "";
                 } else {
-                    states.innerHTML = "URLもしくはcommentをちゃんと書いてください"
+                    status.innerHTML = "URLもしくはcommentをちゃんと書いてください"
                 }
                 
             }

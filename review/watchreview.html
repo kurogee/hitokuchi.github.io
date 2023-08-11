@@ -36,7 +36,7 @@
             <div><label>URL検索 <input type="radio" name="which_search" id="radiobox" class="radio" value="URL"></label> | <label>本文検索 <input type="radio" name="which_search" id="radiobox" class="radio" value="Comment"></label></div>
             <button onclick="get_review();">受信する</button><br>
             <small>[注]マークはそのサイトの危険な可能性が高い事を示しています</small><br>
-            <small id="states"></small>
+            <small id="status"></small>
         </div>
         <br>
         <div id="box">
@@ -51,12 +51,12 @@
             const url = key.url;
 
             async function get_review() {
-                const states = document.getElementById("states");
+                const status = document.getElementById("status");
                 const get_table = document.getElementById("get");
                 const search_word = document.getElementById("search_word");
                 const radio_box = document.getElementsByName("which_search");
 
-                states.innerHTML = "受信中...";
+                status.innerHTML = "受信中...";
                 let response;
 
                 if (search_word.value.trim() == "") {
@@ -104,7 +104,7 @@
                 
                 if (response.result == "No") {
                     get_table.innerHTML = "受信エラーもしくはレビューがありません！<br><a href='sendreview.html'>レビューを作成する</a>";
-                    states.innerHTML = "";
+                    status.innerHTML = "";
                 } else {
                     let url, comment;
                     let mem = "";
@@ -150,7 +150,7 @@
                     }
 
                     get_table.innerHTML = mem;
-                    states.innerHTML = "";
+                    status.innerHTML = "";
                 }
             }
         </script>
