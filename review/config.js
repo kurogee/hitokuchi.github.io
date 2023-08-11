@@ -1,3 +1,3 @@
 const key = {
-    url: "https://script.google.com/macros/s/AKfycbxOG59OWuLYWI2xXAnVBOEhXEkbNoM1dljDZ6zn_09iIFa3hGBvPXKJIlcGCDPstyFbGw/exec"
+    url: "https://script.google.com/macros/s/AKfycbx1nrYOMxyVLMmoL6AFyrcjUx6JnJ2BD31zRqKie6u_G83gFy8el0FK5uCCEUxOJNoSLQ/exec"
 };
