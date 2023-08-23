@@ -1,0 +1,150 @@
+/* 総本山ではない */
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+@font-face {
+    font-family: "dot_font";
+    src: url('./dotFontTtf.ttf') format('truetype');
+    src: url('./dotFontOtf.otf') format('opentype');
+}
+
+:root {
+    --default-font-family: "dot_font", monospace; /* 普通の文字 */
+    --source-code-font: "Source Code Pro", monospace; /* ソースコード用 */
+}
+
+@media screen and (min-width:981px) {
+    html {
+        background-color: black;
+    }
+}
+
+html {
+    background-color: black;
+}
+
+* {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: var(--default-font-family);
+}
+
+*:not(input, small, h2, h3, button) {
+    font-size: 20px;
+}
+
+*:not(input, button, textarea) {
+    color: white;
+}
+
+small {
+    font-size: 15px;
+}
+
+#user, #area, #button {
+    border-radius: 10px 10px;
+    font-size: 25px;
+}
+
+#box, .box {
+    border: 3px solid white;
+    height: 100%;
+    width: 60%;
+    background-color: darkblue;
+}
+
+#button, .button {
+    border: 2px solid darkblue;
+    width: 95%;
+    height: 50px;
+}
+
+#button:hover, .button:hover {
+    border-color: blue;
+}
+
+#user, .button, #button, .text {
+    width: 95%;
+}
+
+.emoji {
+    width: 30px;
+    height: 30px;
+}
+
+.card {
+    border: 5px inset blue;
+    width: 95%;
+    height: 80vh;
+    background-size: cover;
+}
+
+#title_text {
+    font-family: sans-serif;
+}
+
+#area {
+    width: 95%;
+    height: 430px;
+}
+
+#two_box {
+    width: 90%;
+    display: flex;
+}
+
+#two_box > #special_box {
+    width: 50%;
+}
+
+.no_warp {
+    display: inline-block;
+}
+
+hr {
+    width: 80%;
+}
+
+/* テーブル関連 */
+
+th {
+    border: 3px inset white;
+    background-color: darkblue;
+}
+
+td {
+    border: 3px inset white;
+    background-color: darkblue;
+}
+
+table {
+    width: 95%;
+}
+
+textarea {
+    width: 70%;
+    height: 30vh;
+}
+
+.menu {
+    width: 10%;
+}
+
+/* ソースコード関連 */
+
+#code > code > pre {
+    font-family: var(--source-code-font);
+    font-size: 15px;
+    text-align: left;
+    overflow: scroll;
+}
+
+#code {
+    background-color: rgb(26, 26, 26);
+    color: white;
+
+    border: 3px white solid;
+    height: 100%;
+    width: 90%;
+}
