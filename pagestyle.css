@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 :root {
-    --default-font-family: "M PLUS Rounded 1c", sans-serif;
+    --default-font-family: "IBM Plex Sans JP", sans-serif;
     --source-code-font: "Source Code Pro", monospace;
 }
+/* 
 
 @media screen and (min-width:981px) {
     html {
@@ -17,6 +18,8 @@ html {
     background-repeat: repeat-y;
     background-image: url("background.webp");
 }
+
+ */
 
 * {
     text-align: center;
@@ -39,11 +42,11 @@ small {
 }
 
 #box, .box {
-    border: 3px solid black;
+    border: 2.5px solid black;
     border-radius: 5px 5px;
     height: 100%;
     width: 90%;
-    background-color: lightblue;
+    background-color: rgb(206, 230, 255);
 }
 
 #button {
@@ -98,11 +101,11 @@ hr {
 /* テーブル関連 */
 
 th {
-    border: 3px inset lightblue;
+    border: 3px inset rgb(206, 230, 255);
 }
 
 td {
-    border: 3px inset lightblue;
+    border: 3px inset rgb(206, 230, 255);
 }
 
 table {
@@ -135,3 +138,14 @@ textarea {
     height: 100%;
     width: 90%;
 }
+
+body {
+    
+    background-image:   linear-gradient( rgb(49, 121, 245), rgb(89, 147, 247) );
+  background-attachment: fixed;
+    
+
+
+    
+  }
+  

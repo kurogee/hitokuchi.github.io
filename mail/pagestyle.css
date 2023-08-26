@@ -41,7 +41,7 @@ small {
     border-radius: 20px 0px;
     height: 100%;
     width: 90%;
-    background-color: lightblue;
+    background-color: rgb(208, 222, 247);
 }
 
 #button {
@@ -89,13 +89,13 @@ hr {
 }
 
 th {
-    border: 3px inset lightblue;
+    border: 3px inset rgb(208, 222, 247);
 }
 
 td {
-    border: 3px inset lightblue;
+    border: 3px inset rgb(208, 222, 247);
 }
 
 tr {
-    border: 3px inset lightblue;
+    border: 3px inset rgb(208, 222, 247);
 }
