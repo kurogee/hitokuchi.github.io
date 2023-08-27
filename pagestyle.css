@@ -13,7 +13,7 @@
     font-family: var(--default-font-family);
 }
 
-*:not(input, small, h2, h3, button) {
+*:not(input, small, h2, h3, button, textarea) {
     font-size: 20px;
 }
 
@@ -28,7 +28,7 @@ small {
 
 #box, .box {
     border: 2.5px solid black;
-    border-radius: 5px 5px;
+    border-radius: 10px 10px;
     height: 100%;
     width: 90%;
     background-color: rgb(206, 230, 255);
@@ -101,6 +101,7 @@ table {
 textarea {
     width: 70%;
     height: 30vh;
+    font-size: 13px;
 }
 
 .menu {
