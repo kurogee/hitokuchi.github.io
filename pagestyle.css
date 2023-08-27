@@ -82,15 +82,6 @@ small {
     height: 430px;
 }
 
-#two_box {
-    width: 90%;
-    display: flex;
-}
-
-#two_box > #special_box {
-    width: 50%;
-}
-
 .no_warp {
     display: inline-block;
 }
@@ -141,12 +132,7 @@ textarea {
 }
 
 body {
-    
     background-image:   linear-gradient( rgb(49, 121, 245), rgb(89, 147, 247) );
-  background-attachment: fixed;
-    
-
-
-    
-  }
+    background-attachment: fixed;
+}
   
