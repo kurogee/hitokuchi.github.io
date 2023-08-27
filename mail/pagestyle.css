@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 :root {
-    --default-font-family: "IBM Plex Sans JP", sans-serif;
+    --default-font-family: "M PLUS Rounded 1c", sans-serif;
     --source-code-font: "Source Code Pro", monospace;
 }
 
@@ -164,6 +164,7 @@ body {
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
+    text-decoration: none;
     }
     /*ホバー時の色*/
     a.link_color:hover {
