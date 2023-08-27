@@ -5,21 +5,6 @@
     --default-font-family: "IBM Plex Sans JP", sans-serif;
     --source-code-font: "Source Code Pro", monospace;
 }
-/* 
-
-@media screen and (min-width:981px) {
-    html {
-        background-repeat: repeat-y;
-        background-image: url("background-phone.webp");
-    }
-}
-
-html {
-    background-repeat: repeat-y;
-    background-image: url("background.webp");
-}
-
- */
 
 * {
     text-align: center;
@@ -141,12 +126,7 @@ textarea {
 }
 
 body {
-    
-    background-image:   linear-gradient( rgb(49, 121, 245), rgb(89, 147, 247) );
-  background-attachment: fixed;
-    
-
-
-    
-  }
+    background-image: linear-gradient( rgb(49, 121, 245), rgb(89, 147, 247) );
+    background-attachment: fixed;
+}
   
