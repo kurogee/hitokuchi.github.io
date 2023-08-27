@@ -47,7 +47,7 @@ small {
     height: 100%;
     width: 90%;
     background-color: rgb(206, 230, 255);
-    box-shadow: 2.5px .5px 2px rgb(34, 34, 34) ;
+    box-shadow: 2.5px 2.5px 2px rgb(34, 34, 34) ;
 }
 
 #button {
