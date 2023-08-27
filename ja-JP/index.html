@@ -25,13 +25,13 @@
     <body>
         <div id="box">
             <h2>Welcome to hitokuchi!</h2>
-            <a href="../index.html">Back to index.</a><br>
-            <a href="../dot/index.html">？？？</a><br>
-            <small>表示が変な場合はF5+Shift(もしくはShiftを押しながらリロードボタンを押す)を試してください</small>
+            <a href="../index.html" class="link_color">Back to index</a><br>
+            <a href="../dot/index.html" class="link_color">？？？</a><br>
+            <small>表示が崩れた場合はF5+Shift(もしくはShiftを押しながらリロードボタンを押す)を試してください</small>
         </div>
         <br>
         <div id="box">
-            <h3>イベント情報</h3>
+            <h3>★ イベント情報 ★</h3>
             <p id="events">特になし</p>
         </div>
         <!-- ポイントシステムは一時停止
@@ -49,22 +49,22 @@
             <p>
                 しかもこれは、一回送ったきりで会話を続けることができないため、<wbr>風船につけた手紙のような気分が味わえます！
             </p>
-            ▶<a href="./send.html">メッセージを送る</a>◀
+            ▶<a href="./send.html" class="link_color">メッセージを送る</a>◀
             <br>
             <small>【無料】</small>
             <br>
-            ▶<a href="./mes.html">メッセージを受け取る</a>◀
+            ▶<a href="./mes.html" class="link_color">メッセージを受け取る</a>◀
             <br>
             <small>【12時間毎に基本5通まで無料】</small>
             <hr>
-            ▶<a href="../mail/index.html">hitokuchi mail へ行く</a>◀
+            ▶<a href="../mail/index.html" class="link_color">hitokuchi mail へ行く</a>◀
             <br>
             <small>
                 登録しあっている人同士で、簡易的なメールのやり取りが出来ます<br>
                 【無料】
             </small>
             <br>
-            ▶<a href="../review/index.html">hitokuchi review へ行く</a>◀
+            ▶<a href="../review/index.html" class="link_color">hitokuchi review へ行く</a>◀
             <br>
             <small>サイトの評価や宣伝が出来ます【無料】</small>
         </div>
@@ -171,7 +171,7 @@
                     }
                 </script>
 
-                <button onclick="send()">送信</button><br>
+                <button onclick="send()">　送信　</button><br>
                 <small id="states"></small>
             </div>
         </div>
@@ -179,7 +179,8 @@
         <br>
         <div id="box">
             <h3>管理人の部屋</h3>
-            ▶<a href="../admin_room/index.html">Let's go!!!!</a>◀
+            ▶<a href="../admin_room/index.html" class="link_color">Let's go!!!!</a>◀
+            <p></p>
         </div>
 
         <script>
@@ -200,10 +201,10 @@
         <style>
             #special_box {
                 border: 3px none black;
-                border-radius: 20px 0px;
+                border-radius: 5px 5px;
                 height: 100%;
                 width: 90%;
-                background-color: lightblue;
+                background-color: rgb(206, 230, 255);
             }
         </style>
     </body>

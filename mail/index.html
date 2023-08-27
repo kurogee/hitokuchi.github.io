@@ -13,7 +13,8 @@
     <body>
         <div id="box">
             <h2>hitokuchi mail</h2>
-            <a href="signup.html">サインアップ</a> | <a href="../ja-JP/index.html">hitokuchiへ戻る</a>
+            <a href="signup.html" class="link_color">サインアップ</a> | <a href="../ja-JP/index.html" class="link_color">hitokuchiへ戻る</a>
+            <p></p>
         </div>
         <br>
         <div id="box">
@@ -24,6 +25,7 @@
                     合言葉: <input type="password" name="password" id="user_pass"><br>
                     <input type="hidden" id="req" value="login">
                     <input type="button" value="ログイン" onclick="login()">　<input type="reset" value="取り消し">
+                    <p></p>
                 </form>
             </div>
             <small id="status"></small>
@@ -97,7 +99,9 @@
                                 <input type="hidden" id="req2" value="send">
                                 <input type="button" value="送信" onclick="send()">　<input type="reset" value="取り消し">  
                             </form>`;
+                            
                     
+
                     mesbox.innerHTML = mem;
                     status.innerHTML = "";
                 }
@@ -250,5 +254,7 @@
                 return false;
             }
         </script>
+
+
     </body>
 </html>
