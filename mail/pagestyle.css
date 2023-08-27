@@ -156,7 +156,17 @@ body {
     background-image:   linear-gradient( rgb(49, 121, 245), rgb(89, 147, 247) );
   background-attachment: fixed;
     
-
-
-    
   }
+  
+  a.link_color {
+    color: #333;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    }
+    /*ホバー時の色*/
+    a.link_color:hover {
+    color: rgb(67, 131, 199);
+    }
+    
