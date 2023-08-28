@@ -54,7 +54,7 @@ small {
     border: 5px inset blue;
     width: 95%;
     height: 80vh;
-    border-radius: 5px 5px;
+    border-radius: 10px 10px;
     background-size: cover;
 }
 
