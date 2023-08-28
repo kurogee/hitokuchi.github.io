@@ -67,6 +67,20 @@ async function get_mes() {
         console.log(flame);
 
         document.getElementById("user_name").innerHTML = username;
+        const icon = document.getElementById("special_icon");
+        switch (username) {
+            case "@ei-max": {
+                icon.src = "../special_icon/hitokuchi_developer.webp";
+                icon.alt = "hitokuchiの開発者";
+                break;
+            }
+            case "kuroge@admin": {
+                icon.src = "../special_icon/hitokuchi_developer.webp";
+                icon.alt = "hitokuchiの開発者";
+                break;
+            }
+            default: break;
+        }
         document.getElementById("message").innerHTML = message;
         if (flame != "" && flame != undefined) {
             document.getElementById("getmes").style.backgroundImage = `url("../frame/Frame_${flame}.webp")`;

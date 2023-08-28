@@ -80,6 +80,11 @@ small {
     display: inline-block;
 }
 
+.special_icon {
+    width: 20px;
+    height: 20px;
+}
+
 hr {
     width: 80%;
 }
