@@ -74,7 +74,7 @@ async function get_mes() {
                 break;
             }
             case "kuroge@admin": {
-                icon.innerHTML = "<img src='../special_icon/hitokuchi_auth.webp' class='special_icon' alt='認証済み'>";
+                icon.innerHTML = "<img src='../special_icon/hitokuchi_developer.webp' class='special_icon' alt='認証済み'>";
                 break;
             }
             default: break;
