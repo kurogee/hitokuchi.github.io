@@ -70,13 +70,11 @@ async function get_mes() {
         const icon = document.getElementById("special_icon");
         switch (username) {
             case "@ei-max": {
-                icon.src = "../special_icon/hitokuchi_developer.webp";
-                icon.alt = "hitokuchiの開発者";
+                icon.innerHTML = "<img src='../special_icon/hitokuchi_developer.webp' class='special_icon' alt='開発者'>";
                 break;
             }
             case "kuroge@admin": {
-                icon.src = "../special_icon/hitokuchi_developer.webp";
-                icon.alt = "hitokuchiの開発者";
+                icon.innerHTML = "<img src='../special_icon/hitokuchi_auth.webp' class='special_icon' alt='認証済み'>";
                 break;
             }
             default: break;
