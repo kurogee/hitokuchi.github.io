@@ -5,21 +5,6 @@
     --default-font-family: "IBM Plex Sans JP", sans-serif;
     --source-code-font: "Source Code Pro", monospace;
 }
-/* 
-
-@media screen and (min-width:981px) {
-    html {
-        background-repeat: repeat-y;
-        background-image: url("background-phone.webp");
-    }
-}
-
-html {
-    background-repeat: repeat-y;
-    background-image: url("background.webp");
-}
-
- */
 
 * {
     text-align: center;
@@ -28,7 +13,7 @@ html {
     font-family: var(--default-font-family);
 }
 
-*:not(input, small, h2, h3, button) {
+*:not(input, small, h2, h3, button, textarea) {
     font-size: 20px;
 }
 
@@ -43,13 +28,12 @@ small {
 
 #box, .box {
     border: 2.5px solid black;
-    border-radius: 5px 5px;
+    border-radius: 10px 10px;
     height: 100%;
     width: 90%;
     background-color: rgb(206, 230, 255);
     box-shadow: 2.5px 2.5px 2px rgb(34, 34, 34) ;
 }
-
 #button {
     border: 2px solid silver;
     width: 95%;
@@ -69,7 +53,7 @@ small {
     border: 5px inset blue;
     width: 95%;
     height: 80vh;
-    border-radius: 5px 5px;
+    border-radius: 10px 10px;
     background-size: cover;
 }
 
@@ -82,17 +66,13 @@ small {
     height: 430px;
 }
 
-#two_box {
-    width: 90%;
-    display: flex;
-}
-
-#two_box > #special_box {
-    width: 50%;
-}
-
 .no_warp {
     display: inline-block;
+}
+
+.special_icon {
+    width: 20px;
+    height: 20px;
 }
 
 hr {
@@ -116,6 +96,7 @@ table {
 textarea {
     width: 70%;
     height: 30vh;
+    font-size: 13px;
 }
 
 .menu {
@@ -141,12 +122,21 @@ textarea {
 }
 
 body {
-    
-    background-image:   linear-gradient( rgb(49, 121, 245), rgb(89, 147, 247) );
-  background-attachment: fixed;
-    
+    background-image: linear-gradient( rgb(49, 121, 245), rgb(89, 147, 247) );
+    background-attachment: fixed;
+}
 
+a.link_color {
+    color: #333;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
 
+    /*ホバー時の色*/
+a.link_color:hover {
+    color: rgb(67, 131, 199);
+}
     
-  }
-  
