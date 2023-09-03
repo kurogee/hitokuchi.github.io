@@ -59,16 +59,15 @@
                 .then((data) => JSON.parse(data))
                 .catch((_) => "No");
 
-                console.log(response.result);
-
-                if (response.result == "No") {
-                    status.innerHTML = "エラーもしくはnoteがありません";
+                if (response.result == "No" || response == "No") {
+                    notes_table.innerHTML = " - ";
                 } else {
                     table_text = `<table>
                                     <thead>
                                         <tr><th class="notes">内容</th><th class="url">リンク</th></tr>
                                     </thead>
                                     <tbody>`;
+                    
                     const result = response.result[parseInt(Math.random() * response.result.length)];
                     mem = result.split(",");
                     table_text +=  `<tr>
