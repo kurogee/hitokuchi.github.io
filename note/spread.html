@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>hitokuchi note - read</title>
+
+        <meta charset="utf-8">
+        <meta property="og:title" content="hitokuchi note - さあ、共有しよう">
+        <meta property="og:description" content="専門的な知識や色々な知恵などを誰でも無料で共有しておくことが出来ます！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+        <link rel="stylesheet" href="../pagestyle.css">
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-FCB1XEM56C');
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <h2>noteを見る</h2>
+            <a href="./index.html" class="link_color">noteのホームへ戻る</a> | <a href="./write.html" class="link_color">noteを書く</a><br>
+            <br>
+        </div>
+        <br>
+        <div id="box">
+            <div class="notes"></div>
+            <small id="status"></small>
+        </div>
+
+        <script src="./config.js"></script>
+        <script>
+            function getParam(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            onload = async function(){
+                const url = key.note;
+                const note = document.getElementsByClassName("notes")[0];
+                const status = document.getElementById("status");
+                const uuid = getParam("id");
+
+                if (uuid == null) {
+                    status.innerHTML = "NoteのIDがurl内に入っていません！";
+                    return -1;
+                } else {
+                    status.innerHTML = "受信中...";
+
+                    const response = await fetch(url,
+                        {
+                            method: "POST",
+                            body: JSON.stringify({
+                                "request": "getNoteByUuid",
+                                "uuid": uuid
+                            })
+                        }
+                    )
+                    .then((response) => response.text())
+                    .then((data) => JSON.parse(data))
+                    .catch((_) => "No");
+
+                    console.log(response);
+
+                    if (response.result == "No") {
+                        status.innerHTML = "エラーまたは表示するものがありません";
+                        return -1;
+                    } else {
+                        note.innerHTML = `
+                        <h2>本文</h2><p>${response.text}</p><hr>
+                        <p>URL・出典: ${response.url}</p>`;
+                    }
+
+                    status.innerHTML = "";
+                }
+            }
+        </script>
+    </body>
+</html>

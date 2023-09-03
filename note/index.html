@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>hitokuchi note</title>
+
+        <meta charset="utf-8">
+        <meta property="og:title" content="hitokuchi note - さあ、共有しよう">
+        <meta property="og:description" content="専門的な知識や色々な知恵などを誰でも無料で共有しておくことが出来ます！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+        <link rel="stylesheet" href="../pagestyle.css">
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-FCB1XEM56C');
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <h2>hitokuchi note</h2>
+            <a href="../ja-JP/index.html" class="link_color">◀ホームへ戻る</a><br>
+            <p>「hitokuchi note」では専門的な知識や色々な知恵などを誰でも無料で共有しておくことが出来ます！</p>
+        </div>
+        <br>
+        <div id="box">
+            <br>
+            <a href="./write.html">noteを書く</a> | <a href="./read.html">公開noteを探す</a><br>
+            <h3>ランダムピックアップ</h3>
+            <div id="notes"></div>
+            <br>
+        </div>
+
+        <script src="./config.js"></script>
+        <script>
+            console.log(key.note);
+
+            onload = async function() {
+                const url = key.note;
+                const notes_table = document.getElementById("notes");
+                let mem, table_text;
+
+                status.innerHTML = "受信中...";
+                const response = await fetch(url,
+                    {
+                        method: "POST",
+                        body: JSON.stringify({
+                            "request": "getNoteAll"
+                        })
+                    }
+                )
+                .then((response) => response.text())
+                .then((data) => JSON.parse(data))
+                .catch((_) => "No");
+
+                if (response.result == "No" || response == "No") {
+                    notes_table.innerHTML = " - ";
+                } else {
+                    table_text = `<table>
+                                    <thead>
+                                        <tr><th class="notes">内容</th><th class="url">リンク</th></tr>
+                                    </thead>
+                                    <tbody>`;
+                    
+                    const result = response.result[parseInt(Math.random() * response.result.length)];
+                    mem = result.split(",");
+                    table_text +=  `<tr>
+                                        <td class="notes">${mem[0]}</td>
+                                        <td class="url"><a href="./spread.html?id=${mem[1]}">見る</a></td>
+                                    </tr>`;
+                    table_text += `</tbody></table>`;
+
+                    notes_table.innerHTML = table_text;
+                }
+            }
+            
+        </script>
+        <style>
+            .notes {
+                width: 70%;
+            }
+
+            .url {
+                width: 30%;
+            }
+        </style>
+    </body>
+</html>
