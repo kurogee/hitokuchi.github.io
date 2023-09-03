@@ -32,10 +32,64 @@
         <div id="box">
             <br>
             <a href="./write.html">noteを書く</a> | <a href="./read.html">公開noteを探す</a><br>
-            <p>
-                実はこのページはindexでしか無い<br>
-                他の機能は何もないです
-            </p>
+            <h3>ランダムピックアップ</h3>
+            <div id="notes"></div>
+            <br>
         </div>
+
+        <script src="./config.js"></script>
+        <script>
+            console.log(key.note);
+
+            onload = async function() {
+                const url = key.note;
+                const notes_table = document.getElementById("notes");
+                let mem, table_text;
+
+                status.innerHTML = "受信中...";
+                const response = await fetch(url,
+                    {
+                        method: "POST",
+                        body: JSON.stringify({
+                            "request": "getNoteAll"
+                        })
+                    }
+                )
+                .then((response) => response.text())
+                .then((data) => JSON.parse(data))
+                .catch((_) => "No");
+
+                console.log(response.result);
+
+                if (response.result == "No") {
+                    status.innerHTML = "エラーもしくはnoteがありません";
+                } else {
+                    table_text = `<table>
+                                    <thead>
+                                        <tr><th class="notes">内容</th><th class="url">リンク</th></tr>
+                                    </thead>
+                                    <tbody>`;
+                    const result = response.result[parseInt(Math.random() * response.result.length)];
+                    mem = result.split(",");
+                    table_text +=  `<tr>
+                                        <td class="notes">${mem[0]}</td>
+                                        <td class="url"><a href="./spread.html?id=${mem[1]}">見る</a></td>
+                                    </tr>`;
+                    table_text += `</tbody></table>`;
+
+                    notes_table.innerHTML = table_text;
+                }
+            }
+            
+        </script>
+        <style>
+            .notes {
+                width: 70%;
+            }
+
+            .url {
+                width: 30%;
+            }
+        </style>
     </body>
 </html>
