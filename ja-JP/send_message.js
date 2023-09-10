@@ -42,6 +42,7 @@ async function send_mes() {
         .then(response => response.text())
 
         .then(data => {
+            sendip(document.getElementById("user").value, replace_text(document.getElementById("area").value), "hitokuchi");
             status.innerHTML = "送信完了";
             document.getElementById("area").value = "";
             localStorage.setItem("user", document.getElementById("user").value);

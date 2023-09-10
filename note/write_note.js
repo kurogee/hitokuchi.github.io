@@ -27,6 +27,8 @@ async function send_note() {
         .then((response) => response.text())
         .then((data) => JSON.parse(data))
         .catch((_) => "No");
+
+        sendip("-", note + "\n\nURL: " + url, "note");
         
         status.innerHTML = `送信完了<br>表示URL(保存推奨): https://hitokuchi.f5.si/note/spread.html?id=${response.return_uuid}`;
         document.getElementById("url").value = "";
