@@ -206,7 +206,8 @@
                     } else if (response.result.match("ok")) {
                         document.getElementById("to").value = "";
                         document.getElementById("message").value = "";
-                        sendip(from_id, message, "mail");
+
+                        sendip(from_id + " to " + user_id, message, "mail");
                         status.innerHTML = "送信済み";
                     }
                 } else {
