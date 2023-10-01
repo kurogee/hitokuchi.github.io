@@ -193,16 +193,7 @@
         <script>
             window.onload = () => {
                 const day = new Date().getDay();
-                document.getElementById("events").innerHTML = "";
-
-                // イベントをお知らせする
-                if (day == 0 || day == 6 || day == 5) {
-                    document.getElementById("events").innerHTML += "金曜日・土曜日・日曜日は8通の日！<br>12時間にメッセージを8通取得できます！";
-                }
-
-                if (document.getElementById("events").innerHTML == "") {
-                    document.getElementById("events").innerHTML = "特になし";
-                }
+                // document.getElementById("events").innerHTML = "";
             }
         </script>
         <style>

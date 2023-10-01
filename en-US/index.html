@@ -129,16 +129,7 @@
         <script>
             window.onload = () => {
                 const day = new Date().getDay();
-                document.getElementById("events").innerHTML = "";
-
-                // イベントをお知らせする
-                if (day == 0 || day == 6 || day == 5) {
-                    document.getElementById("events").innerHTML += "Friday, Saturday and Sunday are 8 message days!<br>You can get 8 messages in 12 hours!";
-                }
-
-                if (document.getElementById("events").innerHTML == "") {
-                    document.getElementById("events").innerHTML = "There are currently no announcements";
-                }
+                // document.getElementById("events").innerHTML = "";
             }
         </script>
     </body>
