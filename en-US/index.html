@@ -45,20 +45,91 @@
             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi" data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
+        <br>
+        <div id="box">
+            <h3>Inquiry</h3>
+            <small>
+                If you would like a reply, please enter your Discord name, Twitter username<wbr>or email in the text<br>
+                DM on Discord and Twitter<wbr> For email, I will use my own email<br>
+                If none of these fields are filled in and you need a reply, we will display the full text of the message on this site and reply to you.<br>
+                We cannot reply or react to suspicious or unknown content.
+            </small>
+
+            Title<br>
+            <input type="text" id="message_about" class="text"><br>
+            Detail<br>
+            <textarea id="area" class="toiawase" style="height: 100px;"></textarea><br>
+
+            <script src="../mail/config.js"></script>
+            <script>
+                async function send() {
+                    const url = key.url;
+                    const status = document.getElementById("status");
+                
+                    status.innerHTML = "Please wait...";
+                    status.style.color = "red";
+
+                    const user_id = "admin";
+                    const from_id = `お問い合わせ[English]<br>件名: ${document.getElementById("message_about").value}`;
+
+                    let message = document.getElementsByClassName("toiawase")[0].value;
+                    message = message.split("&").join("&amp;"); // 下の&と一緒にreplaceされてしまうので修正
+                    message = message.split("<").join("&lt;"); // &lt;&gt;
+                    message = message.split(">").join("&gt;");
+                    message = message.split("\n").join("<br>");
+
+                    message = message.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
+                    message = message.replace(/\[b (.+?)\]/g, "<span class='hutoji'>$1</span>");
+                    message = message.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
+                    message = message.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
+
+                    const today = new Date();
+                    const today_text = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+                    message = message.replace(/:DATE:/g, `<span>${today_text}</span>`);
+
+                    if (document.getElementById("message_about").value.trim() != "" && message.trim() != "" && user_id.trim() != "") {
+                            const response = await fetch(
+                                url,
+                                {
+                                    method: "POST",
+                                    body: JSON.stringify({
+                                        "to": user_id,
+                                        "from": from_id,
+                                        "message": message,
+                                        "request": "send"
+                                    })
+                                }
+                        )
+                        .then((response) => response.text())
+
+                        .then((data)=>{
+                            return JSON.parse(data);
+                        })
+                        .catch((error) => {
+                            return "posterror";
+                        });
+
+                        if (response.result.match("wrong_to")) {
+                            status.innerHTML = "Error: Incorrect destination<wbr>[This is an error caused by developer error.]";
+                        } else if (response.result.match("ok")) {
+                            document.getElementById("message_about").value = "";
+                            document.getElementsByClassName("toiawase")[0].value = "";
+                            status.innerHTML = "This message has been sent";
+                        }
+                    } else {
+                        status.innerHTML = "Error: Please enter message etc.";
+                    }
+                }
+            </script>
+
+            <button onclick="send()"> Send </button><br>
+            <small id="status"></small>
+        </div>
 
         <script>
             window.onload = () => {
                 const day = new Date().getDay();
-                document.getElementById("events").innerHTML = "";
-
-                // イベントをお知らせする
-                if (day == 0 || day == 6 || day == 5) {
-                    document.getElementById("events").innerHTML += "Friday, Saturday and Sunday are 8 message days!<br>You can get 8 messages in 12 hours!";
-                }
-
-                if (document.getElementById("events").innerHTML == "") {
-                    document.getElementById("events").innerHTML = "There are currently no announcements";
-                }
+                // document.getElementById("events").innerHTML = "";
             }
         </script>
     </body>

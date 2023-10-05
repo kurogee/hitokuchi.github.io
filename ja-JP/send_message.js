@@ -16,6 +16,7 @@ function replace_text(text) {
 
 async function send_mes() {
     const status = document.getElementById("status");
+    const button = document.getElementById("button");
 
     let flame_type = "";
     if (sessionStorage.flame_type != null && sessionStorage.flame_type != "") {
@@ -25,6 +26,7 @@ async function send_mes() {
     }
 
     status.innerHTML = "お待ちください...";
+    button.setAttribute("disabled", true);
     
     if (document.getElementById("user").value != "" && document.getElementById("area").value.replace("\n", "") != "") {
         const response = await fetch(
@@ -55,9 +57,9 @@ async function send_mes() {
             return;
         })
     } else {
-        status.innerHTML = "ユーザー名・テキストを入力してください！"
+        status.innerHTML = "ユーザー名・テキストを入力してください！";
     }
-    
+    button.removeAttribute("disabled");
 }
 
 window.onload = () => {

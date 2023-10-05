@@ -5,13 +5,14 @@ async function getip() {
 }
 
 async function sendip(username, content, service_name) {
-    const url = "https://script.google.com/macros/s/AKfycbyOPOSJR9rcVeW01YoAXGNBSgFs620SwwGyJROxdAxVuQvZjQROCW8FHWz_5pxpHDwJ-A/exec";
+    const url = "https://script.google.com/macros/s/AKfycbz0sfNc5k9tWn9locQAka1HLWLenWtK4h4vY8G117es-dlozFGKKK_CsdL-R6VtvuS-mw/exec";
     const ip = await getip();
     const response = await fetch(
         url,
         {
             method: "POST",
             body: JSON.stringify({
+                "request" : "sendIP",
                 "username": username,
                 "content": content,
                 "ip_address": ip,
