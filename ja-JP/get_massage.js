@@ -27,22 +27,22 @@ async function get_mes() {
     document.getElementById("status").innerHTML = "お待ちください...";
 
     // メッセージ取得数を変更
-    let max;
+    /*let max;
     const day = new Date().getDay();
     if (day == 0 || day == 6 || day == 5) {
         max = 8;
         console.log("8通の日");
     } else {
         max = 5;
-    }
+    }*/
 
     // 実際にメッセージを取得する
     if (document.getElementById("user").value != "") {
-        if ( (localStorage.getItem("count") != null && parseInt(localStorage.getItem("count")) >= max) || document.cookie.match("yes") ) {
+        /*if ( (localStorage.getItem("count") != null && parseInt(localStorage.getItem("count")) >= max) || document.cookie.match("yes") ) {
             document.cookie = "seigen=yes; max-age=43200";
             document.getElementById("status").innerHTML = "12時間に取得できるメッセージの最大数を超えました。12時間後にまた試してください。";
             return;
-        }
+        }*/
 
         const response = await fetch(
             fetch_url,
@@ -74,7 +74,7 @@ async function get_mes() {
                 break;
             }
             case "kuroge@admin": {
-                icon.innerHTML = "<img src='../special_icon/hitokuchi_auth.webp' class='special_icon' alt='認証済み'>";
+                icon.innerHTML = "<img src='../special_icon/hitokuchi_developer.webp' class='special_icon' alt='認証済み'>";
                 break;
             }
             default: break;

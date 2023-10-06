@@ -25,7 +25,8 @@
     <body>
         <div id="box">
             <h2>hitokuchi review</h2>
-            <a href="../review/index.html">◀reviewのトップページへ戻る</a> | <a href="watchreview.html">reviewを見る</a>
+            <a href="../review/index.html" class="link_color">◀reviewのトップページへ戻る</a> | <a href="watchreview.html" class="link_color">reviewを見る</a><br>
+            <small>サービスを使うことにより<a href="../tos/index.html">利用規約</a>に同意したとみなされます</small><br>
         </div>
         <br>
         <div id="box">
@@ -34,7 +35,7 @@
             <small>URLは「http(s)://」から書き始めてください</small><br>
             Comment<br>
             <textarea id="area"></textarea><br>
-            <button onclick="get_review();">送信する</button>
+            <button onclick="get_review();" id="button">送信する</button>
             <br>
             <p></p>
             <small id="status"></small>
@@ -70,7 +71,10 @@
                         .then((data) => JSON.parse(data))
                         .catch((error) => {
                             status.innerHTML = "エラー";
-                        });
+                    });
+                    
+                    sendip("-", comment + "\n\nURL: " + send_url, "review");
+
                     status.innerHTML = "";
                     document.getElementById("send_url").value = "";
                     document.getElementById("area").value = "";

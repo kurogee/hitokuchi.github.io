@@ -25,7 +25,8 @@
     <body>
         <div id="box">
             <h2>hitokuchi review</h2>
-            <a href="../review/index.html">◀reviewのトップページへ戻る</a> | <a href="sendreview.html">reviewを送る</a>
+            <a href="../review/index.html" class="link_color">◀reviewのトップページへ戻る</a> | <a href="sendreview.html" class="link_color">reviewを送る</a><br>
+            <small>サービスを使うことにより<a href="../tos/index.html">利用規約</a>に同意したとみなされます</small><br>
         </div>
         <br>
         <div id="box">
@@ -34,7 +35,7 @@
             検索<br>
             <input type="search" id="search_word" class="text" placeholder="空状態で全表示"><br>
             <div><label>URL検索 <input type="radio" name="which_search" id="radiobox" class="radio" value="URL"></label> | <label>本文検索 <input type="radio" name="which_search" id="radiobox" class="radio" value="Comment"></label></div>
-            <button onclick="get_review();">受信する</button><br>
+            <button onclick="get_review();" id="button">受信する</button><br>
             <small>[注]マークはそのサイトの危険な可能性が高い事を示しています</small><br>
             <small id="status"></small>
         </div>

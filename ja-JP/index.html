@@ -58,6 +58,7 @@
             <br>
             <small>【無料】</small>
             <hr>
+
             ▶<a href="../mail/index.html" class="link_color">hitokuchi mail へ行く</a>◀
             <br>
             <small>
@@ -65,9 +66,15 @@
                 【無料】
             </small>
             <br>
+
             ▶<a href="../review/index.html" class="link_color">hitokuchi review へ行く</a>◀
             <br>
             <small>サイトの評価や宣伝が出来ます【無料】</small>
+            <br>
+
+            ▶<a href="../note/index.html" class="link_color">hitokuchi note へ行く</a>◀
+            <br>
+            <small>自分の技術や知恵などをブログの様に共有することが出来ます【無料】</small>
         </div>
         <br>
         <div id="box">
@@ -95,8 +102,8 @@
         </div>
         <br>
         <div id="box">
-             <h3>お問い合わせ</h3> 
-             
+            <h3>お問い合わせ・削除要請等</h3>
+            
             <small>
                 返信を希望する際は本文中にDiscord名、Twitterユーザー名<wbr>もしくはemailを入力してください<br>
                 DiscordとTwitterではDMへ<wbr>　emailでは自分のemailでやってまいります<br>
@@ -185,16 +192,7 @@
         <script>
             window.onload = () => {
                 const day = new Date().getDay();
-                document.getElementById("events").innerHTML = "";
-
-                // イベントをお知らせする
-                if (day == 0 || day == 6 || day == 5) {
-                    document.getElementById("events").innerHTML += "金曜日・土曜日・日曜日は8通の日！<br>12時間にメッセージを8通取得できます！";
-                }
-
-                if (document.getElementById("events").innerHTML == "") {
-                    document.getElementById("events").innerHTML = "特になし";
-                }
+                // document.getElementById("events").innerHTML = "";
             }
         </script>
         <style>

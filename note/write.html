@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>hitokuchi note - write</title>
+
+        <meta charset="utf-8">
+        <meta property="og:title" content="hitokuchi note - さあ、共有しよう">
+        <meta property="og:description" content="専門的な知識や色々な知恵などを誰でも無料で共有しておくことが出来ます！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+        <link rel="stylesheet" href="../pagestyle.css">
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-FCB1XEM56C');
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <h2>noteを書く</h2>
+            <a href="./index.html" class="link_color">noteのホームへ戻る</a> | <a href="./read.html" class="link_color">公開noteを探す</a><br>
+            <small>サービスを使うことにより<a href="../tos/index.html">利用規約</a>に同意したとみなされます</small>
+            <br>
+            <br>
+        </div>
+        <br>
+        <div id="box">
+            参考にしたURL・出典(任意)<br>
+            <input type="text" id="url" class="text" value=""><br>
+            Note<br>
+            <small>ヒント: 最初の1行がそのNoteの見出しとして表示されるので最初の1行で見る人の興味を引いてみましょう！</small><br>
+            <textarea id="area"></textarea><br>
+            <div>検索結果に <label>表示する: <input type="radio" name="check" id="radiobox" class="radio" value="1" checked></label> / <label><label>表示しない: <input type="radio" name="check" id="radiobox" class="radio" value="0"></label></div>
+            <button onclick="send_note();" id="button">送信</button><br>
+            <small id="status"></small>
+        </div>
+
+        <script src="./config.js"></script>
+        <script src="./write_note.js"></script>
+    </body>
+</html>
