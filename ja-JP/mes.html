@@ -23,7 +23,7 @@
     <body>
         <div id="box">
             <p></p>
-            <a href="index.html">◀ホームに戻る</a>
+            <a href="index.html" class="link_color">◀ホームに戻る</a>
             <h3>
                 <div id="getmes" class="card">
                     <span id="title_text">ユーザー名</span>: <span id="user_name">運営</span><span id="special_icon"></span><br><br>
@@ -36,7 +36,8 @@
             <small>※一通でもメッセージを送っていただかないと受信機能は利用できません</small>
             <form>
                 <input type="hidden" value="get" id="type">
-                <input type="button" value="メッセージを受け取る！" id="button" onclick="get_mes();">
+                <input type="button" value="メッセージを受け取る！" id="button" onclick="get_mes();"><p></p>
+                <small>【他の人もメッセージを取得できるようにお互いに配慮をお願いします】</small>
                 <p></p>
             </form>
             <small id="status"></small>
