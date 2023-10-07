@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 :root {
-    --default-font-family: "M PLUS Rounded 1c", sans-serif;
+    --default-font-family: "IBM Plex Sans JP", sans-serif;
     --source-code-font: "Source Code Pro", monospace;
 }
 
@@ -27,7 +27,7 @@ html {
     font-family: var(--default-font-family);
 }
 
-*:not(input, small, h2, h3, button) {
+*:not(input, small, h2, h3, button, textarea) {
     font-size: 20px;
 }
 
@@ -40,19 +40,40 @@ small {
     font-size: 25px;
 }
 
-#box, .box {
-    border: 3px solid black;
-    border-radius: 5px 5px;
+.box {
+    border: 2.5px solid rgb(67, 131, 199);
+    border-radius: 10px 10px;
     height: 100%;
     width: 90%;
-    background-color: rgb(206, 230, 255);
-    box-shadow: 1.5px 1.5px 2px rgb(34, 34, 34) ;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 2.5px 2.5px 5px rgb(67, 131, 199);
+    
+}
+.mail_button {
+    text-align: center;
+	text-decoration: none;
+	background: rgb(255, 255, 255);
+	margin: auto;
+	padding: 0.3rem 2rem;
+	font-weight: bold;
+	border: 2px solid rgb(67, 131, 199);
+	color: rgb(67, 131, 199);
+	border-radius: 100vh;
+	transition: 0.3s;
+}
+.mail_button:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
 }
 
-#button {
-    border: 2px solid silver;
-    width: 95%;
-    height: 50px;
+.mail_buttons {
+    display: flex;  
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 300px;
+    margin-top: 10px;
 }
 
 #user, .button, .text {
@@ -65,10 +86,10 @@ small {
 }
 
 .card {
-    border: 5px inset blue;
+    border: 5px inset rgb(67, 131, 199);
     width: 95%;
     height: 80vh;
-    border-radius: 30px 0px;
+    border-radius: 10px 10px;
     background-size: cover;
 }
 
@@ -81,17 +102,13 @@ small {
     height: 430px;
 }
 
-#two_box {
-    width: 90%;
-    display: flex;
-}
-
-#two_box > #special_box {
-    width: 50%;
-}
-
 .no_warp {
     display: inline-block;
+}
+
+.special_icon {
+    width: 23px;
+    height: 23px;
 }
 
 hr {
@@ -101,11 +118,11 @@ hr {
 /* テーブル関連 */
 
 th {
-    border: 3px inset rgb(206, 230, 255);
+    border: 3px inset rgb(0, 0, 0);
 }
 
 td {
-    border: 3px inset rgb(206, 230, 255);
+    border: 3px inset rgb(250, 250, 250);
 }
 
 table {
@@ -115,6 +132,7 @@ table {
 textarea {
     width: 70%;
     height: 30vh;
+    font-size: 13px;
 }
 
 .menu {
@@ -139,35 +157,22 @@ textarea {
     width: 90%;
 }
 
-.hutoji {
-    font-weight: bold;
-}
-
-.shatai {
-    font-style: oblique;
-}
-
-.torikeshi {
-    text-decoration-line: line-through;
-}
-
 body {
-    
-    background-image:   linear-gradient( rgb(49, 121, 245), rgb(89, 147, 247) );
-  background-attachment: fixed;
-    
-  }
-  
-  a.link_color {
+    background-image: linear-gradient( rgb(255, 255, 255), rgb(249, 249, 249) );
+    background-attachment: fixed;
+}
+
+a.link_color {
     color: #333;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
     text-decoration: none;
-    }
+}
+
     /*ホバー時の色*/
-    a.link_color:hover {
+a.link_color:hover {
     color: rgb(67, 131, 199);
-    }
+}
     
