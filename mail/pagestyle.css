@@ -171,7 +171,7 @@ a.link_color {
     text-decoration: none;
 }
 
-    /*ホバー時の色*/
+/*ホバー時の色*/
 a.link_color:hover {
     color: rgb(67, 131, 199);
 }
