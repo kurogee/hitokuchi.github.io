@@ -33,6 +33,7 @@ small {
     width: 90%;
     background-color: rgb(250, 250, 250);
     box-shadow: 3.5px 3.5px 5px rgb(210, 210, 210);
+    width: 70%;
     
 }
 #button {
@@ -51,6 +52,29 @@ small {
 #button:hover {
 	color: #fff;
 	background: rgb(67, 131, 199);
+}
+
+.icons {
+    display: flex;  
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 350px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.icons_text {
+    margin-top: -20px;
+    display: flex;  
+    width: 350px;
+}
+
+.icons_text h3 {
+    display: block;  
+    width: 80px;
+    text-align: center;
 }
 
 #user, .button, .text {
@@ -152,4 +176,11 @@ a.link_color {
 a.link_color:hover {
     color: rgb(67, 131, 199);
 }
-    
+
+.svg:hover {
+	opacity: 0.5 ;
+}
+
+.catchphrase_color {
+    color:#4383c7;
+  }
