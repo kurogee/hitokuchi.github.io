@@ -192,5 +192,37 @@ a.link_color:hover {
 
 .catchphrase_color {
     color:#4383c7;
+
+  }
+
+  .button {
+    text-align: center;
+	text-decoration: none;
+	background: rgb(255, 255, 255);
+	margin: auto;
+	padding: 0.6rem 0.8rem;
+	font-weight: bold;
+	border: 2px solid rgb(67, 131, 199);
+	color: rgb(67, 131, 199);
+	border-radius: 100vh;
+	transition: 0.3s;
+}
+.button:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
+}
+
+.buttons {
+    display: flex;  
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 550px;
+    margin-top: 10px;
+    text-align: center;
+}
+
     font-family: var(--catchphrase-font);
 }
+
