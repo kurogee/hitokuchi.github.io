@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url("https://fonts.googleapis.com/css?family=Zen+Maru+Gothic");
+
+@font-face {
+    font-family: "dot_font";
+    src: url('./dotFontTtf.ttf') format('truetype');
+    src: url('./dotFontOtf.otf') format('opentype');
+} /* ドットフォント */
 
 :root {
     --default-font-family: "IBM Plex Sans JP", sans-serif;
+    --catchphrase-font: "Zen Maru Gothic", monospace;
+    --dot-font-family: "dot_font", monospace;
     --source-code-font: "Source Code Pro", monospace;
 }
 
@@ -172,15 +181,16 @@ a.link_color {
     text-decoration: none;
 }
 
-    /*ホバー時の色*/
+/*ホバー時の色*/
 a.link_color:hover {
     color: rgb(67, 131, 199);
 }
 
-.svg:hover {
+.icons_image_webp:hover {
 	opacity: 0.5 ;
 }
 
 .catchphrase_color {
     color:#4383c7;
-  }
+    font-family: var(--catchphrase-font);
+}
