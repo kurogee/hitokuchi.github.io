@@ -186,8 +186,12 @@ a.link_color:hover {
     color: rgb(67, 131, 199);
 }
 
+.icons_image_webp {
+    transition: 0.2s ;
+}
+
 .icons_image_webp:hover {
-	opacity: 0.5 ;
+    opacity: 0.5 ;
 }
 
 .catchphrase_color {
@@ -222,7 +226,3 @@ a.link_color:hover {
     margin-top: 10px;
     text-align: center;
 }
-
-    font-family: var(--catchphrase-font);
-}
-
