@@ -1,24 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url("https://fonts.googleapis.com/css?family=Zen+Maru+Gothic");
+
+@font-face {
+    font-family: "dot_font";
+    src: url('./dotFontTtf.ttf') format('truetype');
+    src: url('./dotFontOtf.otf') format('opentype');
+} /* ドットフォント */
 
 :root {
-    --default-font-family: "M PLUS Rounded 1c", sans-serif;
+    --default-font-family: "Zen Maru Gothic", sans-serif;
+    --dot-font-family: "dot_font", monospace;
     --source-code-font: "Source Code Pro", monospace;
 }
-
-/*
-@media screen and (min-width:981px) {
-    html {
-        background-repeat: repeat-y;
-        background-image: url("background-phone.webp");
-    }
-}
-
-html {
-    background-repeat: repeat-y;
-    background-image: url("background.webp");
-}
-*/
 
 * {
     text-align: center;
@@ -27,7 +21,7 @@ html {
     font-family: var(--default-font-family);
 }
 
-*:not(input, small, h2, h3, button) {
+*:not(input, small, h2, h3, button, textarea) {
     font-size: 20px;
 }
 
@@ -41,18 +35,55 @@ small {
 }
 
 #box, .box {
-    border: 3px solid black;
-    border-radius: 5px 5px;
+    border: 2.5px solid rgb(67, 131, 199);
+    border-radius: 10px 10px;
     height: 100%;
     width: 90%;
-    background-color: rgb(206, 230, 255);
-    box-shadow: 1.5px 1.5px 2px rgb(34, 34, 34) ;
+    background-color: rgb(191, 242, 255);
+    box-shadow: 3.5px 3.5px 5px rgb(210, 210, 210);
+    width: 70%;
 }
 
 #button {
-    border: 2px solid silver;
-    width: 95%;
-    height: 50px;
+	display: block;
+    text-align: center;
+	text-decoration: none;
+	background: rgb(255, 255, 255);
+	margin: auto;
+	padding: 0.5rem 3rem;
+	font-weight: bold;
+	border: 2px solid rgb(67, 131, 199);
+	color: rgb(67, 131, 199);
+	border-radius: 100vh;
+	transition: 0.3s;
+}
+
+#button:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
+}
+
+.icons {
+    display: flex;  
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 350px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.icons_text {
+    margin-top: -20px;
+    display: flex;  
+    width: 350px;
+}
+
+.icons_text h3 {
+    display: block;  
+    width: 80px;
+    text-align: center;
 }
 
 #user, .button, .text {
@@ -65,10 +96,10 @@ small {
 }
 
 .card {
-    border: 5px inset blue;
+    border: 5px inset rgb(67, 131, 199);
     width: 95%;
     height: 80vh;
-    border-radius: 30px 0px;
+    border-radius: 10px 10px;
     background-size: cover;
 }
 
@@ -81,17 +112,13 @@ small {
     height: 430px;
 }
 
-#two_box {
-    width: 90%;
-    display: flex;
-}
-
-#two_box > #special_box {
-    width: 50%;
-}
-
 .no_warp {
     display: inline-block;
+}
+
+.special_icon {
+    width: 23px;
+    height: 23px;
 }
 
 hr {
@@ -101,11 +128,11 @@ hr {
 /* テーブル関連 */
 
 th {
-    border: 3px inset rgb(206, 230, 255);
+    border: 1.5px solid rgb(67, 131, 199);
 }
 
 td {
-    border: 3px inset rgb(206, 230, 255);
+    border: 1.5px solid rgb(115, 156, 201);
 }
 
 table {
@@ -115,6 +142,7 @@ table {
 textarea {
     width: 70%;
     height: 30vh;
+    font-size: 13px;
 }
 
 .menu {
@@ -139,35 +167,90 @@ textarea {
     width: 90%;
 }
 
-.hutoji {
-    font-weight: bold;
+body, html {
+    background: linear-gradient( rgb(220, 251, 255), rgb(152, 240, 255) );
+    background-attachment: fixed;
 }
 
-.shatai {
-    font-style: oblique;
-}
-
-.torikeshi {
-    text-decoration-line: line-through;
-}
-
-body {
-    
-    background-image:   linear-gradient( rgb(49, 121, 245), rgb(89, 147, 247) );
-  background-attachment: fixed;
-    
-  }
-  
-  a.link_color {
+a.link_color {
     color: #333;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
     text-decoration: none;
-    }
-    /*ホバー時の色*/
-    a.link_color:hover {
+}
+
+/*ホバー時の色*/
+a.link_color:hover {
     color: rgb(67, 131, 199);
-    }
-    
+}
+
+.icons_image_webp {
+    transition: 0.2s ;
+}
+
+.icons_image_webp:hover {
+    opacity: 0.5 ;
+}
+
+.catchphrase_color {
+    color:#4383c7;
+}
+
+.button {
+    text-align: center;
+    text-decoration: none;
+    background: rgb(255, 255, 255);
+    margin: auto;
+    padding: 0.6rem 0.8rem;
+    font-weight: bold;
+    border: 2px solid rgb(67, 131, 199);
+    color: rgb(67, 131, 199);
+    border-radius: 100vh;
+    transition: 0.3s;
+}
+
+.button:hover {
+    color: #fff;
+    background: rgb(67, 131, 199);
+}
+
+.buttons {
+    display: flex;  
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 550px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mail_button {
+    text-align: center;
+	text-decoration: none;
+	background: rgb(255, 255, 255);
+	margin: auto;
+	padding: 0.3rem 2rem;
+	font-weight: bold;
+	border: 2px solid rgb(67, 131, 199);
+	color: rgb(67, 131, 199);
+	border-radius: 100vh;
+	transition: 0.3s;
+}
+
+.mail_button:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
+}
+
+.mail_buttons {
+    display: flex;  
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 300px;
+    margin-top: 10px;
+}
