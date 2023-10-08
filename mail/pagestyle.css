@@ -1,24 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url("https://fonts.googleapis.com/css?family=Zen+Maru+Gothic");
+
+@font-face {
+    font-family: "dot_font";
+    src: url('./dotFontTtf.ttf') format('truetype');
+    src: url('./dotFontOtf.otf') format('opentype');
+} /* ドットフォント */
 
 :root {
-    --default-font-family: "IBM Plex Sans JP", sans-serif;
+    --default-font-family: "Zen Maru Gothic", sans-serif;
+    --dot-font-family: "dot_font", monospace;
     --source-code-font: "Source Code Pro", monospace;
 }
-
-/*
-@media screen and (min-width:981px) {
-    html {
-        background-repeat: repeat-y;
-        background-image: url("background-phone.webp");
-    }
-}
-
-html {
-    background-repeat: repeat-y;
-    background-image: url("background.webp");
-}
-*/
 
 * {
     text-align: center;
@@ -40,40 +34,56 @@ small {
     font-size: 25px;
 }
 
-.box {
+#box, .box {
     border: 2.5px solid rgb(67, 131, 199);
     border-radius: 10px 10px;
     height: 100%;
+    width: 90%;
+    background-color: rgb(191, 242, 255);
+    box-shadow: 3.5px 3.5px 5px rgb(210, 210, 210);
     width: 70%;
-    background-color: rgb(250, 250, 250);
-    box-shadow: 2.5px 2.5px 5px rgb(67, 131, 199);
-    
 }
-.mail_button {
+
+#button {
+	display: block;
     text-align: center;
 	text-decoration: none;
 	background: rgb(255, 255, 255);
 	margin: auto;
-	padding: 0.3rem 2rem;
+	padding: 0.5rem 3rem;
 	font-weight: bold;
 	border: 2px solid rgb(67, 131, 199);
 	color: rgb(67, 131, 199);
 	border-radius: 100vh;
 	transition: 0.3s;
 }
-.mail_button:hover {
+
+#button:hover {
 	color: #fff;
 	background: rgb(67, 131, 199);
 }
 
-.mail_buttons {
+.icons {
     display: flex;  
     gap: 0px;
     justify-content: center;
     align-items: center;
     max-width: 100%;
-    width: 300px;
+    width: 350px;
     margin-top: 10px;
+    text-align: center;
+}
+
+.icons_text {
+    margin-top: -20px;
+    display: flex;  
+    width: 350px;
+}
+
+.icons_text h3 {
+    display: block;  
+    width: 80px;
+    text-align: center;
 }
 
 #user, .button, .text {
@@ -118,11 +128,11 @@ hr {
 /* テーブル関連 */
 
 th {
-    border: 3px inset rgb(0, 0, 0);
+    border: 1.5px solid rgb(67, 131, 199);
 }
 
 td {
-    border: 3px inset rgb(250, 250, 250);
+    border: 1.5px solid rgb(115, 156, 201);
 }
 
 table {
@@ -157,8 +167,8 @@ textarea {
     width: 90%;
 }
 
-body {
-    background-image: linear-gradient( rgb(255, 255, 255), rgb(249, 249, 249) );
+body, html {
+    background: linear-gradient( rgb(220, 251, 255), rgb(152, 240, 255) );
     background-attachment: fixed;
 }
 
@@ -175,4 +185,72 @@ a.link_color {
 a.link_color:hover {
     color: rgb(67, 131, 199);
 }
-    
+
+.icons_image_webp {
+    transition: 0.2s ;
+}
+
+.icons_image_webp:hover {
+    opacity: 0.5 ;
+}
+
+.catchphrase_color {
+    color:#4383c7;
+}
+
+.button {
+    text-align: center;
+    text-decoration: none;
+    background: rgb(255, 255, 255);
+    margin: auto;
+    padding: 0.6rem 0.8rem;
+    font-weight: bold;
+    border: 2px solid rgb(67, 131, 199);
+    color: rgb(67, 131, 199);
+    border-radius: 100vh;
+    transition: 0.3s;
+}
+
+.button:hover {
+    color: #fff;
+    background: rgb(67, 131, 199);
+}
+
+.buttons {
+    display: flex;  
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 550px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mail_button {
+    text-align: center;
+	text-decoration: none;
+	background: rgb(255, 255, 255);
+	margin: auto;
+	padding: 0.3rem 2rem;
+	font-weight: bold;
+	border: 2px solid rgb(67, 131, 199);
+	color: rgb(67, 131, 199);
+	border-radius: 100vh;
+	transition: 0.3s;
+}
+
+.mail_button:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
+}
+
+.mail_buttons {
+    display: flex;  
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 300px;
+    margin-top: 10px;
+}
