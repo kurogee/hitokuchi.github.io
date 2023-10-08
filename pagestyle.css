@@ -128,11 +128,11 @@ hr {
 /* テーブル関連 */
 
 th {
-    border: 3px inset rgb(0, 0, 0);
+    border: 1.5px solid rgb(67, 131, 199);
 }
 
 td {
-    border: 3px inset rgb(250, 250, 250);
+    border: 1.5px solid rgb(115, 156, 201);
 }
 
 table {
