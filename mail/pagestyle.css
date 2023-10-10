@@ -254,3 +254,15 @@ a.link_color:hover {
     width: 300px;
     margin-top: 10px;
 }
+
+.hutoji {
+    font-weight: bold;
+}
+
+.shatai {
+    font-style: oblique;
+}
+
+.torikeshi {
+    text-decoration-line: line-through;
+}
