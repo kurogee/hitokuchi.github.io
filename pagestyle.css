@@ -39,8 +39,8 @@ small {
     border-radius: 10px 10px;
     height: 100%;
     width: 90%;
-    background-color: rgb(191, 242, 255);
-    box-shadow: 3.5px 3.5px 5px rgb(210, 210, 210);
+    background-color: rgb(221, 238, 255);
+
     width: 70%;
 }
 
@@ -168,7 +168,7 @@ textarea {
 }
 
 body, html {
-    background: linear-gradient( rgb(220, 251, 255), rgb(152, 240, 255) );
+    background: linear-gradient( rgb(138, 195, 255), rgb(126, 187, 252) );
     background-attachment: fixed;
 }
 
