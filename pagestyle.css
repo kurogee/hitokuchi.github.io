@@ -6,7 +6,7 @@
     font-family: "dot_font";
     src: url('./dotFontTtf.ttf') format('truetype');
     src: url('./dotFontOtf.otf') format('opentype');
-} /* ドットフォント */
+} /* ドットフォント (一応程度の感じで...) */
 
 :root {
     --default-font-family: "Zen Maru Gothic", sans-serif;
@@ -168,7 +168,7 @@ textarea {
 }
 
 body, html {
-    background: linear-gradient( rgb(138, 195, 255), rgb(126, 187, 252) );
+    background: linear-gradient( #add1f7, #7baee4 );
     background-attachment: fixed;
 }
 
