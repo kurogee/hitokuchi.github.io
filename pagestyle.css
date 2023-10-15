@@ -103,7 +103,7 @@ small {
     background-size: cover;
 }
 
-#title_text {
+.title_text {
     font-family: sans-serif;
 }
 
