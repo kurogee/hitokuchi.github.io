@@ -89,6 +89,11 @@ small {
         font-size: 15px;
     }
 
+    @media screen and (max-width: 350px) {
+        
+        display:none;
+    }
+
 }
 
 .icons_text h3 {

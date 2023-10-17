@@ -29,6 +29,8 @@
     // テキストを書き換える
     document.getElementById("send-button").innerHTML = "送る";
     document.getElementById("get-button").innerHTML =  "受け取る";
+    document.getElementById("back-index").innerHTML =  "〈Back to index〉";
+    document.getElementById("dot").innerHTML =  "〈???〉";
   }
 });
     </script>
@@ -38,8 +40,8 @@
     <div class="box">
         <h2>Welcome to hitokuchi!</h2>
         <small>表示が崩れた場合はF5+Shift(もしくはShiftを押しながらリロードボタンを押す)を試してください</small><br>
-        <a href="../index.html" class="link_color"> 〈 Back to index 〉</a>
-            <a href="../dot/index.html" class="link_color">〈 　 ？？？ 　 〉</a>
+        <a href="../index.html" class="link_color" id="back-index"> 〈 Back to index 〉</a>
+            <a href="../dot/index.html" class="link_color" id="dot">〈 　 ？？？ 　 〉</a>
             <p></p>
     </div>
     <br>
