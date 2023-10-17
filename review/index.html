@@ -21,6 +21,16 @@
         
           gtag('config', 'G-FCB1XEM56C');
         </script>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        // 画面の幅が768px以下かどうかを判定
+        if (window.innerWidth <= 768) {
+            // テキストを書き換える
+            document.getElementById("watchreview").innerHTML = "　見る　";
+            document.getElementById("sendreview").innerHTML = "　登録　";
+        }
+    });
+</script>
     </head>
     <body>
         <div id="box">
@@ -38,7 +48,7 @@
                 <br>
                 <div>
 
-                    <a href="sendreview.html" class="button">reviewにサイトを登録する！</a>　 <a href="watchreview.html" class="button">　　　reviewを見る！　　　</a>
+                    <a href="sendreview.html" class="button" id="sendreview">reviewにサイトを登録する！</a>　 <a href="watchreview.html" class="button" id="watchreview">　　　reviewを見る！　　　</a>
 <br><br>
                 </div>
             </p>
