@@ -22,17 +22,15 @@
 
         gtag('config', 'G-FCB1XEM56C');
     </script>
-     <script>
+    <script>
         window.addEventListener("DOMContentLoaded", function() {
-  // 画面の幅が768px以下かどうかを判定
-  if (window.innerWidth <= 768) {
-    // テキストを書き換える
-    document.getElementById("send-button").innerHTML = "送る";
-    document.getElementById("get-button").innerHTML =  "受け取る";
-    document.getElementById("back-index").innerHTML =  "〈Back to index〉";
-    document.getElementById("dot").innerHTML =  "〈???〉";
-  }
-});
+            // 画面の幅が768px以下かどうかを判定
+            if (window.innerWidth <= 768) {
+              // テキストを書き換える
+              document.getElementById("send-button").innerHTML = "送る";
+              document.getElementById("get-button").innerHTML =  "受け取る";
+            }
+        });
     </script>
 </head>
 
@@ -40,9 +38,9 @@
     <div class="box">
         <h2>Welcome to hitokuchi!</h2>
         <small>表示が崩れた場合はF5+Shift(もしくはShiftを押しながらリロードボタンを押す)を試してください</small><br>
-        <a href="../index.html" class="link_color" id="back-index"> 〈 Back to index 〉</a>
-            <a href="../dot/index.html" class="link_color" id="dot">〈 　 ？？？ 　 〉</a>
-            <p></p>
+        <a href="../index.html" class="link_color"> 〈 Back to index 〉</a>
+        <a href="../dot/index.html" class="link_color">〈 　 ？？？ 　 〉</a>
+        <p></p>
     </div>
     <br>
     <!-- <div id="box">
@@ -64,7 +62,7 @@
         </p>
         <p></p>
 
-   <div class="buttons">
+    <div class="buttons">
         <a href="./send.html" class="button" id="send-button">　メッセージを送る　</a>　　<a href="./mes.html" class="button" id="get-button">メッセージを受け取る</a>
     </div>
 <br>
@@ -95,17 +93,19 @@
         <input type="url" class="text" value="https://hitokuchi.f5.si" readonly><br>
         <small>hitokuchi 日本語index</small>
         <input type="url" class="text" value="https://hitokuchi.f5.si/ja-JP/index.html" readonly><br>
-        <p></p>
-<div class="phone_share">
-    <hr>
-    バナーもあるよ<br>
-    <a href="https://hitokuchi.f5.si" target="_blank"><img src="../banner/hitokuchi_banner.png" alt="バナー"></a><br>
-    <div id="code">
-        <code>
-                    <pre>&lt;a href="https://hitokuchi.f5.si" target="_blank"&gt;
+        <hr>
+
+        <div class="phone_share">
+            バナーもあるよ<br>
+            <a href="https://hitokuchi.f5.si" target="_blank" class="banner"><img src="../banner/hitokuchi_banner.png" alt="バナー"></a><br>
+            <small>354px * 98px png形式 約24KB</small><br>
+            <div id="code">
+            <code>
+                <pre>&lt;a href="https://hitokuchi.f5.si" target="_blank"&gt;
     &lt;img src="https://hitokuchi.f5.si/banner/hitokuchi_banner.png" alt="バナー"&gt;
 &lt;/a&gt;</pre>
-                </code>
+            </code>
+        </div>
     </div>
     <br>
 </div>
@@ -213,6 +213,13 @@
             height: 100%;
             width: 90%;
             background-color: rgb(206, 230, 255);
+        }
+
+        .banner {
+            /* 画像サイズをアスペクト比を保ったまま画面と合わせる */
+            width: 100%;
+            height: auto;
+            object-fit: scale-down;
         }
     </style>
 </body>
