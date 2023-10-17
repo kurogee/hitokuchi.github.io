@@ -23,12 +23,12 @@
         gtag('config', 'G-FCB1XEM56C');
     </script>
      <script>
-        window.addEventListener("resize", function() {
+        window.addEventListener("DOMContentLoaded", function() {
   // 画面の幅が768px以下かどうかを判定
   if (window.innerWidth <= 768) {
     // テキストを書き換える
     document.getElementById("send-button").innerHTML = "送る";
-    document.getElementById("get-button").innerHTML = "受け取る";
+    document.getElementById("get-button").innerHTML =  "受け取る";
   }
 });
     </script>
