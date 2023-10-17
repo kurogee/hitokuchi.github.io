@@ -49,7 +49,8 @@
         <hr>
 
         There's also a banner!<br>
-        <a href="https://hitokuchi.f5.si" target="_blank"><img src="../banner/hitokuchi_banner.png" alt="バナー"></a><br>
+        <a href="https://hitokuchi.f5.si" target="_blank" class="banner"><img src="../banner/hitokuchi_banner.png" alt="Banner"></a><br>
+        <small>354px * 98px png About 24KB</small><br>
         <div id="code">
             <code>
                     <pre>&lt;a href="https://hitokuchi.f5.si" target="_blank"&gt;
@@ -148,5 +149,14 @@
                 // document.getElementById("events").innerHTML = "";
             }
         </script>
+
+        <style>
+            .banner {
+                /* 画像サイズをアスペクト比を保ったまま画面と合わせる */
+                width: 100%;
+                height: auto;
+                object-fit: scale-down;
+            }
+        </style>
     </body>
 </html>
