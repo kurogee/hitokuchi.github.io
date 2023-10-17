@@ -83,6 +83,12 @@ small {
     margin-top: -20px;
     display: flex;  
     width: 350px;
+
+    @media screen and (max-width: 768px) {
+        
+        font-size: 15px;
+    }
+
 }
 
 .icons_text h3 {
@@ -230,4 +236,13 @@ a.link_color:hover {
     width: 550px;
     margin-top: 10px;
     text-align: center;
+}
+
+.phone_share{
+
+    @media screen and (max-width: 768px) {
+        
+        display: none;
+    }
+
 }
