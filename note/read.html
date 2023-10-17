@@ -21,6 +21,13 @@
         
           gtag('config', 'G-FCB1XEM56C');
         </script>
+            <script>
+                window.addEventListener("DOMContentLoaded", function () {
+                if (window.innerWidth <= 768) {
+                document.getElementsByClassId("watch-note").textContent = "見る";
+                }
+                });
+            </script>
     </head>
     <body>
         <div class="box">
@@ -78,7 +85,7 @@
                         mem = result.split(",");
                         table_text +=  `<tr>
                                             <td class="notes">${mem[0]}</td>
-                                            <td class="url"><a href="./spread.html?id=${mem[1]}" class="link_color">〈　見る　〉</a></td>
+                                            <td class="url" id="watch-note"><a href="./spread.html?id=${mem[1]}" class="link_color">見る</a></td>
                                         </tr>`;
                     }
                     table_text += `</tbody></table>`;
