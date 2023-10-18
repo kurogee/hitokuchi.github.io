@@ -19,6 +19,13 @@
         
           gtag('config', 'G-FCB1XEM56C');
         </script>
+         <script>
+            window.addEventListener("DOMContentLoaded", function() {
+                if (window.innerWidth <= 768) {
+                    document.getElementById("button").value = "送る！";
+                }
+            });
+        </script>
     </head>
     <body>
         <div id="box">
@@ -45,7 +52,7 @@
             <small id="status"></small>
         </div>
         <br>
-        <div id="box">
+        <div class="box">
             絵文字やコマンドが利用できます<br>
             <table>
                 <thead>

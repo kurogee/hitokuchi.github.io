@@ -23,7 +23,7 @@
         </script>
     </head>
     <body>
-        <div id="box">
+        <div class="box">
             <h2>noteを検索する</h2>
             <a href="./index.html" class="link_color">noteのホームへ戻る</a> | <a href="./write.html" class="link_color">noteを書く</a><br>
             <small>サービスを使うことにより<a href="../tos/index.html">利用規約</a>に同意したとみなされます</small>
@@ -31,7 +31,7 @@
             <br>
         </div>
         <br>
-        <div id="box">
+        <div class="box">
             <br>
             <button onclick="get_notes()" id="button">noteを取得</button><br>
             <small id="status"></small>
@@ -78,7 +78,7 @@
                         mem = result.split(",");
                         table_text +=  `<tr>
                                             <td class="notes">${mem[0]}</td>
-                                            <td class="url"><a href="./spread.html?id=${mem[1]}" class="link_color">〈　見る　〉</a></td>
+                                            <td class="url" id="watch-note"><a href="./spread.html?id=${mem[1]}" class="link_color">見る</a></td>
                                         </tr>`;
                     }
                     table_text += `</tbody></table>`;

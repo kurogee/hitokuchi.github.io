@@ -6,7 +6,7 @@
     font-family: "dot_font";
     src: url('./dotFontTtf.ttf') format('truetype');
     src: url('./dotFontOtf.otf') format('opentype');
-} /* ドットフォント */
+} /* ドットフォント (一応程度の感じで...) */
 
 :root {
     --default-font-family: "Zen Maru Gothic", sans-serif;
@@ -39,9 +39,14 @@ small {
     border-radius: 10px 10px;
     height: 100%;
     width: 90%;
-    background-color: rgb(191, 242, 255);
-    box-shadow: 3.5px 3.5px 5px rgb(210, 210, 210);
+    background-color: rgb(221, 238, 255);
     width: 70%;
+    /*スマホに合わせて調整*/
+    width: 70%;
+    @media screen and (max-width: 768px) {
+        width: 90%;
+        height: 130%;
+    }
 }
 
 #button {
@@ -78,6 +83,17 @@ small {
     margin-top: -20px;
     display: flex;  
     width: 350px;
+
+    @media screen and (max-width: 768px) {
+        
+        font-size: 15px;
+    }
+
+    @media screen and (max-width: 350px) {
+        
+        display:none;
+    }
+
 }
 
 .icons_text h3 {
@@ -103,7 +119,7 @@ small {
     background-size: cover;
 }
 
-#title_text {
+.title_text {
     font-family: sans-serif;
 }
 
@@ -168,7 +184,7 @@ textarea {
 }
 
 body, html {
-    background: linear-gradient( rgb(220, 251, 255), rgb(152, 240, 255) );
+    background: linear-gradient( #add1f7, #7baee4 );
     background-attachment: fixed;
 }
 
@@ -196,6 +212,16 @@ a.link_color:hover {
 
 .catchphrase_color {
     color:#4383c7;
+
+    @media screen and (max-width: 768px) {
+
+        font-size: 27px;
+    }
+
+    @media screen and (max-width: 350px) {
+
+        font-size: 20px;
+    }
 }
 
 .button {
@@ -225,4 +251,13 @@ a.link_color:hover {
     width: 550px;
     margin-top: 10px;
     text-align: center;
+}
+
+.phone_share{
+
+    @media screen and (max-width: 768px) {
+        
+        display: none;
+    }
+
 }

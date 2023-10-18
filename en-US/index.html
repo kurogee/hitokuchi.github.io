@@ -15,38 +15,54 @@
     <body>
         <div id="box">
             <h2>Welcome to hitokuchi!</h2>
-            <a href="../index.html" class="link_color">Back to index</a>
+            <a href="../index.html" class="link_color" id="back-to-index">〈Back to index〉</a>
+            <p></p>
         </div>
        <!-- <div id="box">
             <h3>Upcoming Events</h3>
             <p id="events">There are currently no announcements</p>
             -->
+        <br>
+        <div class="box">
+            <h2 class="catchphrase_color">Let's convey your thoughts.</h2>
+            <p>
+                hitokuchi is a messaging service that allows you to send a message to someone you don't know <br> and receive a message from someone you don't know without registration!<br>
+            </p>
+            <p></p>
+            <div class="buttons">
+                <a href="./send.html" class="button">　Send messages　</a>　　<a href="./mes.html" class="button">　Get messages　</a>
+            </div>
+            <br>
         </div>
         <br>
-        <div id="box">
-            <p>
-                With "hitokuchi", you can send a message to someone you don't know without registering,<br>
-                It is a messaging service that allows you to receive messages from someone you do not know!<br>
-            </p>
-            <p>
-                Moreover, this feels like a letter attached to a balloon, <wbr>since you can't continue the conversation after sending it once!
-            </p>
-            ▶<a href="./send.html" class="link_color">Send messages</a>◀
-            <br>
-            <small>【Totally Free】</small>
-            <br>
-            ▶<a href="./mes.html" class="link_color">Get messages</a>◀
-            <br>
-            <small>【Totally Free】</small>
-        </div>
-        <br>
-        <div id="box">
+        <div class="box">
             <h3>Let's share!</h3>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi" data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi"
+                data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <br>
+            
+        <small>hitokuchi general index</small>
+        <input type="url" class="text" value="https://hitokuchi.f5.si" readonly><br>
+        <small>hitokuchi English index</small>
+        <input type="url" class="text" value="https://hitokuchi.f5.si/en-US/index.html" readonly><br>
+        <hr>
+        <div class="phone_share">
+            There's also a banner!<br>
+            <a href="https://hitokuchi.f5.si" target="_blank" class="banner"><img src="../banner/hitokuchi_banner.png"
+                    alt="Banner"></a><br>
+            <small>354px * 98px png About 24KB</small><br>
+
+            <div id="code">
+                <code>
+                    <pre>&lt;a href="https://hitokuchi.f5.si" target="_blank"&gt;
+                &lt;img src="https://hitokuchi.f5.si/banner/hitokuchi_banner.png" alt="banner"&gt;
+            &lt;/a&gt;</pre>
+                </code>
+            </div>
         </div>
         <br>
-        <div id="box">
+        <div class="box">
             <h3>Inquiry</h3>
             <small>
                 If you would like a reply, please enter your Discord name, Twitter username<wbr>or email in the text<br>
@@ -124,6 +140,7 @@
 
             <button onclick="send()"> Send </button><br>
             <small id="status"></small>
+            <p></p>
         </div>
 
         <script>
@@ -132,5 +149,14 @@
                 // document.getElementById("events").innerHTML = "";
             }
         </script>
+
+        <style>
+            .banner {
+                /* 画像サイズをアスペクト比を保ったまま画面と合わせる */
+                width: 100%;
+                height: auto;
+                object-fit: scale-down;
+            }
+        </style>
     </body>
 </html>
