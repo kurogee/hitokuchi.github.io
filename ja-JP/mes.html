@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <title>hitokuchi - GetMes</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../pagestyle.css">
-        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
-        <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-FCB1XEM56C');
-        </script>
-        
-        <script>
-            window.addEventListener("DOMContentLoaded", function () {
-                if (window.innerWidth <= 768) {
-                    document.getElementById("button").value = "受け取る！";
-                }
-            });
-        </script>
-    </head>
-    <body>
-        <div id="box">
+<head>
+    <title>hitokuchi - GetMes</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../pagestyle.css">
+    <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+    <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FCB1XEM56C');
+    </script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            if (window.innerWidth <= 768) {
+                document.getElementById("button").value = "受け取る！";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <p></p>
+        <a href="index.html" class="link_color">◀ホームに戻る</a>
+        <h3>
+            <div id="getmes" class="card">
+                <span class="title_text">ユーザー名</span>: <span id="user_name">運営</span><span
+                    id="special_icon"></span><br><br>
+                <span class="title_text">本文</span><br>
+                <span id="message">「メッセージを受け取る」を押してメッセージを受け取ってみよう！</span>
+            </div>
+        </h3>
+
+        自分のユーザー名: <input type="text" id="user" readonly><br>
+        <p></p>
+        <form>
+            <input type="hidden" value="get" id="type">
+            <input type="button" value="メッセージを受け取る！" id="button" onclick="get_mes();">
             <p></p>
-            <a href="index.html" class="link_color">◀ホームに戻る</a>
-            <h3>
-                <div id="getmes" class="card">
-                    <span class="title_text">ユーザー名</span>: <span id="user_name">運営</span><span id="special_icon"></span><br><br>
-                    <span class="title_text">本文</span><br>
-                    <span id="message">「メッセージを受け取る」を押してメッセージを受け取ってみよう！</span>
-                </div>
-            </h3>
-            
-            自分のユーザー名: <input type="text" id="user" readonly><br>
+            <small>【他の人もメッセージを取得できるようにお互いに配慮をお願いします】</small><br>
+            <small>※一通でもメッセージを送っていただかないと受信機能は利用できません</small>
             <p></p>
-            <form>
-                <input type="hidden" value="get" id="type">
-                <input type="button" value="メッセージを受け取る！" id="button" onclick="get_mes();"><p></p>
-                <small>【他の人もメッセージを取得できるようにお互いに配慮をお願いします】</small><br>
-                <small>※一通でもメッセージを送っていただかないと受信機能は利用できません</small>
-                <p></p>
-            </form>
-            <small id="status"></small>
-        </div>
-        <script src="../config.js"></script>
-        <script src="get_massage.js"></script>
-    </body>
+        </form>
+        <small id="status"></small>
+    </div>
+    <script src="../config.js"></script>
+    <script src="get_massage.js"></script>
+</body>
+
 </html>

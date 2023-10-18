@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <title>hitokuchi review</title>
 
-        <meta charset="utf-8">
-        <meta property="og:title" content="hitokuchi review">
-        <meta property="og:description" content="hitokuchi(ひとくち)は色々なサービスを展開していきます。">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>hitokuchi review</title>
 
-        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
-        <link rel="stylesheet" href="../pagestyle.css">
+    <meta charset="utf-8">
+    <meta property="og:title" content="hitokuchi review">
+    <meta property="og:description" content="hitokuchi(ひとくち)は色々なサービスを展開していきます。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-FCB1XEM56C');
-        </script>
+    <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+    <link rel="stylesheet" href="../pagestyle.css">
 
-        <script>
-            window.addEventListener("DOMContentLoaded", function () {
-                // 画面の幅が768px以下かどうかを判定
-                if (window.innerWidth <= 768) {
-                    // テキストを書き換える
-                    document.getElementById("watchreview").innerHTML = "　見る　";
-                    document.getElementById("sendreview").innerHTML = "　登録　";
-                }
-            });
-        </script>
-    </head>
-    <body>
-        <div id="box">
-            <h2>hitokuchi review</h2>
-            <a href="../ja-JP/index.html" class="link_color">hitokuchiへ戻る</a>
-            <p></p>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FCB1XEM56C');
+    </script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            // 画面の幅が768px以下かどうかを判定
+            if (window.innerWidth <= 768) {
+                // テキストを書き換える
+                document.getElementById("watchreview").innerHTML = "　見る　";
+                document.getElementById("sendreview").innerHTML = "　登録　";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <h2>hitokuchi review</h2>
+        <a href="../ja-JP/index.html" class="link_color">hitokuchiへ戻る</a>
+        <p></p>
+    </div>
+    <br>
+    <div class="box">
+        <h3>hitokuchi reviewとは？</h3>
+        <p>
+            hitokuchi reviewとは、<wbr>Webサイトにコメントを添えて投稿できるサービスです！<br>
+            サイトに対する評価を入力しても良いし、<wbr>サイトの宣伝をしても良いサービスです！<br>
+            あなたのお気に入りサイトも登録してみませんか？<br>
+            <br>
+        <div>
+            <a href="sendreview.html" class="button" id="sendreview">reviewにサイトを登録する！</a>　 <a href="watchreview.html"
+                class="button" id="watchreview">　　　reviewを見る！　　　</a><br><br>
         </div>
-        <br>
-        <div class="box">
-            <h3>hitokuchi reviewとは？</h3>
-            <p>
-                hitokuchi reviewとは、<wbr>Webサイトにコメントを添えて投稿できるサービスです！<br>
-                サイトに対する評価を入力しても良いし、<wbr>サイトの宣伝をしても良いサービスです！<br>
-                あなたのお気に入りサイトも登録してみませんか？<br>
-                <br>
-                <div>
-                    <a href="sendreview.html" class="button" id="sendreview">reviewにサイトを登録する！</a>　 <a href="watchreview.html" class="button" id="watchreview">　　　reviewを見る！　　　</a><br><br>
-                </div>
-            </p>
-        </div>
-    </body>
+        </p>
+    </div>
+</body>
+
 </html>
