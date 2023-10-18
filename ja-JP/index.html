@@ -23,15 +23,15 @@
         gtag('config', 'G-FCB1XEM56C');
     </script>
     <script>
-        window.addEventListener("DOMContentLoaded", function() {
+        window.addEventListener("DOMContentLoaded", function () {
             // 画面の幅が768px以下かどうかを判定
             if (window.innerWidth <= 768) {
-              // テキストを書き換える
-              document.getElementById("send-button").innerHTML = "送る";
-              document.getElementById("get-button").innerHTML =  "受け取る";
-              document.getElementById("back-to-index").innerHTML =  "〈Back to index〉";
-              document.getElementById("dot").innerHTML =  "〈???〉";
-              
+                // テキストを書き換える
+                document.getElementById("send-button").innerHTML = "送る";
+                document.getElementById("get-button").innerHTML = "受け取る";
+                document.getElementById("back-to-index").innerHTML = "〈Back to index〉";
+                document.getElementById("dot").innerHTML = "〈???〉";
+
             }
         });
     </script>
@@ -66,16 +66,21 @@
         <p></p>
 
         <div class="buttons">
-            <a href="./send.html" class="button" id="send-button">　メッセージを送る　</a>　　<a href="./mes.html" class="button" id="get-button">メッセージを受け取る</a>
+
+            <a href="./send.html" class="button" id="send-button">　メッセージを送る　</a>　　<a href="./mes.html" class="button"
+                id="get-button">メッセージを受け取る</a>
         </div>
-        
+      <br>
         <hr>
 
         <h3>他のサービス</h3>
         <div class="icons">
-            <a href="../mail/index.html"><img src="../index_icon/Mail_icon.webp" width="70" height="70" class="icons_image_webp"></a>
-            <a href="../review/index.html"><img src="../index_icon/Review_icon.webp" width="70" height="70" class="icons_image_webp"></a>
-            <a href="../note/index.html"><img src="../index_icon/Note_icon.webp" width="70" height="70" class="icons_image_webp"></a>
+            <a href="../mail/index.html"><img src="../index_icon/Mail_icon.webp" width="70" height="70"
+                    class="icons_image_webp"></a>
+            <a href="../review/index.html"><img src="../index_icon/Review_icon.webp" width="70" height="70"
+                    class="icons_image_webp"></a>
+            <a href="../note/index.html"><img src="../index_icon/Note_icon.webp" width="70" height="70"
+                    class="icons_image_webp"></a>
         </div>
         <div class="icons_text">
             <h3>Mail</h3>
@@ -100,128 +105,132 @@
 
         <div class="phone_share">
             バナーもあるよ<br>
-            <a href="https://hitokuchi.f5.si" target="_blank" class="banner"><img src="../banner/hitokuchi_banner.png" alt="バナー"></a><br>
+            <a href="https://hitokuchi.f5.si" target="_blank" class="banner"><img src="../banner/hitokuchi_banner.png"
+                    alt="バナー"></a><br>
             <small>354px * 98px png形式 約24KB</small><br>
             <div id="code">
-            <code>
+                <code>
                 <pre>&lt;a href="https://hitokuchi.f5.si" target="_blank"&gt;
     &lt;img src="https://hitokuchi.f5.si/banner/hitokuchi_banner.png" alt="バナー"&gt;
 &lt;/a&gt;</pre>
             </code>
+            </div>
         </div>
-    </div>
-    <br>
-    <div class="box">
-        <h3>お問い合わせ・削除要請等</h3>
-
-        <small>
-            返信を希望する際は本文中にDiscord名、Twitterユーザー名<wbr>もしくはemailを入力してください<br>
-            DiscordとTwitterではDMへ<wbr>　emailでは自分のemailでやってまいります<br>
-            いずれも未入力の場合で返信が必要な時はこのサイト上でメッセージをほぼ全文表示して返信いたします<br>
-            怪しい内容やよくわからない内容には返信・反応は出来ません
-        </small>
         <br>
-        件名<br>
-        <input type="text" id="message_about" class="text"><br>
-        お問い合わせ内容<br>
-        <textarea id="area" class="toiawase" style="height: 100px;"></textarea><br>
+        <div class="box">
+            <h3>お問い合わせ・削除要請等</h3>
 
-        <script src="../mail/config.js"></script>
-        <script>
-            async function send() {
-                const url = key.url;
-                const states = document.getElementById("states");
+            <small>
+                返信を希望する際は本文中にDiscord名、Twitterユーザー名<wbr>もしくはemailを入力してください<br>
+                DiscordとTwitterではDMへ<wbr>　emailでは自分のemailでやってまいります<br>
+                いずれも未入力の場合で返信が必要な時はこのサイト上でメッセージをほぼ全文表示して返信いたします<br>
+                怪しい内容やよくわからない内容には返信・反応は出来ません
+            </small>
+            <br>
+            件名<br>
+            <input type="text" id="message_about" class="text"><br>
+            お問い合わせ内容<br>
+            <textarea id="area" class="toiawase" style="height: 100px;"></textarea><br>
 
-                states.innerHTML = "お待ちください...";
-                states.style.color = "red";
+            <script src="../mail/config.js"></script>
+            <script>
+                async function send() {
+                    const url = key.url;
+                    const states = document.getElementById("states");
 
-                const user_id = "admin";
-                const from_id = `お問い合わせ<br>件名: ${document.getElementById("message_about").value}`;
+                    states.innerHTML = "お待ちください...";
+                    states.style.color = "red";
 
-                let message = document.getElementsByClassName("toiawase")[0].value;
-                message = message.split("&").join("&amp;"); // 下の&と一緒にreplaceされてしまうので修正
-                message = message.split("<").join("&lt;"); // &lt;&gt;
-                message = message.split(">").join("&gt;");
-                message = message.split("\n").join("<br>");
+                    const user_id = "admin";
+                    const from_id = `お問い合わせ<br>件名: ${document.getElementById("message_about").value}`;
 
-                message = message.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
-                message = message.replace(/\[b (.+?)\]/g, "<span class='hutoji'>$1</span>");
-                message = message.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
-                message = message.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
+                    let message = document.getElementsByClassName("toiawase")[0].value;
+                    message = message.split("&").join("&amp;"); // 下の&と一緒にreplaceされてしまうので修正
+                    message = message.split("<").join("&lt;"); // &lt;&gt;
+                    message = message.split(">").join("&gt;");
+                    message = message.split("\n").join("<br>");
 
-                const today = new Date();
-                const today_text = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
-                message = message.replace(/:DATE:/g, `<span>${today_text}</span>`);
+                    message = message.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
+                    message = message.replace(/\[b (.+?)\]/g, "<span class='hutoji'>$1</span>");
+                    message = message.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
+                    message = message.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
 
-                if (document.getElementById("message_about").value.trim() != "" && message.trim() != "" && user_id.trim() != "") {
-                    const response = await fetch(
-                        url,
-                        {
-                            method: "POST",
-                            body: JSON.stringify({
-                                "to": user_id,
-                                "from": from_id,
-                                "message": message,
-                                "request": "send"
+                    const today = new Date();
+                    const today_text = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
+                    message = message.replace(/:DATE:/g, `<span>${today_text}</span>`);
+
+                    if (document.getElementById("message_about").value.trim() != "" && message.trim() != "" && user_id.trim() != "") {
+                        const response = await fetch(
+                            url,
+                            {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    "to": user_id,
+                                    "from": from_id,
+                                    "message": message,
+                                    "request": "send"
+                                })
+                            }
+                        )
+                            .then((response) => response.text())
+
+                            .then((data) => {
+                                return JSON.parse(data);
+
+
                             })
+                            .catch((error) => {
+                                return "posterror";
+                            });
+
+                        if (response.result.match("wrong_to")) {
+                            states.innerHTML = "エラー: 宛先が誤っています";
+                        } else if (response.result.match("ok")) {
+                            document.getElementById("message_about").value = "";
+                            document.getElementsByClassName("toiawase")[0].value = "";
+                            states.innerHTML = "送信済み";
                         }
-                    )
-                        .then((response) => response.text())
-
-                        .then((data) => {
-                            return JSON.parse(data);
-                        })
-                        .catch((error) => {
-                            return "posterror";
-                        });
-
-                    if (response.result.match("wrong_to")) {
-                        states.innerHTML = "エラー: 宛先が誤っています";
-                    } else if (response.result.match("ok")) {
-                        document.getElementById("message_about").value = "";
-                        document.getElementsByClassName("toiawase")[0].value = "";
-                        states.innerHTML = "送信済み";
+                    } else {
+                        states.innerHTML = "エラー: メッセージ等を入力してください";
                     }
-                } else {
-                    states.innerHTML = "エラー: メッセージ等を入力してください";
                 }
+            </script>
+
+            <button onclick="send()">　送信　</button><br>
+            <small id="states"></small>
+            <p></p>
+        </div>
+
+        <br>
+        <div class="box">
+            <h3>管理人の部屋</h3>
+            ▶<a href="../admin_room/index.html" class="link_color">Let's go!!!!</a>◀
+            <p></p>
+            <p></p>
+        </div>
+        <p></p>
+        <script>
+            window.onload = () => {
+                const day = new Date().getDay();
+                // document.getElementById("events").innerHTML = "";
             }
         </script>
+        <style>
+            #special_box {
+                border: 3px none black;
+                border-radius: 5px 5px;
+                height: 100%;
+                width: 90%;
+                background-color: rgb(206, 230, 255);
+            }
 
-        <button onclick="send()">　送信　</button><br>
-        <small id="states"></small>
-        <p></p>
+            .banner {
+                /* 画像サイズをアスペクト比を保ったまま画面と合わせる */
+                width: 100%;
+                height: auto;
+                object-fit: scale-down;
+            }
+        </style>
     </div>
-
-    <br>
-    <div class="box">
-        <h3>管理人の部屋</h3>
-        ▶<a href="../admin_room/index.html" class="link_color">Let's go!!!!</a>◀
-        <p></p>
-        <p></p>
-    </div>
-
-    <script>
-        window.onload = () => {
-            const day = new Date().getDay();
-            // document.getElementById("events").innerHTML = "";
-        }
-    </script>
-    <style>
-        #special_box {
-            border: 3px none black;
-            border-radius: 5px 5px;
-            height: 100%;
-            width: 90%;
-            background-color: rgb(206, 230, 255);
-        }
-
-        .banner {
-            /* 画像サイズをアスペクト比を保ったまま画面と合わせる */
-            width: 100%;
-            height: auto;
-            object-fit: scale-down;
-        }
-    </style>
 </body>
 </html>
