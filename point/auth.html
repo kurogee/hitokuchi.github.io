@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>認証</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+        <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../pagestyle.css">
+        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+    </head>
+    <body>
+        <div class="box">
+            <a href="../ja-JP/index.html" class="link_color">◀ホームに戻る</a>
+            <h2>認証</h2>
+        </div>
+        <br>
+        <div id="box">
+            <form>
+                <span id="where_to_pay" class="hutoji"></span> に <span id="how_much" class="hutoji"></span> pt <span id="text" class="hutoji"></span>ことに<br>
+                <div id="anything"></div>
+                <input type="button" class="button" onclick="agree();" value="同意します"> <input type="button" class="button" onclick="not_agree();" value="同意しません">
+            </form>
+            <small id="status"></small>
+            <a href="" id="link_for_javascript"></a>
+        </div>
+
+        <script>
+            const where = sessionStorage.where_to_pay;
+            const how = sessionStorage.how_much;
+            const text_for_display = sessionStorage.text.match("pay") ? "支払う" : "受け取る";
+
+            document.addEventListener("DOMContentLoaded", function() {
+                const status = document.getElementById("status");
+
+                const where_to_pay = document.getElementById("where_to_pay");
+                const how_much = document.getElementById("how_much");
+                const text = document.getElementById("text");
+                const anything = document.getElementById("anything");
+
+                where_to_pay.innerHTML = where;
+                how_much.innerHTML = how;
+                text.innerHTML = text_for_display;
+            });
+
+            function agree() {
+                sessionStorage.clear();
+                sessionStorage.agree = true;
+                sessionStorage.how_much = parseInt(how);
+
+                window.close();
+            }
+
+            function not_agree() {
+                sessionStorage.clear();
+                sessionStorage.agree = false;
+
+                window.close();
+            }
+        </script>
+    </body>
+</html>

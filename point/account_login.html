@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="box">
-            <a href="index.html">◀ホームに戻る</a> | <a href="getpoint.html">ポイントポータルに戻る▶</a>
+            <a href="index.html">◀ポイントポータルに戻る</a>
             <h2>アカウントログイン</h2>
         </div>
         <br>
@@ -24,15 +24,17 @@
                 <input type="hidden" id="req" value="login">
                 <input type="button" value="ログイン" onclick="login()">　<input type="reset" value="取り消し">
             </form>
-            <small id="states"></small>
+            <small id="status"></small>
         </div>
         <a href="" id="url"></a>
 
+        <script src="../config.js"></script>
+        <script src="./point.js"></script>
         <script>
             async function login() {
-                const states = document.getElementById("states");
-                states.innerHTML = "お待ちください...";
-                states.style.color = "red";
+                const status = document.getElementById("status");
+                status.innerHTML = "お待ちください...";
+                status.style.color = "red";
 
                 if (document.getElementById("user_id").value != "" && document.getElementById("user_pass").value != "") {
                     const response = await fetch(
@@ -57,7 +59,7 @@
                     });
 
                     if (response.result.match("no")) {
-                        states.innerHTML = "エラー: パスワードまたはIDが違います";
+                        status.innerHTML = "エラー: パスワードまたはIDが違います";
                         console.log(response)
                     
                     } else if (response.result.match("go")) {
@@ -65,11 +67,11 @@
 
                         localStorage.setItem("login_data_name", document.getElementById("user_id").value);
 
-                        url.href = "./getpoint.html";
+                        url.href = "./index.html";
                         url.click();
                     }
                 } else {
-                    states.innerHTML = "エラー: あいことばもIDも入力してください";
+                    status.innerHTML = "エラー: あいことばもIDも入力してください";
                 }
 
             }
@@ -78,7 +80,5 @@
                 return false;
             }
         </script>
-        <script src="../config.js"></script>
-        <script src="point.js"></script>
     </body>
 </html>
