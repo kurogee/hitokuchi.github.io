@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>ポイントポータル</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+        <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../pagestyle.css">
+        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+    </head>
+    <body>
+        <div class="box">
+            <a href="../ja-JP/index.html" class="link_color">◀ホームに戻る</a>
+            <h2>ポイントポータル</h2>
+        </div>
+        <br>
+        <div class="box">
+            <h2>現在開催中のポイントイベント</h2>
+            <p>注意: アカウント登録をしないと、アンケートに答えてもポイントを獲得できません。</p>
+            <div>
+                <h3>アンケート</h3>
+                    <a href="https://forms.gle/sq1ZTNSEqaZaWoHH8" target="_blank" class="link_color">野菜に関するアンケート [10pt]</a><br>
+                    <a href="https://forms.gle/ijkzZWJ1BhuqPEGAA" target="_blank" class="link_color">IT・ネットに関するアンケート [10pt]</a><br>
+                    <a href="https://forms.gle/onXoo59MJeohJhXz7" target="_blank" class="link_color">SNSに関するアンケート [10pt]</a><br>
+                    <a href="https://forms.gle/eCaukz43za649SCD8" target="_blank" class="link_color">AIに関するアンケート [10pt]</a><br>
+                    <a href="https://forms.gle/hQKWYKD1zrcmifnd7" target="_blank" class="link_color">スマホに関するアンケート [10pt]</a><br>
+                
+                <hr>
+                <h3>ゲームで貯める！</h3>
+            </div>
+        </div>
+        <br>
+        <div id="box">
+            <h3>アカウントステータス</h3>
+            <div id="alert">
+                しばらくお待ちください...
+            </div>
+        </div>
+        <a href="" id="url"></a>
+
+        <script src="../config.js"></script>
+        <script src="./point.js"></script>
+        <script>
+            async function get_point(user) {
+                const res = await fetch(point_url,
+                            {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    "id": user,
+                                    "req": "check_point"
+                                })
+                            })
+                            .then(res => { return res.text() })
+                            .then(data => { return JSON.parse(data) });
+                return res;
+            }
+
+            window.onload = async () => {
+                const alert = document.getElementById("alert");
+                const user = localStorage.getItem("login_data_name");
+                const res = await get_point(user);
+
+                if (user != null && user != "") {
+                    alert.innerHTML = `現在 ${user} としてログインしています<br>
+                    現在のポイント数: ${res.result}<br>
+                    <form>
+                        <input type="hidden" name="type" value="logout">
+                        <input type="button" value="ログアウト" onclick="logout()">
+                    </form>
+                    <hr>
+                    <h3>ポイント追加</h3>
+                    <form>
+                        <input type="text" name="uuid" id="uuid" placeholder="アンケートの最後に出てきたポイント交換ID" class="text"><br>
+                        <input type="hidden" name="req" id="req" value="change_point">
+                        <input type="hidden" id="user_id" value="${user}">
+                        <input type="button" value="ポイントを追加する！" onclick="send_change()">　<input type="reset" value="取り消し">
+                    </form>
+                    <small id="status"></small>
+                    <hr>
+                    <div>
+                        <h3>ポイントを使う</h3>
+                        <small id="status2"></small>
+                        <div>
+                            <form>
+                                <small>草花フレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('kusabana', 0)">
+                            </form>
+
+                            <form>
+                                <small>コーヒーフレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('coffee', 1)">
+                            </form>
+
+                            <form>
+                                <small>おしゃれモノクロフレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('mono', 2)">
+                            </form>
+
+                            <form>
+                                <small>ひまわりフレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('himawari', 3)">
+                            </form>
+
+                            <form>
+                                <small>ポップな音符フレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('onpu', 4)">
+                            </form>
+
+                            <form>
+                                <small>スターフレーム(By ei-max) [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('star', 5)">
+                            </form>
+
+                            <form>
+                                <small>テスト用 [0pt]</small>
+                                <input type="hidden" class="use_point" value="0">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('star', 6)">
+                            </form>
+                        </div>
+                    </div>`;
+                } else {
+                    alert.innerHTML = `アカウント登録がお済みでない方は、ここから登録してください<br>
+                    <a href="./account.html">アカウント登録</a> | <a href="./account_login.html">ログイン</a>
+                    <br>`;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="box">
-            <a href="index.html">◀ホームに戻る</a> | <a href="getpoint.html">ポイントポータルに戻る▶</a>
+            <a href="index.html">◀ポイントポータルに戻る</a>
             <h2>アカウント作成</h2>
         </div>
         <br>
@@ -24,22 +24,24 @@
                 <input type="hidden" id="req" value="join">
                 <input type="button" value="登録" onclick="signup()">　<input type="reset" value="取り消し">
             </form>
-            <small id="states"></small>
+            <small id="status"></small>
         </div>
         <br>
         <div id="box">
             <p>
                 注意: 「パスワード」ではなく「合言葉」です。<br>
-                セキュリティで保護されていないので、本当のパスワードを入れないでください
+                完全にセキュリティで保護されていないので、本当のパスワードを入れないでください
             </p>
         </div>
         <a href="" id="url"></a>
 
+        <script src="../config.js"></script>
+        <script src="./point.js"></script>
         <script>
             async function signup() {
-                const states = document.getElementById("states");
-                states.innerHTML = "お待ちください...";
-                states.style.color = "red";
+                const status = document.getElementById("status");
+                status.innerHTML = "お待ちください...";
+                status.style.color = "red";
 
                 if (document.getElementById("user_id").value != "" && document.getElementById("user_pass").value != "") {
                     const response = await fetch(
@@ -64,16 +66,16 @@
                     });
 
                     if (response.result.match("no")) {
-                        states.innerHTML = "エラー: 同じIDがすでに登録されています";
+                        status.innerHTML = "エラー: 同じIDがすでに登録されています";
                         console.log(response)
                     
                     } else if (response.result.match("ok")) {
                         const url = document.getElementById("url")
 
-                        states.innerHTML = "登録完了";
+                        status.innerHTML = "登録完了";
                     }
                 } else {
-                    states.innerHTML = "エラー: あいことばもIDも入力してください";
+                    status.innerHTML = "エラー: あいことばもIDも入力してください";
                 }
                 
                 document.getElementById("user_id").value = "";
@@ -84,7 +86,5 @@
                 return false;
             }
         </script>
-        <script src="../config.js"></script>
-        <script src="point.js"></script>
     </body>
 </html>
