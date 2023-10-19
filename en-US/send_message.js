@@ -2,7 +2,7 @@ const fetch_url = key.message_fetch_url
 
 function replace_text(text) {
     let result = text;
-    
+
     result = result.split("&").join("&amp;");
     result = result.split("<").join("&lt;");
     result = result.split(">").join("&gt;");
@@ -30,7 +30,7 @@ async function send_mes() {
 
     status.innerHTML = "Please wait...";
     button.setAttribute("disabled", true);
-    
+
     if (document.getElementById("user").value != "" && document.getElementById("area").value.replace("\n", "") != "") {
         const response = await fetch(
             fetch_url,
@@ -44,22 +44,22 @@ async function send_mes() {
                 })
             }
         )
-        .then(response => response.text())
+            .then(response => response.text())
 
-        .then(data => {
-            sendip(document.getElementById("user").value, document.getElementById("area").value, "hitokuchi(ENG)");
+            .then(data => {
+                sendip(document.getElementById("user").value, document.getElementById("area").value, "hitokuchi(ENG)");
 
-            status.innerHTML = "transmission complete";
-            document.getElementById("area").value = "";
-            localStorage.setItem("user", document.getElementById("user").value);
-            return JSON.parse(data);
-        })
+                status.innerHTML = "transmission complete";
+                document.getElementById("area").value = "";
+                localStorage.setItem("user", document.getElementById("user").value);
+                return JSON.parse(data);
+            })
 
-        .catch(err => {
-            console.error(err);
-            status.innerHTML = "Unknown Error";
-            return;
-        })
+            .catch(err => {
+                console.error(err);
+                status.innerHTML = "Unknown Error";
+                return;
+            })
     } else {
         status.innerHTML = "Please enter a user name and text!";
     }

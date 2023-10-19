@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <title>サインアップ</title>
-        <meta charset="utf-8">
-        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
-        <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../pagestyle.css">
-        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
-    </head>
-    <body>
-        <div class="box">
-            <h2>hitokuchi mail</h2>
-            <a href="index.html" class="link_color">トップ</a>
+
+<head>
+    <title>サインアップ</title>
+    <meta charset="utf-8">
+    <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+    <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../pagestyle.css">
+    <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+</head>
+
+<body>
+    <div class="box">
+        <h2>hitokuchi mail</h2>
+        <a href="index.html" class="link_color">トップ</a>
+        <p></p>
+    </div>
+    <br>
+    <div class="box">
+        <h3 id="title">サインアップ</h3>
+        <div id="login_box">
+            <form>
+                ユーザー名: <input type="text" name="username" id="user_id"> @hitokuchi.mail<br>
+                合言葉: <input type="password" name="password" id="user_pass"><br>
+                <input type="hidden" id="req" value="join">
+                <input type="button" value="アカウント作成" onclick="signup()">　<input type="reset" value="取り消し">
+            </form>
             <p></p>
         </div>
-        <br>
-        <div class="box">
-            <h3 id="title">サインアップ</h3>
-            <div id="login_box">
-                <form>
-                    ユーザー名: <input type="text" name="username" id="user_id"> @hitokuchi.mail<br>
-                    合言葉: <input type="password" name="password" id="user_pass"><br>
-                    <input type="hidden" id="req" value="join">
-                    <input type="button" value="アカウント作成" onclick="signup()">　<input type="reset" value="取り消し">
-                </form>
-                <p></p>
-            </div>
-            <small id="states"></small>
-        </div>
-        <a href="" id="url"></a>
-        <script src="./config.js"></script>
-        <script>
-            const url = key.url;
+        <small id="states"></small>
+    </div>
+    <a href="" id="url"></a>
+    <script src="./config.js"></script>
+    <script>
+        const url = key.url;
 
-            async function signup() {
-                const states = document.getElementById("states");
-                states.innerHTML = "お待ちください...";
-                states.style.color = "red";
+        async function signup() {
+            const states = document.getElementById("states");
+            states.innerHTML = "お待ちください...";
+            states.style.color = "red";
 
-                const user_id = document.getElementById("user_id").value;
-                const user_pass = document.getElementById("user_pass").value;
+            const user_id = document.getElementById("user_id").value;
+            const user_pass = document.getElementById("user_pass").value;
 
-                if (user_id.trim() != "" && user_pass.trim() != "" && !user_id.match(",")) {
-                    const response = await fetch(
-                        url,
-                        {
-                            method: "POST",
-                            body: JSON.stringify({
-                                "address": user_id,
-                                "password": user_pass,
-                                "request": document.getElementById("req").value
-                            })
-                        }
-                    )
+            if (user_id.trim() != "" && user_pass.trim() != "" && !user_id.match(",")) {
+                const response = await fetch(
+                    url,
+                    {
+                        method: "POST",
+                        body: JSON.stringify({
+                            "address": user_id,
+                            "password": user_pass,
+                            "request": document.getElementById("req").value
+                        })
+                    }
+                )
                     .then((response) => response.text())
 
-                    .then((data)=>{
+                    .then((data) => {
                         return JSON.parse(data);
                     })
 
@@ -65,24 +67,25 @@
                         return "posterror";
                     });
 
-                    if (response.result == "sonzaizumi") {
-                        states.innerHTML = "エラー: そのアカウント名は既に存在します";
-                    } else if (response.result.match("ok")) {
-                        const jump_url = document.getElementById("url");
-                        jump_url.href = "./index.html";
-                        jump_url.click();
-                    } else {
-                        states.innerHTML = "エラー";
-                    }
+                if (response.result == "sonzaizumi") {
+                    states.innerHTML = "エラー: そのアカウント名は既に存在します";
+                } else if (response.result.match("ok")) {
+                    const jump_url = document.getElementById("url");
+                    jump_url.href = "./index.html";
+                    jump_url.click();
                 } else {
-                    states.innerHTML = "エラー: あいことばもIDも入力してください<br>または使用できない文字が入力されました";
+                    states.innerHTML = "エラー";
                 }
-
+            } else {
+                states.innerHTML = "エラー: あいことばもIDも入力してください<br>または使用できない文字が入力されました";
             }
 
-            document.getElementsByTagName('html')[0].oncontextmenu = () => {
-                return false;
-            }
-        </script>
-    </body>
+        }
+
+        document.getElementsByTagName('html')[0].oncontextmenu = () => {
+            return false;
+        }
+    </script>
+</body>
+
 </html>

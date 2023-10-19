@@ -1,84 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>hitokuchi - Send</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../pagestyle.css">
-        <meta property="og:title" content="hitokuchi">
-        <meta property="og:description" content="With hitokuchi, you can send a message to someone you don't know without registering!">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
-    </head>
-    <body>
-        <div id="box">
-            <p></p>
-            <a href="index.html" class="link_color">◀ Back to Home</a>
-            <h3>Create a new message.</h3>
-            <small>By using the service, you are deemed to have agreed to the <a href="../tos/index.html">Terms of Use</a>.</small>
 
-            <hr>
+<head>
+    <title>hitokuchi - Send</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../pagestyle.css">
+    <meta property="og:title" content="hitokuchi">
+    <meta property="og:description"
+        content="With hitokuchi, you can send a message to someone you don't know without registering!">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+</head>
 
-            <form>
-                <input type="hidden" value="send" id="type">
-                User Name<br>
-                <small>【Do not put your real name, but use the same user name each time!】</small>
-                <input type="text" id="user"><br>
+<body>
+    <div id="box">
+        <p></p>
+        <a href="index.html" class="link_color">◀ Back to Home</a>
+        <h3>Create a new message.</h3>
+        <small>By using the service, you are deemed to have agreed to the <a href="../tos/index.html">Terms of
+                Use</a>.</small>
 
-                Message<br>
-                <small>【Do not include personal information in your message】</small>
-                <textarea id="area"></textarea>
-                <input type="button" value="Send a message!" id="button" onclick="send_mes();">
-            </form>
-            <small id="status"></small>
-            <br>
-        </div>
+        <hr>
+
+        <form>
+            <input type="hidden" value="send" id="type">
+            User Name<br>
+            <small>【Do not put your real name, but use the same user name each time!】</small>
+            <input type="text" id="user"><br>
+
+            Message<br>
+            <small>【Do not include personal information in your message】</small>
+            <textarea id="area"></textarea>
+            <input type="button" value="Send a message!" id="button" onclick="send_mes();">
+        </form>
+        <small id="status"></small>
         <br>
-        <div class="box">
-            Emoji available<br>
-            <table>
-                <thead>
-                    <th>Emoji Command</th><th>Example of use</th><th>Command</th><th>Example of use</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>:hitokuchi:</td><td><img src="../emoji/hitokuchi.webp" alt=" (emoji) " class="emoji"></td>
-                        <td>$(URL)[the text to display]</td><td>Create clickable links to external sites</td>
-                    </tr>
-                    <tr>
-                        <td>:a:</td><td><img src="../emoji/a!.webp" alt=" (emoji) " class="emoji"></td>
-                        <td>[b text]</td><td>Text will be in bold.</td>
-                    </tr>
-                    <tr>
-                        <td>:bikkuri:</td><td><img src="../emoji/bikkuri.webp" alt=" (emoji) " class="emoji"></td>
-                        <td>[i text]</td><td>Text will be italicized.</td>
-                    </tr>
-                    <tr>
-                        <td>:ganbare:</td><td><img src="../emoji/ganbare.webp" alt=" (emoji) " class="emoji"></td>
-                        <td>[d text]</td><td>The text will be strikethrough.</td>
-                    </tr>
-                    <tr>
-                        <td>:hanataka:</td><td><img src="../emoji/hanataka.webp" alt=" (emoji) " class="emoji"></td>
-                    </tr>
-                    <tr>
-                        <td>:iine:</td><td><img src="../emoji/iine.webp" alt=" (emoji) " class="emoji"></td>
-                    </tr>
-                    <tr>
-                        <td>:sleep:</td><td><img src="../emoji/sleep.webp" alt=" (emoji) " class="emoji"></td>
-                    </tr>
-                    <tr>
-                        <td>:yatta:</td><td><img src="../emoji/yatta.webp" alt=" (emoji) " class="emoji"></td>
-                    </tr>
-                    <tr>
-                        <td>:yorokobi:</td><td><img src="../emoji/yorokobi.webp" alt=" (emoji) " class="emoji"></td>
-                    </tr>
-                    <tr>
-                        <td>:tako:</td><td><img src="../emoji/tako.webp" alt=" (emoji) " class="emoji"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <script src="../config.js"></script>
-        <script src="send_message.js"></script>
-    </body>
+    </div>
+    <br>
+    <div class="box">
+        Emoji available<br>
+        <table>
+            <thead>
+                <th>Emoji Command</th>
+                <th>Example of use</th>
+                <th>Command</th>
+                <th>Example of use</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>:hitokuchi:</td>
+                    <td><img src="../emoji/hitokuchi.webp" alt=" (emoji) " class="emoji"></td>
+                    <td>$(URL)[the text to display]</td>
+                    <td>Create clickable links to external sites</td>
+                </tr>
+                <tr>
+                    <td>:a:</td>
+                    <td><img src="../emoji/a!.webp" alt=" (emoji) " class="emoji"></td>
+                    <td>[b text]</td>
+                    <td>Text will be in bold.</td>
+                </tr>
+                <tr>
+                    <td>:bikkuri:</td>
+                    <td><img src="../emoji/bikkuri.webp" alt=" (emoji) " class="emoji"></td>
+                    <td>[i text]</td>
+                    <td>Text will be italicized.</td>
+                </tr>
+                <tr>
+                    <td>:ganbare:</td>
+                    <td><img src="../emoji/ganbare.webp" alt=" (emoji) " class="emoji"></td>
+                    <td>[d text]</td>
+                    <td>The text will be strikethrough.</td>
+                </tr>
+                <tr>
+                    <td>:hanataka:</td>
+                    <td><img src="../emoji/hanataka.webp" alt=" (emoji) " class="emoji"></td>
+                </tr>
+                <tr>
+                    <td>:iine:</td>
+                    <td><img src="../emoji/iine.webp" alt=" (emoji) " class="emoji"></td>
+                </tr>
+                <tr>
+                    <td>:sleep:</td>
+                    <td><img src="../emoji/sleep.webp" alt=" (emoji) " class="emoji"></td>
+                </tr>
+                <tr>
+                    <td>:yatta:</td>
+                    <td><img src="../emoji/yatta.webp" alt=" (emoji) " class="emoji"></td>
+                </tr>
+                <tr>
+                    <td>:yorokobi:</td>
+                    <td><img src="../emoji/yorokobi.webp" alt=" (emoji) " class="emoji"></td>
+                </tr>
+                <tr>
+                    <td>:tako:</td>
+                    <td><img src="../emoji/tako.webp" alt=" (emoji) " class="emoji"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="../config.js"></script>
+    <script src="send_message.js"></script>
+</body>
+
 </html>

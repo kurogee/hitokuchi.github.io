@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Balloon-like Social Media "hitokuchi"</title>
 
-        <meta charset="utf-8">
-        <meta property="og:title" content="Balloon-like SNS hitokuchi">
-        <meta property="og:description" content="With hitokuchi, you can send a message to someone you don't know without registering!">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Balloon-like Social Media "hitokuchi"</title>
 
-        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
-        <link rel="stylesheet" href="../pagestyle.css">
-    </head>
-    <body>
-        <div id="box">
-            <h2>Welcome to hitokuchi!</h2>
-            <a href="../index.html" class="link_color" id="back-to-index">〈Back to index〉</a>
-            <p></p>
-        </div>
-       <!-- <div id="box">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Balloon-like SNS hitokuchi">
+    <meta property="og:description"
+        content="With hitokuchi, you can send a message to someone you don't know without registering!">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+    <link rel="stylesheet" href="../pagestyle.css">
+</head>
+
+<body>
+    <div id="box">
+        <h2>Welcome to hitokuchi!</h2>
+        <a href="../index.html" class="link_color" id="back-to-index">〈Back to index〉</a>
+        <p></p>
+    </div>
+    <!-- <div id="box">
             <h3>Upcoming Events</h3>
             <p id="events">There are currently no announcements</p>
             -->
-        <br>
-        <div class="box">
-            <h2 class="catchphrase_color">Let's convey your thoughts.</h2>
-            <p>
-                hitokuchi is a messaging service that allows you to send a message to someone you don't know <br> and receive a message from someone you don't know without registration!<br>
-            </p>
-            <p></p>
-            <div class="buttons">
-                <a href="./send.html" class="button">　Send messages　</a>　　<a href="./mes.html" class="button">　Get messages　</a>
-            </div>
-            <br>
+    <br>
+    <div class="box">
+        <h2 class="catchphrase_color">Let's convey your thoughts.</h2>
+        <p>
+            hitokuchi is a messaging service that allows you to send a message to someone you don't know <br> and
+            receive a message from someone you don't know without registration!<br>
+        </p>
+        <p></p>
+        <div class="buttons">
+            <a href="./send.html" class="button">　Send messages　</a>　　<a href="./mes.html" class="button">　Get
+                messages　</a>
         </div>
         <br>
-        <div class="box">
-            <h3>Let's share!</h3>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi"
-                data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <br>
-            
+    </div>
+    <br>
+    <div class="box">
+        <h3>Let's share!</h3>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi"
+            data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <br>
+
         <small>hitokuchi general index</small>
         <input type="url" class="text" value="https://hitokuchi.f5.si" readonly><br>
         <small>hitokuchi English index</small>
@@ -67,7 +72,8 @@
             <small>
                 If you would like a reply, please enter your Discord name, Twitter username<wbr>or email in the text<br>
                 DM on Discord and Twitter<wbr> For email, I will use my own email<br>
-                If none of these fields are filled in and you need a reply, we will display the full text of the message on this site and reply to you.<br>
+                If none of these fields are filled in and you need a reply, we will display the full text of the message
+                on this site and reply to you.<br>
                 We cannot reply or react to suspicious or unknown content.
             </small>
             <br>
@@ -81,7 +87,7 @@
                 async function send() {
                     const url = key.url;
                     const status = document.getElementById("status");
-                
+
                     status.innerHTML = "Please wait...";
                     status.style.color = "red";
 
@@ -100,30 +106,30 @@
                     message = message.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
 
                     const today = new Date();
-                    const today_text = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+                    const today_text = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
                     message = message.replace(/:DATE:/g, `<span>${today_text}</span>`);
 
                     if (document.getElementById("message_about").value.trim() != "" && message.trim() != "" && user_id.trim() != "") {
-                            const response = await fetch(
-                                url,
-                                {
-                                    method: "POST",
-                                    body: JSON.stringify({
-                                        "to": user_id,
-                                        "from": from_id,
-                                        "message": message,
-                                        "request": "send"
-                                    })
-                                }
+                        const response = await fetch(
+                            url,
+                            {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    "to": user_id,
+                                    "from": from_id,
+                                    "message": message,
+                                    "request": "send"
+                                })
+                            }
                         )
-                        .then((response) => response.text())
+                            .then((response) => response.text())
 
-                        .then((data)=>{
-                            return JSON.parse(data);
-                        })
-                        .catch((error) => {
-                            return "posterror";
-                        });
+                            .then((data) => {
+                                return JSON.parse(data);
+                            })
+                            .catch((error) => {
+                                return "posterror";
+                            });
 
                         if (response.result.match("wrong_to")) {
                             status.innerHTML = "Error: Incorrect destination<wbr>[This is an error caused by developer error.]";
@@ -142,14 +148,13 @@
             <small id="status"></small>
             <p></p>
         </div>
-
+        <br>
         <script>
             window.onload = () => {
                 const day = new Date().getDay();
                 // document.getElementById("events").innerHTML = "";
             }
         </script>
-
         <style>
             .banner {
                 /* 画像サイズをアスペクト比を保ったまま画面と合わせる */
@@ -158,5 +163,7 @@
                 object-fit: scale-down;
             }
         </style>
-    </body>
+    </div>
+</body>
+
 </html>

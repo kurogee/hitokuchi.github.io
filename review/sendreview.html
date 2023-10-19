@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <title>hitokuchi review - send</title>
 
-        <meta charset="utf-8">
-        <meta property="og:title" content="hitokuchi review">
-        <meta property="og:description" content="hitokuchi(ひとくち)は色々なサービスを展開していきます。">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>hitokuchi review - send</title>
 
-        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
-        <link rel="stylesheet" href="../pagestyle.css">
+    <meta charset="utf-8">
+    <meta property="og:title" content="hitokuchi review">
+    <meta property="og:description" content="hitokuchi(ひとくち)は色々なサービスを展開していきます。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-FCB1XEM56C');
-        </script>
-    </head>
-    <body>
-        <div class="box">
-            <h2>hitokuchi review</h2>
-            <a href="../review/index.html" class="link_color">◀reviewのトップページへ戻る</a> | <a href="watchreview.html" class="link_color">reviewを見る</a><br>
-            <small>サービスを使うことにより<a href="../tos/index.html">利用規約</a>に同意したとみなされます</small><br>
-        </div>
+    <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+    <link rel="stylesheet" href="../pagestyle.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FCB1XEM56C');
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h2>hitokuchi review</h2>
+        <a href="../review/index.html" class="link_color">◀reviewのトップページへ戻る</a> | <a href="watchreview.html"
+            class="link_color">reviewを見る</a><br>
+        <small>サービスを使うことにより<a href="../tos/index.html">利用規約</a>に同意したとみなされます</small><br>
+    </div>
+    <br>
+    <div class="box">
+        URL<br>
+        <input type="url" id="send_url" class="text"><br>
+        <small>URLは「http(s)://」から書き始めてください</small><br>
+        Comment<br>
+        <textarea id="area"></textarea><br>
+        <button onclick="get_review();" id="button">送信する</button>
         <br>
-        <div class="box">
-            URL<br>
-            <input type="url" id="send_url" class="text"><br>
-            <small>URLは「http(s)://」から書き始めてください</small><br>
-            Comment<br>
-            <textarea id="area"></textarea><br>
-            <button onclick="get_review();" id="button">送信する</button>
-            <br>
-            <p></p>
-            <small id="status"></small>
-        </div>
-        <script src="config.js"></script>
-        <script>
-            const url = key.url;
+        <p></p>
+        <small id="status"></small>
+    </div>
+    <script src="config.js"></script>
+    <script>
+        const url = key.url;
 
-            async function get_review() {
-                const status = document.getElementById("status");
-                status.innerHTML = "送信中...";
+        async function get_review() {
+            const status = document.getElementById("status");
+            status.innerHTML = "送信中...";
 
-                let send_url = document.getElementById("send_url").value;
+            let send_url = document.getElementById("send_url").value;
 
-                let comment = document.getElementById("area").value;
-                comment = comment.split("&").join("&amp;");
-                comment = comment.split("<").join("&lt;"); // &lt;&gt;
-                comment = comment.split(">").join("&gt;");
-                comment = comment.split("\n").join("<br>");
+            let comment = document.getElementById("area").value;
+            comment = comment.split("&").join("&amp;");
+            comment = comment.split("<").join("&lt;"); // &lt;&gt;
+            comment = comment.split(">").join("&gt;");
+            comment = comment.split("\n").join("<br>");
 
-                if (send_url.match(/https?:\/\/.+/) && comment.trim() != "") {
-                    const response = await fetch(
-                            url,
-                            {
-                                method: "POST",
-                                body: JSON.stringify({
-                                    "request": "SendReview",
-                                    "url": send_url,
-                                    "comment": comment
-                                })
-                            }
-                        ).then((response) => response.text())
-                        .then((data) => JSON.parse(data))
-                        .catch((error) => {
-                            status.innerHTML = "エラー";
+            if (send_url.match(/https?:\/\/.+/) && comment.trim() != "") {
+                const response = await fetch(
+                    url,
+                    {
+                        method: "POST",
+                        body: JSON.stringify({
+                            "request": "SendReview",
+                            "url": send_url,
+                            "comment": comment
+                        })
+                    }
+                ).then((response) => response.text())
+                    .then((data) => JSON.parse(data))
+                    .catch((error) => {
+                        status.innerHTML = "エラー";
                     });
-                    
-                    sendip("-", comment + "\n\nURL: " + send_url, "review");
 
-                    status.innerHTML = "";
-                    document.getElementById("send_url").value = "";
-                    document.getElementById("area").value = "";
-                } else {
-                    status.innerHTML = "URLもしくはcommentをちゃんと書いてください"
-                }
-                
+                sendip("-", comment + "\n\nURL: " + send_url, "review");
+
+                status.innerHTML = "";
+                document.getElementById("send_url").value = "";
+                document.getElementById("area").value = "";
+            } else {
+                status.innerHTML = "URLもしくはcommentをちゃんと書いてください"
             }
-        </script>
-    </body>
+
+        }
+    </script>
+</body>
+
 </html>
