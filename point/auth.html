@@ -23,13 +23,12 @@
                 <input type="button" class="button" onclick="agree();" value="同意します"> <input type="button" class="button" onclick="not_agree();" value="同意しません">
             </form>
             <small id="status"></small>
-            <a href="" id="link_for_javascript"></a>
         </div>
 
         <script>
-            const where = sessionStorage.where_to_pay;
-            const how = sessionStorage.how_much;
-            const text_for_display = sessionStorage.text.match("pay") ? "支払う" : "受け取る";
+            const where = sessionStorage.getItem("where_to_pay");
+            const how = sessionStorage.getItem("how_much");
+            const text_for_display = sessionStorage.getItem("text").match("pay") ? "支払う" : "受け取る";
 
             document.addEventListener("DOMContentLoaded", function() {
                 const status = document.getElementById("status");
@@ -46,15 +45,16 @@
 
             function agree() {
                 sessionStorage.clear();
-                sessionStorage.agree = true;
-                sessionStorage.how_much = parseInt(how);
+                sessionStorage.setItem("agree", "true");
+                sessionStorage.setItem("how_much", how);
 
                 window.close();
             }
 
             function not_agree() {
                 sessionStorage.clear();
-                sessionStorage.agree = false;
+                sessionStorage.setItem("agree", "false");
+                sessionStorage.setItem("how_much", "0");
 
                 window.close();
             }
