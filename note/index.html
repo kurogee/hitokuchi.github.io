@@ -35,10 +35,9 @@
         <h2 class="catchphrase_color">さあ、共有しよう。</h2>
         
         <p>「hitokuchi note」では専門的な知識や色々な知恵などを誰でも無料で共有しておくことが出来ます！</p>
-    <a href="./write.html" class="link_color">noteを書く</a> | <a href="./read.html"
-            class="link_color">公開noteを探す</a><br>
-            <p></p>
-</div>
+        <a href="./write.html" class="link_color">noteを書く</a> | <a href="./read.html" class="link_color">公開noteを探す</a><br>
+        <p></p>
+    </div>
 <br>
     <div class="box">
         <h3>ランダムピックアップ</h3>
@@ -81,7 +80,7 @@
                 mem = result.split(",");
                 table_text += `<tr>
                                         <td class="notes">${mem[0]}</td>
-                                        <td class="url"><a href="./spread.html?id=${mem[1]}">見る</a></td>
+                                        <td class="url"><a href="./spread.html?id=${mem[1]}" class="link_color">見る</a></td>
                                     </tr>`;
                 table_text += `</tbody></table>`;
 

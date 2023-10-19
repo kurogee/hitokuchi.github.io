@@ -53,7 +53,8 @@
 
             function not_agree() {
                 sessionStorage.clear();
-                sessionStorage.setItem("agree", "false");
+
+                window.opener.set_storage("agree", "false");
                 sessionStorage.setItem("how_much", "0");
 
                 window.close();

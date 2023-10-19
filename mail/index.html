@@ -96,13 +96,13 @@
                     mem += `<tr>
                                         <td class="from">${i.from}</td>
                                         <td class="message">${i.mes}</td>
-                                        <td class="menu"><button onclick="delete_message('${i.uuid}')" id="${i.uuid}">削除</button></td>
+                                        <td class="menu"><button onclick="delete_message('${i.uuid}')" id="${i.uuid}" class="delete-button">×</button></td>
                                     </tr>`;
                 }
 
                 mem += `</tbody>
                                 </table>
-                                <button onclick="get_messages('${user_id}', '${user_pass}')">　再読込み　</button>
+                                <button onclick="get_messages('${user_id}', '${user_pass}')" class="reload-button">　　再読込み　　</button>
                                 <br>
                                 <h3>メール作成</h3>
                                 <form>
