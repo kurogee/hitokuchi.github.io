@@ -12,6 +12,7 @@
     </head>
     <body>
         <div class="box">
+            <p></p>
             <a href="../ja-JP/index.html" class="link_color">◀ホームに戻る</a>
             <h2>ポイントポータル</h2>
         </div>
@@ -31,7 +32,7 @@
                     <p>再開に向けた準備中...</p>
                 <hr>
                 <h3>ゲームで貯める！</h3>
-                    <button class="button" onclick="play_game('typing');">タイピングゲーム</a>
+                    <button id="button-game" onclick="play_game('typing');">　タイピングゲーム　</a>
             </div>
             <br>
         </div>
@@ -149,7 +150,9 @@
                     </div>`;
                 } else {
                     alert.innerHTML = `アカウント登録がお済みでない方は、ここから登録してください<br>
-                    <a href="./account.html">アカウント登録</a> | <a href="./account_login.html">ログイン</a>
+                    <p></p>
+                    <a href="./account.html" class="link_color">アカウント登録</a> | <a href="./account_login.html" class="link_color">ログイン</a>
+                    <p></p>
                     <br>`;
                 }
             }
