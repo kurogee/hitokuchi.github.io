@@ -83,19 +83,10 @@ async function get_mes() {
         if (flame != "" && flame != undefined) {
             document.getElementById("getmes").style.backgroundImage = `url("../frame/Frame_${flame}.webp")`;
         } else {
-            document.getElementById("getmes").style.backgroundImage = 'url("../frame.webp")';
+            document.getElementById("getmes").style.backgroundImage = 'none';
         }
 
         document.getElementById("status").innerHTML = "";
-
-        if (localStorage.getItem("count") != null) {
-            if (message != "申し訳ございません。只今あなたが受け取れるメッセージが一つもない状況です。<br>ぜひメッセージを新しく送信してください！<br>※もう一度メッセージを取得すると治るかもしれません") {
-                localStorage.setItem("count", parseInt(localStorage.getItem("count"))+1);
-            }
-        } else {
-            localStorage.setItem("count", 1);
-        }
-        
     } else {
         document.getElementById("status").innerHTML = "あなたはまだこの機能を利用いただけません<br>一回でもメッセージを送信してください！";
     }
@@ -105,15 +96,5 @@ window.onload = () => {
     const username = localStorage.getItem("user");
     if (username != null) {
         document.getElementById("user").value = username;
-    }
-    
-    const count = localStorage.getItem("count");
-    if (count == null) {
-        localStorage.setItem("count", 0);
-    }
-
-    if (document.cookie == "" || document.cookie == null) {
-        document.cookie = "seigen=no";
-        localStorage.setItem("count", 0);
     }
 }
