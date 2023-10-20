@@ -21,15 +21,19 @@
             <p>注意: アカウント登録をしないと、アンケートに答えてもポイントを獲得できません。</p>
             <div>
                 <h3>アンケート</h3>
+                <!--
                     <a href="https://forms.gle/sq1ZTNSEqaZaWoHH8" target="_blank" class="link_color">野菜に関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/ijkzZWJ1BhuqPEGAA" target="_blank" class="link_color">IT・ネットに関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/onXoo59MJeohJhXz7" target="_blank" class="link_color">SNSに関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/eCaukz43za649SCD8" target="_blank" class="link_color">AIに関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/hQKWYKD1zrcmifnd7" target="_blank" class="link_color">スマホに関するアンケート [10pt]</a><br>
-                
+                -->
+                    <p>再開に向けた準備中...</p>
                 <hr>
                 <h3>ゲームで貯める！</h3>
+                    <button class="button" onclick="play_game('typing');">タイピングゲーム</a>
             </div>
+            <br>
         </div>
         <br>
         <div id="box">
@@ -42,6 +46,18 @@
 
         <script src="../config.js"></script>
         <script src="./point.js"></script>
+
+        <script>
+            function play_game(type) {
+                switch (type) {
+                    case "typing":
+                        sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
+                        document.getElementById("url").href = "./games/typing/index.html";
+                        document.getElementById("url").click();
+                        break;
+                }
+            }
+        </script>
         <script>
             async function get_point(user) {
                 const res = await fetch(point_url,
@@ -73,7 +89,6 @@
                     <h3>ポイント追加</h3>
                     <form>
                         <input type="text" name="uuid" id="uuid" placeholder="アンケートの最後に出てきたポイント交換ID" class="text"><br>
-                        <input type="hidden" name="req" id="req" value="change_point">
                         <input type="hidden" id="user_id" value="${user}">
                         <input type="button" value="ポイントを追加する！" onclick="send_change()">　<input type="reset" value="取り消し">
                     </form>
@@ -129,14 +144,6 @@
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
                                 <input type="button" value="交換してメッセージを送る" onclick="send_use('star', 5)">
-                            </form>
-
-                            <form>
-                                <small>テスト用 [0pt]</small>
-                                <input type="hidden" class="use_point" value="0">
-                                <input type="hidden" class="req2" value="use_point">
-                                <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('star', 6)">
                             </form>
                         </div>
                     </div>`;

@@ -254,12 +254,9 @@ a.link_color:hover {
 }
 
 .phone_share{
-
     @media screen and (max-width: 768px) {
-        
         display: none;
     }
-
 }
 
 .hutoji{
