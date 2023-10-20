@@ -12,9 +12,9 @@ async function send_change() {
         {
             method: "POST",
             body: JSON.stringify({
-                "req": document.getElementById("req").value,
+                "req": "use_point_code",
                 "id": document.getElementById("user_id").value,
-                "uuid": document.getElementById("uuid").value
+                "use_code": document.getElementById("uuid").value
             })
         })
         .then(res => {
@@ -64,6 +64,62 @@ async function send_use(flame_type, number) {
         document.getElementById("status2").innerText = "交換できません。";
         return;
     }
+}
+
+async function add_point(id, password, point) {
+    document.getElementById("status").innerText = "お待ちください...";
+
+    const response = await fetch(point_url,
+        {
+            method: "POST",
+            body: JSON.stringify({
+                "req": "add_point",
+                "id": id,
+                "pass": password,
+                "add_point": point
+            })
+        })
+        .then(res => {
+            return res.text();
+        })
+        .then(data => {
+            return JSON.parse(data);
+        })
+        .catch(err => {
+            console.log(err);
+            document.getElementById("status").innerText = "エラーが発生しました。";
+        })
+    
+    if (response.result == "ok") {
+        document.getElementById("status").innerText = "";
+    } else {
+        document.getElementById("status").innerText = "エラーが発生しました。";
+    }
+}
+
+async function create_point_code(point) {
+    const response = await fetch(point_url,
+        {
+            method: "POST",
+            body: JSON.stringify({
+                "req": "create_point_code",
+                "point": point
+            })
+        })
+        .then(res => {
+            return res.text();
+        })
+        .then(data => {
+            return JSON.parse(data);
+        })
+        .catch(err => {
+            console.log(err);
+            document.getElementById("uuid_code").innerText = "エラーが発生しました。";
+        });
+    
+    const uuid_code = response.result;
+    document.getElementById("uuid_code").innerText = "ポイントコード: " + uuid_code;
+    return uuid_code;
 }
 
 function logout() {

@@ -254,12 +254,9 @@ a.link_color:hover {
 }
 
 .phone_share{
-
     @media screen and (max-width: 768px) {
-        
         display: none;
     }
-
 }
 
 .hutoji{
@@ -274,3 +271,21 @@ a.link_color:hover {
     font-style: italic;
 }
 
+#button-game {
+	display: block;
+    text-align: center;
+	text-decoration: none;
+	background: rgb(255, 255, 255);
+	margin: auto;
+	padding: 0.5rem 2rem;
+	font-weight: bold;
+	border: 2px solid rgb(67, 131, 199);
+	color: rgb(67, 131, 199);
+	border-radius: 100vh;
+	transition: 0.3s;
+}
+
+#button-game:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
+}
