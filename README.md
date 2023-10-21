@@ -8,8 +8,8 @@ You can also use commands to decorate text.
 | Commands  | Results |
 | ------------- |-------------|
 | $(URL)[the text to display]|Create clickable links to external sites|
-| [b text]      |Text will be in bold.|
-| [i text]      |Text will be italicized.|
+| [b text]      |The text will be in bold.|
+| [i text]      |The text will be italicized.|
 | [d text]      |The text will be strikethrough.|
 
 
