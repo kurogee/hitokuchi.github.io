@@ -75,15 +75,6 @@ async function get_mes() {
         }
 
         document.getElementById("status").innerHTML = "";
-
-        if (localStorage.getItem("count") != null) {
-            if (message != "Sorry, there are currently no messages available for you to receive.<br>Please send a new message!<br>*Getting the message again may cure the problem.") {
-                localStorage.setItem("count", parseInt(localStorage.getItem("count"))+1);
-            }
-        } else {
-            localStorage.setItem("count", 1);
-        }
-        
     } else {
         document.getElementById("status").innerHTML = "You are not yet eligible for this feature!<br>Please send us a message at least once!";
     }
@@ -93,15 +84,5 @@ window.onload = () => {
     const username = localStorage.getItem("user");
     if (username != null) {
         document.getElementById("user").value = username;
-    }
-    
-    const count = localStorage.getItem("count");
-    if (count == null) {
-        localStorage.setItem("count", 0);
-    }
-
-    if (document.cookie == "" || document.cookie == null) {
-        document.cookie = "seigen=no";
-        localStorage.setItem("count", 0);
     }
 }
