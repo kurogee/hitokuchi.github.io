@@ -289,3 +289,8 @@ a.link_color:hover {
 	color: #fff;
 	background: rgb(67, 131, 199);
 }
+
+.error_image {
+    width: 30%;
+    height: auto;
+}
