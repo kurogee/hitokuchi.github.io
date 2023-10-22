@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>タイピングゲーム</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="タイピングゲーム">
+        <meta property="og:description" content="hitokuchi.f5.siのタイピングゲーム">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../../pagestyle.css">
+        <link rel="shortcut icon" href="../../../hitokuchi_logo.webp" type="image/webp">
+    </head>
+    <body>
+        <div class="box">
+            <h2>ひたすら英語タイピング</h2>
+            <a href="../../index.html" class="link_color">〈　ポイントポータルへ戻る　〉</a>　<a href="../../../ja-JP/index.html" class="link_color">〈　日本語ホームへ戻る　〉</a>
+            <br><br>
+        </div>
+        <br>
+        <div class="box">
+            <div>
+                <p>
+                    30秒間であなたはどれだけ英文をタイプできるかな？<br>
+                    獲得ポイントは
+                    <div id="code"><pre><code>正しい入力数 * 0.05 pt の切り上げされた整数</code></pre></div>
+                    となります (100打 = 5pt)<br>
+                    またポイントはゲーム終了後に発行されるので確実にポイントを獲得してください
+                </p>
+            </div>
+            <hr>
+            <div>
+                <div>
+                    <h2 id="odai_text"></h2>
+                </div>
+                <p id="mean"></p>
+                <p id="time"></p>
+                <small id="uuid_code"></small>
+                <hr>
+                <p>オプション</p>
+                <label for="komoji_only">大文字のアルファベットを小文字でも入力できるようにする: </label><input type="checkbox" name="komoji_only" id="komoji_only"><br>
+                <br>
+            </div>
+        </div>
+        <script src="../../../config.js"></script>
+        <script src="../../point.js"></script>
+        <script src="./js/game.js"></script>
+        <style>
+            #gray {
+                color: gray;
+            }
+
+            #odai_text {
+                font-size: 2vmax;
+            }
+        </style>
+    </body>
+</html>

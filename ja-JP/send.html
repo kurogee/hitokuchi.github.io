@@ -22,7 +22,7 @@
          <script>
             window.addEventListener("DOMContentLoaded", function() {
                 if (window.innerWidth <= 768) {
-                    document.getElementById("button").value = "送る！";
+                    document.getElementById("button").value = "送信する！";
                 }
             });
         </script>
@@ -46,7 +46,7 @@
                 <small>【メッセージに個人情報を含めないでください】</small>
                 <textarea id="area"></textarea>
                 <p></p>
-                <input type="button" value="メッセージを送信する！" id="button" onclick="send_mes();">
+                <input type="button" value="メッセージを送信する！" id="button" onclick="send_mes();" class="send-message">
                 <p></p>
             </form>
             <small id="status"></small>
@@ -65,12 +65,15 @@
                     </tr>
                     <tr>
                         <td>:a:</td><td><img src="../emoji/a!.webp" alt=" (emoji) " class="emoji"></td>
+                        <td>[b テキスト]</td><td>文字が太字になる</td>
                     </tr>
                     <tr>
                         <td>:bikkuri:</td><td><img src="../emoji/bikkuri.webp" alt=" (emoji) " class="emoji"></td>
+                        <td>[i テキスト]</td><td>文字が斜体になる</td>
                     </tr>
                     <tr>
                         <td>:ganbare:</td><td><img src="../emoji/ganbare.webp" alt=" (emoji) " class="emoji"></td>
+                        <td>[d テキスト]</td><td>文字に取り消し線がつく</td>
                     </tr>
                     <tr>
                         <td>:hanataka:</td><td><img src="../emoji/hanataka.webp" alt=" (emoji) " class="emoji"></td>

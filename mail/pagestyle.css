@@ -68,6 +68,44 @@ small {
 	background: rgb(67, 131, 199);
 }
 
+.delete-button {
+	display: block;
+    text-align: center;
+	text-decoration: none;
+	background: rgb(255, 255, 255);
+	margin: auto;
+	padding: 0.2rem 0.5rem;
+	font-weight: bold;
+	border: 2px solid rgb(67, 131, 199);
+	color: rgb(67, 131, 199);
+	border-radius: 100vh;
+	transition: 0.3s;
+}
+
+.delete-button:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
+}
+
+.reload-button {
+	display: block;
+    text-align: center;
+	text-decoration: none;
+	background: rgb(255, 255, 255);
+	margin: auto;
+	padding: 0.5rem 0.5rem;
+	font-weight: bold;
+	border: 2px solid rgb(67, 131, 199);
+	color: rgb(67, 131, 199);
+	border-radius: 100vh;
+	transition: 0.3s;
+}
+
+.reload-button:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
+}
+
 .icons {
     display: flex;  
     gap: 0px;

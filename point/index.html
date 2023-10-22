@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>ポイントを貯める</title>
+        <title>ポイントポータル</title>
         <meta charset="utf-8">
         <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
         <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
@@ -12,7 +12,8 @@
     </head>
     <body>
         <div class="box">
-            <a href="index.html">◀ホームに戻る</a>
+            <p></p>
+            <a href="../ja-JP/index.html" class="link_color">◀ホームに戻る</a>
             <h2>ポイントポータル</h2>
         </div>
         <br>
@@ -22,16 +23,18 @@
             <div>
                 <h3>アンケート</h3>
                 <!--
-                    <a href="https://forms.gle/sq1ZTNSEqaZaWoHH8" target="_blank">野菜に関するアンケート [10pt]</a><br>
-                    <a href="https://forms.gle/ijkzZWJ1BhuqPEGAA" target="_blank">IT・ネットに関するアンケート [10pt]</a><br>
-                    <a href="https://forms.gle/onXoo59MJeohJhXz7" target="_blank">SNSに関するアンケート [10pt]</a><br>
-                    <a href="https://forms.gle/eCaukz43za649SCD8" target="_blank">AIに関するアンケート [10pt]</a><br>
-                    <a href="https://forms.gle/hQKWYKD1zrcmifnd7" target="_blank">スマホに関するアンケート [10pt]</a><br>
+                    <a href="https://forms.gle/sq1ZTNSEqaZaWoHH8" target="_blank" class="link_color">野菜に関するアンケート [10pt]</a><br>
+                    <a href="https://forms.gle/ijkzZWJ1BhuqPEGAA" target="_blank" class="link_color">IT・ネットに関するアンケート [10pt]</a><br>
+                    <a href="https://forms.gle/onXoo59MJeohJhXz7" target="_blank" class="link_color">SNSに関するアンケート [10pt]</a><br>
+                    <a href="https://forms.gle/eCaukz43za649SCD8" target="_blank" class="link_color">AIに関するアンケート [10pt]</a><br>
+                    <a href="https://forms.gle/hQKWYKD1zrcmifnd7" target="_blank" class="link_color">スマホに関するアンケート [10pt]</a><br>
                 -->
-                只今アンケートはありません。
+                    <p>再開に向けた準備中...</p>
                 <hr>
                 <h3>ゲームで貯める！</h3>
+                    <button id="button-game" onclick="play_game('typing');">　タイピングゲーム　</a>
             </div>
+            <br>
         </div>
         <br>
         <div id="box">
@@ -42,9 +45,23 @@
         </div>
         <a href="" id="url"></a>
 
+        <script src="../config.js"></script>
+        <script src="./point.js"></script>
+
+        <script>
+            function play_game(type) {
+                switch (type) {
+                    case "typing":
+                        sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
+                        document.getElementById("url").href = "./games/typing/index.html";
+                        document.getElementById("url").click();
+                        break;
+                }
+            }
+        </script>
         <script>
             async function get_point(user) {
-                const res = await fetch("https://script.google.com/macros/s/AKfycbxd3mqvKtBJn95__0IvnnV1giGUwfl_Vj0ZTWx7x-vvfUVLvIUgVoyW6VRvwKQwOOPkfA/exec",
+                const res = await fetch(point_url,
                             {
                                 method: "POST",
                                 body: JSON.stringify({
@@ -72,8 +89,7 @@
                     <hr>
                     <h3>ポイント追加</h3>
                     <form>
-                        <input type="text" name="uuid" id="uuid" placeholder="アンケートの最後に出てきたポイント交換ID" class="text"><br>
-                        <input type="hidden" name="req" id="req" value="change_point">
+                        <input type="text" name="uuid" id="uuid" placeholder="ポイント交換ID" class="text"><br>
                         <input type="hidden" id="user_id" value="${user}">
                         <input type="button" value="ポイントを追加する！" onclick="send_change()">　<input type="reset" value="取り消し">
                     </form>
@@ -128,17 +144,18 @@
                                 <input type="hidden" class="use_point" value="5">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('star', 4)">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('star', 5)">
                             </form>
                         </div>
                     </div>`;
                 } else {
                     alert.innerHTML = `アカウント登録がお済みでない方は、ここから登録してください<br>
-                    <a href="account.html">アカウント登録</a> | <a href="account_login.html">ログイン</a>`;
+                    <p></p>
+                    <a href="./account.html" class="link_color">アカウント登録</a> | <a href="./account_login.html" class="link_color">ログイン</a>
+                    <p></p>
+                    <br>`;
                 }
             }
         </script>
-        <script src="../config.js"></script>
-        <script src="point.js"></script>
     </body>
 </html>
