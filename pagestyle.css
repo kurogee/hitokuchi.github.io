@@ -259,6 +259,10 @@ a.link_color:hover {
     }
 }
 
+.hutoji{
+    font-weight: 900;
+}
+
 .torikeshi{
     text-decoration: line-through;
 }
