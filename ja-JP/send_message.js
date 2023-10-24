@@ -9,7 +9,7 @@ function replace_text(text) {
     result = result.split("\n").join("<br>");
 
     result = result.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
-    result = result.replace(/\[b (.+?)\]/g, "<b>$1<b>");
+    result = result.replace(/\[b (.+?)\]/g, "<span class='hutoji'>$1</span>");
     result = result.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
     result = result.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
 
