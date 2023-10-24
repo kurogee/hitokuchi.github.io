@@ -24,5 +24,5 @@ async function sendip(username, content, service_name) {
 
 const key = {
     message_fetch_url : "https://script.google.com/macros/s/AKfycbyupdYFWpSQyp-nbizVhpTbGzgp8JxTvyfnEdo9lOf8oP0Io88zCs-R9ZF0RRTugVcPLw/exec",
-    point_fetch_url : "https://script.google.com/macros/s/AKfycbzy2xDqI5og8Qgb7ipKtlIMSp3Z_Ef41ingbDpY48Fse6qCLpNAk7FYg0FBX93ZcyzMYw/exec"
+    point_fetch_url : "https://script.google.com/macros/s/AKfycbwNS925YqehSsy0RRTq5ptRKelTwagEmASnwqEjBZ9HYp8yf2uGuxRlnbWgotlbD-qpaA/exec"
 };
