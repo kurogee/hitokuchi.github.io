@@ -25,8 +25,6 @@ To Get a message, click the "Get Message" button.
 
 You can play games and get points. The collected points can be exchanged for frames. You can use the frames to send stylish messages.
 
-**(Under development)**
-
 ## Other Services
 
 There are many other services besides hitokuchi.
