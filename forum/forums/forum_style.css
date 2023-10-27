@@ -5,7 +5,7 @@
 }
 
 #message, .message {
-    border: 3px solid #000000;
+    border: 2.5px solid #1b1b1b;
     border-radius: 10px;
     width: 95%;
     height: auto;

@@ -26,14 +26,14 @@
 </head>
 
 <body>
-    <div id="box">
+    <div class="box">
         <br>
         <a href="../index.html" class="link_color">〈　ホームへ戻る　〉</a><br>
         <h2>メイン板</h2>
         <input type="hidden" id="this_forum_name" value="main">
     </div>
-    <hr>
-    <div id="box">
+<p></p>
+    <div class="box">
         <form>
             <p>
                 ユーザー名: <input type="text" id="username_box" style="width: 50%;" value="名無し"><br>
@@ -41,9 +41,9 @@
                 メッセージ:<br>
                 <textarea id="message_box" class="area" style="font-size: 20px;"></textarea>
             </p>
-            <input type="button" value="送信" class="button" onclick="sorting_message(document.getElementById('this_forum_name').value);"><br><br>
-            <input type="reset" value="リセット" class="button"><br>
-            <small id="status">うまく送信出来ない場合は、adblockerなどが作動している可能性があります。</small>
+            <input type="button" value="　　送信　　" class="button-forum" onclick="sorting_message(document.getElementById('this_forum_name').value);"><br><br>
+            <input type="reset" value="　　リセット　　" class="button-forum"><br>
+            <small id="status">うまくいかない場合は、広告ブロッカーをオフにしてみてください。</small>
         </form>
         <br>
     </div>
