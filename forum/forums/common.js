@@ -108,7 +108,7 @@ async function send_reply_message(name="main") {
     .catch(_ => { console.error(_); return "no"; });
 
     if (response.result == "ok") {
-        status.innerText = "送信しました";
+        status.innerText = "送信完了";
         document.getElementById("username_box").value = "";
         document.getElementById("message_box").value = "";
         document.getElementById("reply_to").value = "";
@@ -149,7 +149,7 @@ async function send_new_message(name="main") {
     .catch(_ => { console.error(_); return "no" });
 
     if (response.result == "ok") {
-        status.innerText = "送信しました";
+        status.innerText = "送信完了";
         document.getElementById("username_box").value = "";
         document.getElementById("message_box").value = "";
         get_messages(document.getElementById("this_forum_name").value);
