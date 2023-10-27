@@ -74,7 +74,7 @@ small {
     justify-content: center;
     align-items: center;
     max-width: 100%;
-    width: 350px;
+    width: 430px;
     margin-top: 10px;
     text-align: center;
 }
@@ -82,7 +82,7 @@ small {
 .icons_text {
     margin-top: -20px;
     display: flex;  
-    width: 350px;
+    width: 440px;
 
     @media screen and (max-width: 768px) {
         
