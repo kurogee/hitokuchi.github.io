@@ -30,19 +30,30 @@
         <br>
         <a href="../index.html" class="link_color">〈　ホームへ戻る　〉</a><br>
         <h2>メイン板</h2>
+        <input type="hidden" id="this_forum_name" value="main">
+    </div>
+    <hr>
+    <div id="messages_box" class="box">
+        <br>
+        <p>読み込み中</p>
+        <br>
     </div>
     <br>
     <div id="box">
-        <br>
-        <div id="message">
-            <p id="username">りんご<small id="date">  10/20</small></p>
-            <p id="text">こんにちは！</p>
-            <div id="message" class="reply">
-                <p id="username">あいうえお</p>
-                <p id="text">やっほ</p>
-            </div>
-        </div>
+        <form>
+            <p>
+                ユーザー名: <input type="text" id="username_box" style="width: 50%;"><br>
+                メッセージ:<br>
+                <textarea id="message_box" class="area"></textarea>
+            </p>
+            <input type="button" value="送信" class="button" onclick="send_new_message(document.getElementById('this_forum_name').value)"><br><br>
+            <input type="reset" value="リセット" class="button"><br>
+            <small id="status">うまく送信出来ない場合は、adblockerなどが作動している可能性があります。</small>
+        </form>
         <br>
     </div>
+
+    <script src="../forum_script.js"></script>
+    <script src="./common.js"></script>
 </body>
 </html>
