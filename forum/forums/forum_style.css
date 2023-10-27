@@ -20,7 +20,7 @@
 #message, .message > #text {
     font-size: 20px;
     font-weight: normal;
-    text-indent: 20px;
+    padding-left: 20px;
 }
 
 .reply {
