@@ -38,7 +38,6 @@
         <br>
         <button onclick="get_notes()" id="button">noteを取得</button><br>
         <small id="status"></small>
-        <br>
         <div id="notes">
 
         </div>
@@ -86,7 +85,7 @@
                 }
                 table_text += `</tbody></table>`;
 
-                notes_table.innerHTML = table_text;
+                notes_table.innerHTML = table_text + "<br>";
             }
 
             status.innerHTML = "";
