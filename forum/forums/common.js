@@ -64,7 +64,7 @@ async function get_messages(name="main") {
             } else {
                 messages_box.innerHTML += `
                     <div class="message" id="ID${message.messageID}">
-                        <p id="username">${message.username}<small id="date">　${message.date}</small> <button onclick="reply_prepare('${message.messageID}');">↩ 返信</button></p>
+                        <p id="username">${message.username}<small id="date">　${message.date}</small> <button onclick="reply_prepare('${message.messageID}');">↩︎ 返信</button></p>
                         <p id="text">${message.message}</p>
                     </div>
                     <br>`;
