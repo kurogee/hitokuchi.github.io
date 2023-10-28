@@ -85,12 +85,11 @@ small {
     width: 440px;
 
     @media screen and (max-width: 768px) {
-        
+        width: 340px;
         font-size: 15px;
     }
 
     @media screen and (max-width: 350px) {
-        
         display:none;
     }
 
@@ -204,6 +203,11 @@ a.link_color:hover {
 
 .icons_image_webp {
     transition: 0.2s ;
+    @media screen and (max-width: 350px) {
+        width:60px;
+        height:60px;
+    }
+
 }
 
 .icons_image_webp:hover {
@@ -309,6 +313,28 @@ a.link_color:hover {
 }
 
 .button-forum:hover {
+    color: #fff;
+    background: rgb(67, 131, 199);
+}
+
+.button-point{
+    text-align: center;
+    text-decoration: none;
+    background: rgb(255, 255, 255);
+    margin: auto;
+    padding: 0.6rem 2rem;
+    font-weight: bold;
+    border: 2px solid rgb(67, 131, 199);
+    color: rgb(67, 131, 199);
+    border-radius: 100vh;
+    transition: 0.3s;
+    @media screen and (max-width: 768px) {
+        padding: 0.3rem 0.2rem;
+
+    }
+}
+
+.button-point:hover {
     color: #fff;
     background: rgb(67, 131, 199);
 }

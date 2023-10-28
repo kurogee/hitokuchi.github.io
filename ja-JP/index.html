@@ -31,7 +31,9 @@
                 document.getElementById("get-button").innerHTML = "受け取る";
                 document.getElementById("back-to-index").innerHTML = "〈Back to index〉";
                 document.getElementById("dot").innerHTML = "〈???〉";
-
+                document.getElementById("blank").innerHTML = "　";
+                document.getElementById("left_blank").innerHTML = "⠀";
+                document.getElementById("right_blank").innerHTML = "⠀";
             }
         });
     </script>
@@ -67,8 +69,8 @@
 
         <div class="buttons">
 
-            <a href="./send.html" class="button" id="send-button">　メッセージを送る　</a>　　<a href="./mes.html" class="button"
-                id="get-button">メッセージを受け取る</a>
+            <p id="left_blank"></p><a href="./send.html" class="button" id="send-button">　メッセージを送る　</a><p id="blank">　　</p><a href="./mes.html" class="button"
+                id="get-button">メッセージを受け取る</a><p id="right_blank"></p>
         </div>
         <br>
         <hr>
@@ -97,7 +99,7 @@
         <h3>ポイントポータル</h3>
         <p>ポイントをフレームと交換したり、ゲームでポイントを貯めることができます！</p>
         <br>
-        <a href="../point/index.html" class="button">　ポイントポータルに行く　</a>
+        <a href="../point/index.html" class="button-point">　ポイントポータルに行く　</a>
         <p></p>
         <br>
     </div>
