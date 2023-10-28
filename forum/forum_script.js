@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycbxuFs8sDL20wEVTc7Ewfyw6yA2Txxyr2ifwNZfFE0q63MuEZVxQsk9SVOgkT70yjMZu8g/exec";
+const url = "https://script.google.com/macros/s/AKfycbwLj8hFgrGT6kR4YHFgI7mcZK-GENhNQqk7AMGw0SxmOtY2g96X5f0g2xmYQ6qxzMo0WA/exec";
 
 async function getip() {
     const res = await fetch('https://ipinfo.io?callback').then(res => res.json()).then(json => json.ip);
