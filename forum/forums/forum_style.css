@@ -1,0 +1,29 @@
+
+
+#message, .message * {
+    text-align: start;
+}
+
+#message, .message {
+    border: 2.5px solid #4b4b4b;
+    border-radius: 10px;
+    width: 95%;
+    height: auto;
+}
+
+#message, .message > #username {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+#message, .message > #text {
+    font-size: 20px;
+    font-weight: normal;
+    padding-left: 20px;
+}
+
+.reply {
+    width: 80%;
+    margin-bottom: 10px;
+}
