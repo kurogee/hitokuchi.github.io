@@ -48,9 +48,9 @@ async function get_messages(name="main") {
         const messages_box = document.getElementById("messages_box");
         let result = response.result.filter(_ => { return _.message == "" ? undefined : _ });
 
-        if (result.indexOf(undefined) != -1) {
+        /*if (result.indexOf(undefined) != -1) {
             result = {"parentID" : "", "messageID": "", "username" : "", "message" : "メッセージなし", "date" : ""};
-        }
+        }*/
 
         messages_box.innerHTML = "<br>";
         for (const message of result) {
@@ -163,7 +163,7 @@ function sorting_message(name="main") {
     const username = document.getElementById("username_box").value;
     const status = document.getElementById("status");
 
-    if (message.trim() == "" && username.trim() == "") {
+    if (message.trim() == "" || username.trim() == "") {
         status.innerText = "メッセージまたはユーザー名を入力してください";
         return;
     }
