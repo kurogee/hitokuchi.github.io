@@ -41,6 +41,11 @@ hitokuchi review is a service that allows users to post comments on websites.
 
 Hitokuchi note is a service that allows anyone to share their expertise and wisdom for free.
 
+
+### ひとくち!
+
+"ひとくち!" is a completely free simple bulletin board service.
+
 ## License 
 
 hitokuchi is licensed under the GPL-2.0 license.
