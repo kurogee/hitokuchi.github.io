@@ -2,7 +2,8 @@
 
 async function getip() {
     const res = await fetch('https://ipinfo.io?callback').then(res => res.json()).then(json => json.ip);
-    console.log(res);
+    console.log("IP: " + res);
+
     return res;
 }
 
@@ -19,8 +20,18 @@ function replace_text(text) {
     result = result.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
     result = result.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
 
-    console.log(result);
+    console.log("Replaced text: " + result);
     return result;
+}
+
+function returnDate() {
+    const date = new Date();
+    return date.getFullYear()
+            + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
+            + '/' + ('0' + date.getDate()).slice(-2)
+            + ' ' + ('0' + date.getHours()).slice(-2)
+            + ':' + ('0' + date.getMinutes()).slice(-2)
+            + ':' + ('0' + date.getSeconds()).slice(-2);
 }
 
 function reply_prepare(messageID) {
@@ -53,6 +64,7 @@ async function get_messages(name="main") {
         }*/
 
         messages_box.innerHTML = "<br>";
+
         for (const message of result) {
             console.log(message);
             if (message.parentID != "") {
@@ -85,15 +97,12 @@ async function send_reply_message(name="main") {
         "parentID" : document.getElementById("reply_to").value,
         "username" : replace_text(document.getElementById("username_box").value),
         "message" : replace_text(document.getElementById("message_box").value),
-        "date" : date.getFullYear()
-                + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
-                + '/' + ('0' + date.getDate()).slice(-2)
-                + ' ' + ('0' + date.getHours()).slice(-2)
-                + ':' + ('0' + date.getMinutes()).slice(-2)
-                + ':' + ('0' + date.getSeconds()).slice(-2),
+        "date" : returnDate(),
         "ip" : await getip(),
-    }
+    };
+    console.log("-+-Send data-+-");
     console.log(data);
+    console.log("----------------");
 
     status.innerText = "送信中...";
     const response = await fetch(
@@ -127,14 +136,12 @@ async function send_new_message(name="main") {
         "whereToSend" : name,
         "username" : replace_text(document.getElementById("username_box").value),
         "message" : replace_text(document.getElementById("message_box").value),
-        "date" : date.getFullYear()
-                + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
-                + '/' + ('0' + date.getDate()).slice(-2)
-                + ' ' + ('0' + date.getHours()).slice(-2)
-                + ':' + ('0' + date.getMinutes()).slice(-2)
-                + ':' + ('0' + date.getSeconds()).slice(-2),
+        "date" : returnDate(),
         "ip" : await getip(),
-    }
+    };
+    console.log("-+-Send data-+-");
+    console.log(data);
+    console.log("----------------");
 
     status.innerText = "送信中...";
     const response = await fetch(
