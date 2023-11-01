@@ -1,8 +1,9 @@
-// https://script.google.com/macros/s/AKfycbwLj8hFgrGT6kR4YHFgI7mcZK-GENhNQqk7AMGw0SxmOtY2g96X5f0g2xmYQ6qxzMo0WA/exec
+// https://script.google.com/macros/s/AKfycbwwdm4Cr3AzXw96KsbKnZixvxNSOMUXcM_Qf9RK_Em4dDUNyYBc64j2HQVG5MSsdQDWMg/exec
 
 async function getip() {
     const res = await fetch('https://ipinfo.io?callback').then(res => res.json()).then(json => json.ip);
-    console.log(res);
+    console.log("IP: " + res);
+
     return res;
 }
 
@@ -19,8 +20,18 @@ function replace_text(text) {
     result = result.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
     result = result.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
 
-    console.log(result);
+    console.log("Replaced text: " + result);
     return result;
+}
+
+function returnDate() {
+    const date = new Date();
+    return date.getFullYear()
+            + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
+            + '/' + ('0' + date.getDate()).slice(-2)
+            + ' ' + ('0' + date.getHours()).slice(-2)
+            + ':' + ('0' + date.getMinutes()).slice(-2)
+            + ':' + ('0' + date.getSeconds()).slice(-2);
 }
 
 function reply_prepare(messageID) {
@@ -48,11 +59,8 @@ async function get_messages(name="main") {
         const messages_box = document.getElementById("messages_box");
         let result = response.result.filter(_ => { return _.message == "" ? undefined : _ });
 
-        if (result.indexOf(undefined) != -1) {
-            result = {"parentID" : "", "messageID": "", "username" : "", "message" : "メッセージなし", "date" : ""};
-        }
-
         messages_box.innerHTML = "<br>";
+
         for (const message of result) {
             console.log(message);
             if (message.parentID != "") {
@@ -85,15 +93,12 @@ async function send_reply_message(name="main") {
         "parentID" : document.getElementById("reply_to").value,
         "username" : replace_text(document.getElementById("username_box").value),
         "message" : replace_text(document.getElementById("message_box").value),
-        "date" : date.getFullYear()
-                + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
-                + '/' + ('0' + date.getDate()).slice(-2)
-                + ' ' + ('0' + date.getHours()).slice(-2)
-                + ':' + ('0' + date.getMinutes()).slice(-2)
-                + ':' + ('0' + date.getSeconds()).slice(-2),
+        "date" : returnDate(),
         "ip" : await getip(),
-    }
+    };
+    console.log("-+-Send data-+-");
     console.log(data);
+    console.log("----------------");
 
     status.innerText = "送信中...";
     const response = await fetch(
@@ -108,8 +113,7 @@ async function send_reply_message(name="main") {
     .catch(_ => { console.error(_); return "no"; });
 
     if (response.result == "ok") {
-        status.innerText = "送信完了";
-        document.getElementById("username_box").value = "";
+        status.innerText = "送信しました";
         document.getElementById("message_box").value = "";
         document.getElementById("reply_to").value = "";
         get_messages(document.getElementById("this_forum_name").value);
@@ -127,14 +131,12 @@ async function send_new_message(name="main") {
         "whereToSend" : name,
         "username" : replace_text(document.getElementById("username_box").value),
         "message" : replace_text(document.getElementById("message_box").value),
-        "date" : date.getFullYear()
-                + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
-                + '/' + ('0' + date.getDate()).slice(-2)
-                + ' ' + ('0' + date.getHours()).slice(-2)
-                + ':' + ('0' + date.getMinutes()).slice(-2)
-                + ':' + ('0' + date.getSeconds()).slice(-2),
+        "date" : returnDate(),
         "ip" : await getip(),
-    }
+    };
+    console.log("-+-Send data-+-");
+    console.log(data);
+    console.log("----------------");
 
     status.innerText = "送信中...";
     const response = await fetch(
@@ -149,8 +151,7 @@ async function send_new_message(name="main") {
     .catch(_ => { console.error(_); return "no" });
 
     if (response.result == "ok") {
-        status.innerText = "送信完了";
-        document.getElementById("username_box").value = "";
+        status.innerText = "送信しました";
         document.getElementById("message_box").value = "";
         get_messages(document.getElementById("this_forum_name").value);
     } else {
@@ -163,7 +164,7 @@ function sorting_message(name="main") {
     const username = document.getElementById("username_box").value;
     const status = document.getElementById("status");
 
-    if (message.trim() == "" && username.trim() == "") {
+    if (message.trim() == "" || username.trim() == "") {
         status.innerText = "メッセージまたはユーザー名を入力してください";
         return;
     }
