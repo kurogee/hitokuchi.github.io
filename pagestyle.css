@@ -330,11 +330,15 @@ a.link_color:hover {
     transition: 0.3s;
     @media screen and (max-width: 768px) {
         padding: 0.3rem 0.2rem;
-
     }
 }
 
 .button-point:hover {
     color: #fff;
     background: rgb(67, 131, 199);
+}
+
+.forum_image {
+    width: 35%;
+    height: auto;
 }
