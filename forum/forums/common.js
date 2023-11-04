@@ -20,6 +20,8 @@ function replace_text(text) {
     result = result.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
     result = result.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
 
+    result = result.replace(/\[img (.+?)\]/g, "<br><img src='$1' class='forum_image'><br>");
+
     console.log("Replaced text: " + result);
     return result;
 }
