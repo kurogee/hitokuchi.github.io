@@ -42,11 +42,17 @@
                 <textarea id="message_box" class="area" style="font-size: 20px;"></textarea>
             </p>
             <div class="buttons">
-            <input type="button" value="　　送信　　" class="button-forum" onclick="sorting_message(document.getElementById('this_forum_name').value);">
-            <input type="reset" value="　リセット　" class="button-forum"><br>
-        </div>
+                <input type="button" value="　　送信　　" class="button-forum" onclick="sorting_message(document.getElementById('this_forum_name').value);">
+                <input type="reset" value="　リセット　" class="button-forum"><br>
+            </div>
             <br><small id="status" style="text-align: center;">うまくいかない場合は、広告ブロッカーをオフにしてみてください。</small>
         </form>
+        <hr>
+        
+        画像検索(BETA): <input type="search" id="search_word" placeholder="検索ワード"><button onclick="search_image();">検索</button><br>
+        <small>Image provided by <img src="https://pixabay.com/static/img/logo.svg" alt="pixabay" style="width: auto; height: 15px;"></small>
+        <br>
+        <div id="box_for_image" class="box"></div>
         <br>
     </div>
     <br>
