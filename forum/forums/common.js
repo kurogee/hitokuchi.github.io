@@ -8,7 +8,7 @@ async function getip() {
 }
 
 async function search_free_image_from_pixabay(query) {
-    const res = await fetch(`https://pixabay.com/api/?key=40485329-d9754d6ccd9d16f5cdb61db26&q=${query}&lang=en&per_page=20`).then(res => res.json());
+    const res = await fetch(`https://pixabay.com/api/?key=40485329-d9754d6ccd9d16f5cdb61db26&q=${encodeURIComponent(query)}&lang=en&per_page=20`).then(res => res.json());
     console.log(res);
     return res;
 }
@@ -75,6 +75,7 @@ function reply_prepare(messageID) {
 }
 
 async function get_messages(name="main") {
+
     const response = await fetch(
         url,
         {
