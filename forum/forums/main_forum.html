@@ -23,6 +23,11 @@
 
         gtag('config', 'G-FCB1XEM56C');
     </script>
+
+    <!-- jQuery 3.7.1 -->
+    <script src="../../jquery-3.7.1.min.js"></script>
+    <script src="../style_by_jquery.js"></script>
+
 </head>
 
 <body>
@@ -49,10 +54,13 @@
         </form>
         <hr>
         
-        画像検索(BETA): <input type="search" id="search_word" placeholder="検索ワード"><button onclick="search_image();">検索</button><br>
-        <small>Image provided by <img src="https://pixabay.com/static/img/logo.svg" alt="pixabay" style="width: auto; height: 15px;"></small>
-        <br>
-        <div id="box_for_image" class="box"></div>
+        <div class="image_hidable_button"><img src="../../tool_icon/close_element.webp" alt="閉じる" class="tool_icon"></div>
+        <div class="hidable_element">
+            画像検索(BETA): <input type="search" id="search_word" placeholder="検索ワード"><button onclick="search_image();">検索</button><br>
+            <small>Image provided by <img src="https://pixabay.com/static/img/logo.svg" alt="pixabay" style="width: auto; height: 15px;"></small>
+            <br>
+            <div id="box_for_image" class="box"></div>
+        </div>
         <br>
     </div>
     <br>

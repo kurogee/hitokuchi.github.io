@@ -342,3 +342,8 @@ a.link_color:hover {
     width: 35%;
     height: auto;
 }
+
+.tool_icon {
+    width: 30px;
+    height: 30px;
+}
