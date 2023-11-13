@@ -1,7 +1,9 @@
 
 $(function() {
     if (location.href.match("forum") != null) {
-        let image_hide = false;
+        let image_hide = true;
+        $(".hidable_element").hide();
+
         $(".image_hidable_button").click(function() {
             if (!image_hide) {
                 $(".hidable_element").fadeOut();
