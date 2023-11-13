@@ -9,11 +9,15 @@ $(function() {
                 $(".hidable_element").fadeOut();
                 $(".tool_icon").attr("src", "../../tool_icon/open_element.webp");
                 $(".tool_icon").attr("alt", "表示");
+                $(".menu_text").text("表示する");
+                
                 image_hide = true;
             } else {
                 $(".hidable_element").fadeIn();
                 $(".tool_icon").attr("src", "../../tool_icon/close_element.webp");
                 $(".tool_icon").attr("alt", "非表示");
+                $(".menu_text").text("閉じる");
+
                 image_hide = false;
             }
         });
