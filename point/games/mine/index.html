@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>マインスイーパ</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="マインスイーパ">
+        <meta property="og:description" content="hitokuchi.f5.siのマインスイーパ">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../../pagestyle.css">
+        <link rel="shortcut icon" href="../../../hitokuchi_logo.webp" type="image/webp">
+        <script src="../../../jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <div id="box">
+            <h2>マインスイーパ</h2>
+            <a href="../../index.html" class="link_color">〈　ポイントポータルへ戻る　〉</a>　<a href="../../../ja-JP/index.html" class="link_color">〈　日本語ホームへ戻る　〉</a>
+            <br><br>
+        </div>
+        <br>
+        <div id="box">
+            <br>
+            <div class="display" id="box">
+                <br>
+                <button class="button" onclick="new_game();">　New Game　</button>
+                <p></p>
+            </div>
+            <p class="status"></p>
+            <p id="uuid_code"></p>
+            <br>
+        </div>
+
+        <script src="../../../config.js"></script>
+        <script src="../../point.js"></script>
+        <script src="./script/game.js"></script>
+
+        <style>
+            .button_for_mine {
+                width: 30px;
+                height: 30px;
+                margin: 0;
+                padding: 0;
+                border: 1.5px solid gray;
+                background-color: #fff;
+                color: #000;
+                font-size: 20px;
+            }
+
+            .black {
+                background-color: #000;
+            }
+
+            .white {
+                background-color: #fff;
+            }
+        </style>
+    </body>
+</html>
