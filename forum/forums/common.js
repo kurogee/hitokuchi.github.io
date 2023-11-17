@@ -7,11 +7,13 @@ async function getip() {
     return res;
 }
 
+/*
 async function search_free_image_from_pixabay(query) {
-    const res = await fetch(`https://pixabay.com/api/?key=40485329-d9754d6ccd9d16f5cdb61db26&q=${encodeURIComponent(query)}&lang=en&per_page=20`).then(res => res.json());
+    const url_for_api = `https://pixabay.com/api/?key=40485329-d9754d6ccd9d16f5cdb61db26&q=${encodeURIComponent(query)}&per_page=15&lang=ja`;
+    const res = await fetch(url_for_api).then(res => res.json());
     console.log(res);
     return res;
-}
+}*/
 
 function paste_url(url) {
     document.getElementById("message_box").value += `[img ${url}]`;
@@ -21,6 +23,7 @@ function delete_images_box() {
     document.getElementById("box_for_image").innerHTML = "";
 }
 
+/*
 async function search_image() {
     const word = document.getElementById("search_word").value;
     const images_box = document.getElementById("box_for_image");
@@ -32,14 +35,14 @@ async function search_image() {
 
         for (const i in response) {
             console.log(response[i]);
-            images_box.innerHTML += `<img src="${response[i].userImageURL}" onclick="paste_url('${response[i].userImageURL}');" style="width: calc(90% / 10%); height: auto;">`;
+            images_box.innerHTML += `<img src="${response[i].imageURL}" onclick="paste_url('${response[i].imageURL}');" style="width: 30%; height: auto;">`;
             //if (i == 9) images_box.innerHTML += "<br>";
         }
         images_box.innerHTML += `<br>
         <small>クリックで画像URLをメッセージ欄に貼り付けます</small>　<button onclick="delete_images_box();">画像リストをリセット</butto>
         `;
     }
-}
+}*/
 
 function replace_text(text) {
     let result = text;
