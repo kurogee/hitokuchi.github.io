@@ -22,6 +22,10 @@
 
         gtag('config', 'G-FCB1XEM56C');
     </script>
+
+    <!-- jQuery 3.7.1 -->
+    <script src="../jquery-3.7.1.min.js"></script>
+
     <script>
         window.addEventListener("DOMContentLoaded", function () {
             // 画面の幅が768px以下かどうかを判定
@@ -48,16 +52,6 @@
         <p></p>
     </div>
     <br>
-    <!-- <div id="box">
-        <h3>★ イベント情報 ★</h3>
-        <p id="events">特になし</p>
-    </div>
-     ポイントシステムは一時停止
-        <br>
-        <div id="box">
-            <h3>ポイントを貯める</h3>
-            ▶<a href="./getpoint.html">ポイントポータルに行く</a>◀
-        </div>-->
 
     <div id="box">
         <h2 class="catchphrase_color">あなたの想いを届けよう。</h2>
@@ -65,14 +59,14 @@
             hitokuchi(ひとくち)は登録不要で知らない誰かにメッセージを送ったり、<br>
             知らない誰かから受け取ったりできるメッセージングサービスです！<br>
         </p>
-        <p></p>
+        <br>
 
         <div class="buttons">
-
             <p id="left_blank"></p><a href="./send.html" class="button" id="send-button">　メッセージを送る　</a><p id="blank">　　</p><a href="./mes.html" class="button"
                 id="get-button">メッセージを受け取る</a><p id="right_blank"></p>
         </div>
         <br>
+
         <hr>
 
         <h3>他のサービス</h3>
@@ -94,16 +88,14 @@
         </div>
     </div>
     <br>
-    <p></p>
     <div class="box">
         <h3>ポイントポータル</h3>
         <p>ポイントをフレームと交換したり、ゲームでポイントを貯めることができます！</p>
         <br>
-        <a href="../point/index.html" class="button-point">　ポイントポータルに行く　</a>
-        <p></p>
+        <a href="../point/index.html" class="button-point">　ポイントポータルに行く　</a><br>
         <br>
     </div>
-    <p></p>
+    <br>
     <div class="box">
         <h3>拡散してね！</h3>
         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi"
@@ -222,7 +214,8 @@
             <p></p>
             <p></p>
         </div>
-        <p></p>
+        <br>
+
         <script>
             window.onload = () => {
                 const day = new Date().getDay();

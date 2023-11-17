@@ -32,7 +32,10 @@
                     <p>再開に向けた準備中...</p>
                 <hr>
                 <h3>ゲームで貯める！</h3>
-                    <button id="button-game" onclick="play_game('typing');">　タイピングゲーム　</a>
+                <div>
+                    <button id="button-game" onclick="play_game('typing');">　タイピングゲーム　</button><br>
+                    <button id="button-game" onclick="play_game('mine')">　マインスイーパ　</button>
+                </div>
             </div>
             <br>
         </div>
@@ -54,6 +57,11 @@
                     case "typing":
                         sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
                         document.getElementById("url").href = "./games/typing/index.html";
+                        document.getElementById("url").click();
+                        break;
+                    case "mine":
+                        sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
+                        document.getElementById("url").href = "./games/mine/index.html";
                         document.getElementById("url").click();
                         break;
                 }
