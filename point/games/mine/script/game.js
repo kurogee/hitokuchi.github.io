@@ -99,6 +99,13 @@ function open_cell(x, y) {
         return;
     }
 
+    if (checked_count == weight * height - bom) {
+        gameover = true;
+        $(".status").text("Game Clear");
+        create_point_code(12);
+        return;
+    }
+
     if (board_cells[y][x] == 0) {
         for (let cy = -1; cy <= 1; cy++) {
             for (let cx = -1; cx <= 1; cx++) {
