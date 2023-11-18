@@ -106,7 +106,7 @@ function open_cell(x, y) {
     if (checked_count >= weight * height - bom) {
         gameover = true;
         $(".status").text("Game Clear");
-        create_point_code(10);
+        create_point_code(15);
         return;
     }
 
