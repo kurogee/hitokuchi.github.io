@@ -102,16 +102,16 @@ function open_cell(x, y) {
         return;
     }
 
+    console.log(check_cells[y][x]);
+    check_cells[y][x] = true;
+    checked_count++;
+
     if (checked_count >= weight * height - bom) {
         gameover = true;
         $(".status").text("Game Clear");
         create_point_code(15);
         return;
     }
-
-    console.log(check_cells[y][x]);
-    check_cells[y][x] = true;
-    checked_count++;
 
     if (board_cells[y][x] == 0) {
         for (let cy = -1; cy <= 1; cy++) {
