@@ -94,9 +94,8 @@ function gameover_action() {
 
 function open_cell(x, y) {
     if (gameover || flag_checked_map[y][x]) return;
-
-    check_cells[y][x] = true;
-    checked_count++;
+    
+    
     if (board_cells[y][x] == -1) {
         gameover = true;
         gameover_action();
@@ -110,32 +109,37 @@ function open_cell(x, y) {
         return;
     }
 
+    console.log(check_cells[y][x]);
+    check_cells[y][x] = true;
+    checked_count++;
+
     if (board_cells[y][x] == 0) {
         for (let cy = -1; cy <= 1; cy++) {
             for (let cx = -1; cx <= 1; cx++) {
                 if (cx != 0 || cy != 0) {
-                    console.log(x, y, cx, cy);
                     if (x + cx < weight &&
                         y + cy < height &&
                         x + cx >= 0 &&
-                        y + cy >= 0 &&
-                        check_cells[cy + y][cx + x] == false) open_cell(x + cx, y + cy);
+                        y + cy >= 0) {
+                            if (check_cells[cy + y][cx + x] == false) {
+                                open_cell(x + cx, y + cy);
+                                console.log(check_cells[cy + y][cx + x])
+                            }
+                        }
                 }
             }
         }
-    } else {
-        output_board(board_cells);
     }
+
+    output_board(board_cells);
 }
 
 function put_checkmark_to_mine(x, y) {
     if (gameover || check_cells[y][x]) return;
 
-    if (flag_checked_map[y][x]) {
-        flag_checked_map[y][x] = false;
-    } else {
-        flag_checked_map[y][x] = true;
-    }
+    console.log(flag_checked_map[y][x]);
+    flag_checked_map[y][x] = !flag_checked_map[y][x];
+
     output_board(board_cells);
 }
 
@@ -154,15 +158,12 @@ $(function() {
         e.preventDefault();
 
         let [x, y] = $(this).val().split(",").map((v) => parseInt(v));
-        console.log(x, y);
         put_checkmark_to_mine(x, y);
 
         return false;
     });
 
     $(document).on("click", ".button_for_mine", function() {
-        console.log("click");
-
         let [x, y] = $(this).val().split(",").map((v) => parseInt(v));
         open_cell(x, y);
     });
