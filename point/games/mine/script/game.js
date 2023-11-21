@@ -65,7 +65,7 @@ function output_board(board) {
         x = 0;
         line.forEach((cell) => {
             if (check_cells[y][x]) {
-                display.append(`<button class="button_for_mine white" value="${x},${y}">${cell == -1 ? "💣" : cell}</button>`);
+                display.append(`<button class="button_for_mine white" value="${x},${y}">${cell == -1 ? "💣" : cell == 0 ? "　" : cell}</button>`);
             } else {
                 display.append(`<button class="button_for_mine black" value="${x},${y}">${flag_checked_map[y][x] ? "🚩" : "　"}</button>`);
             }
