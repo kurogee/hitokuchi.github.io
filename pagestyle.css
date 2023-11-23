@@ -275,6 +275,14 @@ a.link_color:hover {
     font-style: italic;
 }
 
+.big {
+    font-size: 23px;
+}
+
+.small {
+    font-size: 15px;
+}
+
 #button-game {
 	display: block;
     text-align: center;
@@ -317,7 +325,7 @@ a.link_color:hover {
     background: rgb(67, 131, 199);
 }
 
-.button-point{
+.button-point {
     text-align: center;
     text-decoration: none;
     background: rgb(255, 255, 255);

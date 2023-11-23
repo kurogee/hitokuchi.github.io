@@ -1,5 +1,68 @@
 const point_url = key.point_fetch_url;
 
+async function account_auth(username, password) {
+    const response = await fetch(
+        point_url,
+        {
+            method: "POST",
+            body: JSON.stringify({
+                "id": username,
+                "pass": password,
+                "req": "login"
+            })
+        }
+    )
+    .then((response) => response.text())
+    
+    .then((data)=>{
+        return JSON.parse(data);
+    });
+
+    return response;
+}
+
+async function use_point(username, point) {
+    const response = await fetch(point_url,
+        {
+            method: "POST",
+            body: JSON.stringify({
+                "req": "use_point",
+                "id": username,
+                "use": point
+            })
+        })
+        .then(res => {
+            return res.text();
+        })
+        .then(data => {
+            return JSON.parse(data);
+        });
+
+    return response.result == "ok" ? true : false;
+}
+
+async function use_premium(request_auth, uuid) {
+    const response = await fetch(point_url,
+        {
+            method: "POST",
+            body: JSON.stringify({
+                "req": "use_premium",
+                "id": "",
+                "pass": "",
+                "request_auth": request_auth,
+                "uuid": uuid
+            })
+        })
+        .then(res => {
+            return res.text();
+        })
+        .then(data => {
+            return JSON.parse(data);
+        });
+
+    return response.result == "ok" ? true : false;
+}
+
 async function send_change() {
     if (document.getElementById("uuid").value == "") {
         document.getElementById("status").innerText = "IDを入力してください！";
