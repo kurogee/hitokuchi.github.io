@@ -45,9 +45,16 @@
                 メッセージ<br>
                 <small>【メッセージに個人情報を含めないでください】</small>
                 <textarea id="area"></textarea>
-                <p></p>
+
+                <hr>
+
+                <small>【プレミアムコードを持っている方は、ここに入力してください】</small><br>
+                <input type="text" class="text" id="premium_code" placeholder="プレミアムコード(UUID形式)"><br>
+                <small id="status_for_premium"></small>
+
+                <br>
                 <input type="button" value="メッセージを送信する！" id="button" onclick="send_mes();" class="send-message">
-                <p></p>
+                <br>
             </form>
             <small id="status"></small>
         </div>
@@ -77,12 +84,15 @@
                     </tr>
                     <tr>
                         <td>:hanataka:</td><td><img src="../emoji/hanataka.webp" alt=" (emoji) " class="emoji"></td>
+                        <td>[color カラーコード テキスト]</td><td>【プレミアム限定】文字に色が付きます</td>
                     </tr>
                     <tr>
                         <td>:iine:</td><td><img src="../emoji/iine.webp" alt=" (emoji) " class="emoji"></td>
+                        <td>[big テキスト]</td><td>【プレミアム限定】文字が大きくなります</td>
                     </tr>
                     <tr>
                         <td>:sleep:</td><td><img src="../emoji/sleep.webp" alt=" (emoji) " class="emoji"></td>
+                        <td>[small テキスト]</td><td>【プレミアム限定】文字が小さくなります</td>
                     </tr>
                     <tr>
                         <td>:yatta:</td><td><img src="../emoji/yatta.webp" alt=" (emoji) " class="emoji"></td>
@@ -98,6 +108,7 @@
         </div>
 
         <script src="../config.js"></script>
-        <script src="send_message.js"></script>
+        <script src="../point/point.js"></script>
+        <script src="./send_message.js"></script>
     </body>
 </html>

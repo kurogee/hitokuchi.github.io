@@ -1,7 +1,42 @@
 const fetch_url = key.message_fetch_url;
 
-function replace_text(text) {
+async function use_premium(request_auth, uuid) {
+    const response = await fetch(key.point_fetch_url,
+        {
+            method: "POST",
+            body: JSON.stringify({
+                "req": "use_premium",
+                "id": "",
+                "pass": "",
+                "request_auth": request_auth,
+                "uuid": uuid
+            })
+        })
+        .then(res => {
+            return res.text();
+        })
+        .then(data => {
+            return JSON.parse(data);
+        });
+
+    return response.result == "ok" ? true : false;
+}
+
+function replace_text(text, premium_free=false) {
     let result = text;
+    let auth = false;
+
+    if (premium_free) {
+        auth = true;
+    } else {
+        const premium_uuid = document.getElementById("premium_code").value;
+        if (premium_uuid != "") {
+            auth = use_premium("h", premium_uuid);
+            if (!auth) {
+                document.getElementById("status_for_premium").innerHTML = "プレミアムコードが無効です！";
+            }
+        }
+    }
     
     result = result.split("&").join("&amp;");
     result = result.split("<").join("&lt;");
@@ -12,6 +47,12 @@ function replace_text(text) {
     result = result.replace(/\[b (.+?)\]/g, "<span class='hutoji'>$1</span>");
     result = result.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
     result = result.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
+
+    if (auth) {
+        result = result.replace(/\[color (\#)?(.+?) (.+?)\]/g, "<span style='color: #$1;'>$2</span>");
+        result = result.replace(/\[big (.+?)\]/g, "<span class='big'>$1</span>");
+        result = result.replace(/\[small (.+?)\]/g, "<span class='small'>$1</span>");
+    }
 
     console.log(result);
     return result;
@@ -47,7 +88,7 @@ async function send_mes() {
         .then(response => response.text())
 
         .then(data => {
-            sendip(document.getElementById("user").value, replace_text(document.getElementById("area").value), "hitokuchi");
+            sendip(document.getElementById("user").value, replace_text(document.getElementById("area").value, true), "hitokuchi");
             status.innerHTML = "送信完了";
             document.getElementById("area").value = "";
             localStorage.setItem("user", document.getElementById("user").value);

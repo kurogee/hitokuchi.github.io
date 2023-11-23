@@ -65,7 +65,7 @@ function output_board(board) {
         x = 0;
         line.forEach((cell) => {
             if (check_cells[y][x]) {
-                display.append(`<button class="button_for_mine white" value="${x},${y}">${cell == -1 ? "💣" : cell}</button>`);
+                display.append(`<button class="button_for_mine white" value="${x},${y}">${cell == -1 ? "💣" : cell == 0 ? "　" : cell}</button>`);
             } else {
                 display.append(`<button class="button_for_mine black" value="${x},${y}">${flag_checked_map[y][x] ? "🚩" : "　"}</button>`);
             }
@@ -102,16 +102,16 @@ function open_cell(x, y) {
         return;
     }
 
+    console.log(check_cells[y][x]);
+    check_cells[y][x] = true;
+    checked_count++;
+
     if (checked_count >= weight * height - bom) {
         gameover = true;
         $(".status").text("Game Clear");
         create_point_code(15);
         return;
     }
-
-    console.log(check_cells[y][x]);
-    check_cells[y][x] = true;
-    checked_count++;
 
     if (board_cells[y][x] == 0) {
         for (let cy = -1; cy <= 1; cy++) {
