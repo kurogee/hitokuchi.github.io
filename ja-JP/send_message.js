@@ -49,7 +49,7 @@ function replace_text(text, premium_free=false) {
     result = result.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
 
     if (auth) {
-        result = result.replace(/\[color (\#)?(.+?) (.+?)\]/g, "<span style='color: #$1;'>$2</span>");
+        result = result.replace(/\[color (\#)?(.+?) (.+?)\]/g, "<span style='color: #$2;'>$3</span>");
         result = result.replace(/\[big (.+?)\]/g, "<span class='big'>$1</span>");
         result = result.replace(/\[small (.+?)\]/g, "<span class='small'>$1</span>");
     }
