@@ -33,7 +33,7 @@ function replace_text(text, premium_free=false) {
         if (premium_uuid != "") {
             auth = use_premium("h", premium_uuid);
             if (!auth) {
-                document.getElementById("status_for_premium").innerHTML = "プレミアムコードが無効です！";
+                document.getElementById("status_for_premium").innerText = "プレミアムコードが無効です！";
             }
         }
     }

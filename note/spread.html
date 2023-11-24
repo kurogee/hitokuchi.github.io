@@ -37,7 +37,7 @@
         <small id="status"></small>
     </div>
 
-    <script src="./config.js"></script>
+    <script src="../config.js"></script>
     <script>
         function getParam(name, url) {
             if (!url) url = window.location.href;
@@ -50,7 +50,7 @@
         }
 
         onload = async function () {
-            const url = key.note;
+            const url = key.note_url;
             const note = document.getElementsByClassName("notes")[0];
             const status = document.getElementById("status");
             const uuid = getParam("id");

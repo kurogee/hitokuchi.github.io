@@ -43,12 +43,10 @@
         </div>
     </div>
 
-    <script src="./config.js"></script>
+    <script src="../config.js"></script>
     <script>
-        console.log(key.note);
-
         async function get_notes() {
-            const url = key.note;
+            const url = key.note_url;
             const status = document.getElementById("status");
             const notes_table = document.getElementById("notes");
             let mem, table_text;
