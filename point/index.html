@@ -177,11 +177,27 @@
                             </form>
 
                             <form>
+                                <small>シンプルフラワーフレーム [5pt]</small>
+                                <input type="hidden" class="use_point" value="5">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('flower', 7)">
+                            </form>
+
+                            <form>
                                 <small>スノーフレーム [8pt]</small>
                                 <input type="hidden" class="use_point" value="8">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('snow', 7)">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('snow', 8)">
+                            </form>
+
+                            <form>
+                                <small>クリスマスリボンフレーム [8pt]</small>
+                                <input type="hidden" class="use_point" value="8">
+                                <input type="hidden" class="req2" value="use_point">
+                                <input type="hidden" class="user_id2" value="${user}">
+                                <input type="button" value="交換してメッセージを送る" onclick="send_use('ribbon', 9)">
                             </form>
                         </div>
                     </div>`;

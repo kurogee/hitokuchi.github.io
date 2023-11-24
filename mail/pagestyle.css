@@ -309,3 +309,16 @@ a.link_color:hover {
 .torikeshi {
     text-decoration-line: line-through;
 }
+
+.note_image {
+    width: 40%;
+    height: auto;
+}
+
+.big {
+    font-size: 23px;
+}
+
+.small {
+    font-size: 15px;
+}
