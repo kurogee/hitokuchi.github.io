@@ -25,6 +25,7 @@ async function use_premium(request_auth, uuid) {
 function replace_text(text, premium_free=false) {
     let result = text;
     let auth = false;
+    let all_auth = false;
 
     if (premium_free) {
         auth = true;
@@ -32,8 +33,10 @@ function replace_text(text, premium_free=false) {
         const premium_uuid = document.getElementById("premium_code").value;
         if (premium_uuid != "") {
             auth = use_premium("h", premium_uuid);
+            all_auth = use_premium("hmn", premium_uuid);
+
             if (!auth) {
-                document.getElementById("status_for_premium").innerHTML = "プレミアムコードが無効です！";
+                document.getElementById("status_for_premium").innerText = "プレミアムコードが無効です！";
             }
         }
     }
@@ -52,6 +55,10 @@ function replace_text(text, premium_free=false) {
         result = result.replace(/\[color (\#)?(.+?) (.+?)\]/g, "<span style='color: #$2;'>$3</span>");
         result = result.replace(/\[big (.+?)\]/g, "<span class='big'>$1</span>");
         result = result.replace(/\[small (.+?)\]/g, "<span class='small'>$1</span>");
+    }
+
+    if (all_auth) {
+        result = result.replace(/\[[ ]?emoji (.+?)\]/g, "<img src='$1' class='emoji'>");
     }
 
     console.log(result);

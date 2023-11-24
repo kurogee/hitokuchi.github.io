@@ -41,9 +41,51 @@
             <div>検索結果に <label>表示する: <input type="radio" name="check" id="radiobox" class="radio" value="1" checked></label> / <label><label>表示しない: <input type="radio" name="check" id="radiobox" class="radio" value="0"></label></div><br>
             <button onclick="send_note();" id="button">投稿する</button><br>
             <small id="status"></small>
+
+            <small>【プレミアムコードを使う方は、ここに入力してください】</small><br>
+            <input type="text" class="text" id="premium_code" placeholder="プレミアムコード(UUID形式)"><br>
+            <small id="status_for_premium"></small>
+            <hr>
+            <div id="box">
+                <h3>プレミアム限定編集機能</h3>
+                <table>
+                    <thead>
+                        <th>コマンド</th><th>使用効果</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>$(URL)[表示するテキスト]</td><td>クリックできる外部サイトへのリンクを作成</td>
+                        </tr>
+                        <tr>
+                            <td>[i テキスト]</td><td>文字を<span class="shatai">斜体</span>にします</td>
+                        </tr>
+                        <tr>
+                            <td>[b テキスト]</td><td>文字を<span class="hutoji">太字</span>にします</td>
+                        </tr>
+                        <tr>
+                            <td>[d テキスト]</td><td>文字に<span class="torikeshi">取り消し線</span>をつけます</td>
+                        </tr>
+                        <tr>
+                            <td>[color カラーコード テキスト]</td><td>文字に任意の色をつけます</td>
+                        </tr>
+                        <tr>
+                            <td>[big テキスト]</td><td>文字を大きくします</td>
+                        </tr>
+                        <tr>
+                            <td>[small テキスト]</td><td>文字を小さくします</td>
+                        </tr>
+                        <tr>
+                            <td>[img 画像URL]</td><td>URL先の画像を表示します<br><small>※NSFW画像など全年齢対象では無い画像は<a href="../tos/index.html" target="_blank">利用規約</a>によって禁止されています</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+            </div>
+            <br>
         </div>
 
-        <script src="./config.js"></script>
+        <script src="../config.js"></script>
+        <script src="../point/point.js"></script>
         <script src="./write_note.js"></script>
     </body>
 </html>
