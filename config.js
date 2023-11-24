@@ -22,7 +22,17 @@ async function sendip(username, content, service_name) {
     );
 }
 
+async function easyfetch(url, body) {
+    const response = await fetch(url, JSON.stringify(body))
+                           .then(response => response.text())
+                           .then(data => JSON.parse(data))
+                           .catch(err => "error");
+    return response;
+}
+
 const key = {
     message_fetch_url : "https://script.google.com/macros/s/AKfycbyupdYFWpSQyp-nbizVhpTbGzgp8JxTvyfnEdo9lOf8oP0Io88zCs-R9ZF0RRTugVcPLw/exec",
-    point_fetch_url : "https://script.google.com/macros/s/AKfycbyuB0EeKklcgVdR0YgVw8yRQnZ3NIB4VuOzmnw0xWY-FpR3jOfB896TMPHNk7z6_t3iGQ/exec"
+    point_fetch_url : "https://script.google.com/macros/s/AKfycbyuB0EeKklcgVdR0YgVw8yRQnZ3NIB4VuOzmnw0xWY-FpR3jOfB896TMPHNk7z6_t3iGQ/exec",
+    note_url : "https://script.google.com/macros/s/AKfycbwGcFWIzfhl5ynyOdMhpK7Qo7tLoANkVQpFN0Nr-56Wr4F2IVZBW1hFSg7pEAqLVnsJ/exec",
+    mail_url : "https://script.google.com/macros/s/AKfycbyAXfSTgwGR1aA3c3yk9b2stJJs0YwKbfIrir2ynvnIlXkrn7SHLiZCLk2GTnTpXEl8gw/exec"
 };
