@@ -7,14 +7,6 @@ async function getip() {
     return res;
 }
 
-/*
-async function search_free_image_from_pixabay(query) {
-    const url_for_api = `https://pixabay.com/api/?key=40485329-d9754d6ccd9d16f5cdb61db26&q=${encodeURIComponent(query)}&per_page=15&lang=ja`;
-    const res = await fetch(url_for_api).then(res => res.json());
-    console.log(res);
-    return res;
-}*/
-
 function paste_url(url) {
     document.getElementById("message_box").value += `[img ${url}]`;
 }
@@ -22,27 +14,6 @@ function paste_url(url) {
 function delete_images_box() {
     document.getElementById("box_for_image").innerHTML = "";
 }
-
-/*
-async function search_image() {
-    const word = document.getElementById("search_word").value;
-    const images_box = document.getElementById("box_for_image");
-    let response;
-    if (word.trim() != "") {
-        response = await search_free_image_from_pixabay(word).then(res => res.hits);
-
-        images_box.innerHTML = "";
-
-        for (const i in response) {
-            console.log(response[i]);
-            images_box.innerHTML += `<img src="${response[i].imageURL}" onclick="paste_url('${response[i].imageURL}');" style="width: 30%; height: auto;">`;
-            //if (i == 9) images_box.innerHTML += "<br>";
-        }
-        images_box.innerHTML += `<br>
-        <small>クリックで画像URLをメッセージ欄に貼り付けます</small>　<button onclick="delete_images_box();">画像リストをリセット</butto>
-        `;
-    }
-}*/
 
 function replace_text(text) {
     let result = text;
@@ -77,6 +48,17 @@ function reply_prepare(messageID) {
     document.getElementById("reply_to").value = messageID;
 }
 
+function reply_reverse(messages) {
+    const sorted_parentID = messages.filter(i => i.parentID != "");
+    const sorted_normal = messages.filter(i => i.parentID == "");
+    console.log(sorted_parentID);
+
+    const result = sorted_normal.reverse().concat(sorted_parentID);
+    console.log(result);
+    
+    return result;
+}
+
 async function get_messages(name="main") {
 
     const response = await fetch(
@@ -98,6 +80,7 @@ async function get_messages(name="main") {
     } else {
         const messages_box = document.getElementById("messages_box");
         let result = response.result.filter(_ => { return _.message == "" ? undefined : _ });
+        result = reply_reverse(result);
 
         messages_box.innerHTML = "<br>";
 
