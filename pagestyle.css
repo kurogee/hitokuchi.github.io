@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
-@import url("https://fonts.googleapis.com/css?family=Zen+Maru+Gothic");
+@import url('https://fonts.googleapis.com/css2?family=Murecho:wght@300&display=swap');
 
 @font-face {
     font-family: "dot_font";
@@ -9,7 +9,7 @@
 } /* ドットフォント (一応程度の感じで...) */
 
 :root {
-    --default-font-family: "Zen Maru Gothic", sans-serif;
+    --default-font-family: "Murecho", sans-serif;
     --dot-font-family: "dot_font", monospace;
     --source-code-font: "Source Code Pro", monospace;
 }
@@ -35,12 +35,13 @@ small {
 }
 
 #box, .box {
-    border: 2.5px solid rgb(67, 131, 199);
+    border: 2px solid rgb(67, 131, 199);
     border-radius: 10px 10px;
     height: 100%;
     width: 90%;
-    background-color: rgb(221, 238, 255);
+    background-color: rgb(251, 253, 255);
     width: 70%;
+    box-shadow: 0px 0.3px 4px 0px rgba(0, 0, 0, 0.35);
     /*スマホに合わせて調整*/
     width: 70%;
     @media screen and (max-width: 768px) {
@@ -61,6 +62,8 @@ small {
 	color: rgb(67, 131, 199);
 	border-radius: 100vh;
 	transition: 0.3s;
+    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
+
 }
 
 #button:hover {
@@ -103,6 +106,9 @@ small {
 
 #user, .button, .text {
     width: 95%;
+    border: 2px solid rgb(67, 131, 199);
+    box-shadow: 0px 0.5px 0.5px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 10px 10px;
 }
 
 .emoji {
@@ -111,11 +117,12 @@ small {
 }
 
 .card {
-    border: 5px inset rgb(67, 131, 199);
+    border: 2px solid rgb(67, 131, 199);
     width: 95%;
     height: 80vh;
     border-radius: 10px 10px;
     background-size: cover;
+    box-shadow: 0px 2.5px 2.5px 0px rgba(0, 0, 0, 0.35);
 }
 
 .title_text {
@@ -155,9 +162,12 @@ table {
 }
 
 textarea {
+    border: 2px solid rgb(67, 131, 199);
     width: 70%;
     height: 30vh;
     font-size: 13px;
+    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 10px 10px;
 }
 
 .menu {
@@ -183,7 +193,7 @@ textarea {
 }
 
 body, html {
-    background: linear-gradient( #add1f7, #7baee4 );
+    background: linear-gradient( #d3e8ff, #daecfe );
     background-attachment: fixed;
 }
 
@@ -239,6 +249,7 @@ a.link_color:hover {
     color: rgb(67, 131, 199);
     border-radius: 100vh;
     transition: 0.3s;
+    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
 }
 
 .button:hover {
@@ -283,7 +294,7 @@ a.link_color:hover {
     font-size: 15px;
 }
 
-#button-game {
+.button-game {
 	display: block;
     text-align: center;
 	text-decoration: none;
@@ -295,9 +306,10 @@ a.link_color:hover {
 	color: rgb(67, 131, 199);
 	border-radius: 100vh;
 	transition: 0.3s;
+    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
 }
 
-#button-game:hover {
+.button-game:hover {
 	color: #fff;
 	background: rgb(67, 131, 199);
 }
@@ -318,6 +330,7 @@ a.link_color:hover {
     color: rgb(67, 131, 199);
     border-radius: 100vh;
     transition: 0.3s;
+    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
 }
 
 .button-forum:hover {
@@ -336,6 +349,7 @@ a.link_color:hover {
     color: rgb(67, 131, 199);
     border-radius: 100vh;
     transition: 0.3s;
+    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
     @media screen and (max-width: 768px) {
         padding: 0.3rem 0.2rem;
     }
@@ -354,4 +368,31 @@ a.link_color:hover {
 .tool_icon {
     width: 30px;
     height: 30px;
+}
+
+.button-reply{
+    text-align: center;
+    text-decoration: none;
+    background: rgb(255, 255, 255);
+    margin: auto;
+    padding: 0.3rem 0.7rem;
+    font-weight: bold;
+    border: 2px solid rgb(67, 131, 199);
+    color: rgb(67, 131, 199);
+    border-radius: 100vh;
+    transition: 0.3s;
+    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
+    @media screen and (max-width: 768px) {
+        padding: 0.3rem 0.2rem;
+    }
+}
+
+.button-reply:hover {
+    color: #fff;
+    background: rgb(67, 131, 199);
+}
+
+.input{
+    border: 2px solid rgb(67, 131, 199);
+    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
 }

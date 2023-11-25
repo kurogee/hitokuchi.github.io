@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
-@import url("https://fonts.googleapis.com/css?family=Zen+Maru+Gothic");
+@import url('https://fonts.googleapis.com/css2?family=Murecho:wght@300&display=swap');
 
 @font-face {
     font-family: "dot_font";
@@ -9,7 +9,7 @@
 } /* ドットフォント */
 
 :root {
-    --default-font-family: "Zen Maru Gothic", sans-serif;
+    --default-font-family: "Murecho", sans-serif;
     --dot-font-family: "dot_font", monospace;
     --source-code-font: "Source Code Pro", monospace;
 }
@@ -35,12 +35,13 @@ small {
 }
 
 #box, .box {
-    border: 2.5px solid rgb(67, 131, 199);
+    border: 2px solid rgb(67, 131, 199);
     border-radius: 10px 10px;
     height: 100%;
     width: 90%;
-    background-color: rgb(221, 238, 255);
+    background-color: rgb(251, 253, 255);
     width: 70%;
+    box-shadow: 0px 0.5px 7px 0px rgba(0, 0, 0, 0.35);
     /*スマホに合わせて調整*/
     width: 70%;
     @media screen and (max-width: 768px) {
@@ -61,6 +62,8 @@ small {
 	color: rgb(67, 131, 199);
 	border-radius: 100vh;
 	transition: 0.3s;
+    box-shadow: 0px 0.5px 7px 0px rgba(0, 0, 0, 0.35);
+
 }
 
 #button:hover {
@@ -80,6 +83,8 @@ small {
 	color: rgb(67, 131, 199);
 	border-radius: 100vh;
 	transition: 0.3s;
+    box-shadow: 0px 0.5px 7px 0px rgba(0, 0, 0, 0.35);
+
 }
 
 .delete-button:hover {
@@ -99,6 +104,8 @@ small {
 	color: rgb(67, 131, 199);
 	border-radius: 100vh;
 	transition: 0.3s;
+    box-shadow: 0px 0.5px 7px 0px rgba(0, 0, 0, 0.35);
+
 }
 
 .reload-button:hover {
@@ -211,7 +218,7 @@ textarea {
 }
 
 body, html {
-    background: linear-gradient( rgb(178, 215, 254), rgb(126, 187, 252) );
+    background: linear-gradient( #fcfeff, #f7fafd );
     background-attachment: fixed;
 }
 
@@ -252,6 +259,8 @@ a.link_color:hover {
     color: rgb(67, 131, 199);
     border-radius: 100vh;
     transition: 0.3s;
+    box-shadow: 0px 0.5px 7px 0px rgba(0, 0, 0, 0.35);
+
 }
 
 .button:hover {
@@ -281,6 +290,8 @@ a.link_color:hover {
 	color: rgb(67, 131, 199);
 	border-radius: 100vh;
 	transition: 0.3s;
+    box-shadow: 0px 0.5px 7px 0px rgba(0, 0, 0, 0.35);
+
 }
 
 .mail_button:hover {
