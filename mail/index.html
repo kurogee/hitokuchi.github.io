@@ -26,8 +26,8 @@
         <div id="login_box">
             <br>
             <form>
-                ユーザー名: <input type="text" name="username" id="user_id"> @hitokuchi.mail<br>
-                合言葉: <input type="password" name="password" id="user_pass"><br>
+                ユーザー名: <input type="text" class="input" name="username" id="user_id"> @hitokuchi.mail<br>
+                合言葉: <input type="password" class="input" name="password" id="user_pass"><br>
                 <input type="hidden" id="req" value="login">
 
                 <div class="mail_buttons">
@@ -171,9 +171,9 @@
                                 <br>
                                 <h3>メール作成</h3>
                                 <form>
-                                    宛先: <input type="text" name="username" id="to"> @hitokuchi.mail<br>
-                                    差出人: <input type="text" name="username" id="from" value="${user_id}" readonly> @hitokuchi.mail<br>
-                                    本文<br><textarea id="message"></textarea><br>
+                                    宛先: <input type="text" class="input" name="username" id="to"> @hitokuchi.mail<br>
+                                    差出人: <input type="text" class="input" name="username" id="from" value="${user_id}" readonly> @hitokuchi.mail<br>
+                                    本文<br><textarea id="message" class="input"></textarea><br>
                                     <div class="mail_buttons">
                                     <input type="hidden" id="req2" value="send">
                                     <input type="button" value="送信" class="mail_button" onclick="send()">　<input type="reset" class="mail_button" value="取り消し"> 

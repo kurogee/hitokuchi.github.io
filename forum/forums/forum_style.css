@@ -5,10 +5,11 @@
 }
 
 #message, .message {
-    border: 2.5px solid rgb(59, 80, 102);
+    border: 2.5px solid rgb(84, 90, 96);
     border-radius: 10px;
     width: 95%;
     height: auto;
+    box-shadow: 0px 0.5px 0.5px 0px rgba(0, 0, 0, 0.35);
 }
 
 #message, .message > #username {
