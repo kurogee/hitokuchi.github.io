@@ -138,10 +138,10 @@
             お問い合わせ内容<br>
             <textarea id="area" class="toiawase" style="height: 120px; font-size: 15px;"></textarea><br>
 
-            <script src="../mail/config.js"></script>
+            <script src="../config.js"></script>
             <script>
                 async function send() {
-                    const url = key.url;
+                    const url = key.mail_url;
                     const states = document.getElementById("states");
 
                     states.innerHTML = "お待ちください...";
@@ -201,7 +201,7 @@
                     }
                 }
             </script>
-<p></p>
+            <p></p>
             <button onclick="send()" class="button-point">　送信　</button><br>
             <small id="states"></small>
             <p></p>
@@ -211,8 +211,7 @@
         <div class="box">
             <h3>管理人の部屋</h3>
             ▶<a href="../admin_room/index.html" class="link_color">Let's go!!!!</a>◀
-            <p></p>
-            <p></p>
+            <br><br>
         </div>
         <br>
 
