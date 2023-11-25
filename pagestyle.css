@@ -109,6 +109,23 @@ small {
     border: 2px solid rgb(67, 131, 199);
     box-shadow: 0px 0.5px 0.5px 0px rgba(0, 0, 0, 0.35);
     border-radius: 10px 10px;
+    outline: none;
+}
+
+.text#user_id{
+    width: 30%;
+}
+
+.text#user_pass{
+    width: 30%;
+}
+
+.text#copy-url{
+    width: 50%;
+}
+
+.text#copy-url-jp{
+    width: 50%;
 }
 
 .emoji {
@@ -168,6 +185,7 @@ textarea {
     font-size: 13px;
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
     border-radius: 10px 10px;
+    outline: none;
 }
 
 .menu {
@@ -314,11 +332,6 @@ a.link_color:hover {
 	background: rgb(67, 131, 199);
 }
 
-.error_image {
-    width: 30%;
-    height: auto;
-}
-
 .button-forum {
     text-align: center;
     text-decoration: none;
@@ -395,4 +408,5 @@ a.link_color:hover {
 .input{
     border: 2px solid rgb(67, 131, 199);
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
+    outline: none;
 }

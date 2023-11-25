@@ -20,10 +20,11 @@
         <div class="box">
             <h3>ログイン</h3>     
                 <form>
-                    ユーザー名: <input type="text" name="username" id="user_id"><br>
-                    合言葉: <input type="password" name="password" id="user_pass"><br>
+                    ユーザー名: <input type="text" name="username" id="user_id" class="text"><br>
+                    合言葉: <input type="password" name="password" id="user_pass" class="text"><br>
                     <input type="hidden" id="req" value="login">
-                    <input type="button" value="ログイン" onclick="login()">　<input type="reset" value="取り消し">
+                    <p></p>
+                    <input type="button" value="ログイン" onclick="login()" class="button-point">　<input type="reset" value="取り消し" class="button-point">
                 </form>
             <br>
             <small id="status"></small>
