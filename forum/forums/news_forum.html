@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>ひとくち！ - ニュース板</title>
+
+    <meta charset="utf-8">
+    <meta property="og:title" content="ひとくち！ - 簡易掲示板サービス">
+    <meta property="og:description" content="想いをみんなに伝えましょう！">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../../hitokuchi_logo.webp" type="image/webp">
+    <link rel="stylesheet" href="../../pagestyle.css">
+    <link rel="stylesheet" href="./forum_style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCB1XEM56C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FCB1XEM56C');
+    </script>
+
+    <!-- jQuery 3.7.1 -->
+    <script src="../../jquery-3.7.1.min.js"></script>
+    <script src="../style_by_jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="box">
+        <br>
+        <a href="../index.html" class="link_color">〈　ホームへ戻る　〉</a><br>
+        <h2>ニュース板</h2>
+        <p>ニュース板は一日に一回午前0時ごろに更新されます。</p>
+        <input type="hidden" id="this_forum_name" value="news">
+    </div>
+    <p></p>
+    <div id="box">
+        <form>
+            <p>
+                ユーザー名: <input type="text" class="text" id="username_box" style="width: 50%;" value="名無し"><br>
+                リプライ先: <input type="text" class="text" id="reply_to" style="width: 50%;" placeholder="指定なし"><br>
+                メッセージ:<br>
+                <textarea id="message_box" class="area" style="font-size: 20px;"></textarea>
+            </p>
+            <div class="buttons">
+                <input type="button" value="　　送信　　" class="button-forum" onclick="sorting_message(document.getElementById('this_forum_name').value);">
+                <input type="reset" value="　リセット　" class="button-forum"><br>
+            </div>
+            <br><small id="status" style="text-align: center;">うまくいかない場合は、広告ブロッカーをオフにしてみてください。</small>
+        </form>
+        <br>
+    </div>
+    <br>
+    <div id="messages_box" class="box">
+        <br>
+        <p>読み込み中</p>
+        <br>
+    </div>
+
+    <script src="../forum_script.js"></script>
+    <script src="./common.js"></script>
+</body>
+</html>
