@@ -29,6 +29,7 @@ function replace_text(text) {
     result = result.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
 
     result = result.replace(/\[[ ]?img (.+?)\]/g, "<br><img src='$1' class='forum_image'><br>");
+    result = result.replace(/\[[ ]?emoji (.+?)\]/g, "<img src='$1' class='emoji'>");
 
     console.log("Replaced text: " + result);
     return result;
@@ -50,8 +51,7 @@ function reply_prepare(messageID) {
 
 function reply_reverse(messages) {
     const sorted_parentID = messages.filter(i => i.parentID != "");
-    const sorted_normal = messages.filter(i => i.parentID == "");
-    console.log(sorted_parentID);
+    const sorted_normal = messages.filter(i => i.parentID == "");    
 
     const result = sorted_normal.reverse().concat(sorted_parentID);
     console.log(result);

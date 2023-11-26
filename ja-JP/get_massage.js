@@ -26,24 +26,8 @@ function replace_emoji(text) {
 async function get_mes() {
     document.getElementById("status").innerHTML = "お待ちください...";
 
-    // メッセージ取得数を変更
-    /*let max;
-    const day = new Date().getDay();
-    if (day == 0 || day == 6 || day == 5) {
-        max = 8;
-        console.log("8通の日");
-    } else {
-        max = 5;
-    }*/
-
     // 実際にメッセージを取得する
     if (document.getElementById("user").value != "") {
-        /*if ( (localStorage.getItem("count") != null && parseInt(localStorage.getItem("count")) >= max) || document.cookie.match("yes") ) {
-            document.cookie = "seigen=yes; max-age=43200";
-            document.getElementById("status").innerHTML = "12時間に取得できるメッセージの最大数を超えました。12時間後にまた試してください。";
-            return;
-        }*/
-
         const response = await fetch(
             fetch_url,
             {
@@ -62,9 +46,9 @@ async function get_mes() {
 
         const message = replace_emoji(response.message);
         const username = response.user;
-        const flame = response.flame;
+        const frame = response.flame; // スペルミスがあるので後々修正していく
 
-        console.log(flame);
+        console.log(frame);
 
         document.getElementById("user_name").innerHTML = username;
         const icon = document.getElementById("special_icon");
@@ -80,8 +64,8 @@ async function get_mes() {
             default: break;
         }
         document.getElementById("message").innerHTML = message;
-        if (flame != "" && flame != undefined) {
-            document.getElementById("getmes").style.backgroundImage = `url("../frame/Frame_${flame}.webp")`;
+        if (frame != "" && frame != undefined) {
+            document.getElementById("getmes").style.backgroundImage = `url("../frame/Frame_${frame}.webp")`;
         } else {
             document.getElementById("getmes").style.backgroundImage = 'none';
         }
