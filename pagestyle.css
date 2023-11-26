@@ -23,15 +23,21 @@
 
 *:not(input, small, h2, h3, button, textarea) {
     font-size: 20px;
+    appearance: none;
 }
 
 small {
     font-size: 15px;
 }
 
-#user, #area, #button {
+#user, #area {
+    appearance: none;
     border-radius: 10px 10px;
     font-size: 25px;
+}
+
+#user {
+max-width: 90%;
 }
 
 #box, .box {
@@ -51,6 +57,8 @@ small {
 }
 
 #button {
+    appearance: none;
+    font-size: 25px;
 	display: block;
     text-align: center;
 	text-decoration: none;
@@ -63,7 +71,7 @@ small {
 	border-radius: 100vh;
 	transition: 0.3s;
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
-}
+} 
 
 #button:hover {
 	color: #fff;
@@ -104,6 +112,7 @@ small {
 }
 
 #user, .button, .text {
+    appearance: none;
     width: 95%;
     border: 2px solid rgb(67, 131, 199);
     box-shadow: 0px 0.5px 0.5px 0px rgba(0, 0, 0, 0.35);
@@ -154,9 +163,13 @@ small {
 #area {
     width: 95%;
     height: 430px;
+    @media screen and (max-width: 768px) {
+        width: 90%;
+    }
 }
 
 #toiawase-area{
+    appearance: none;
     width: 95%;
     height: 430px;
     @media screen and (max-width: 768px) {
@@ -193,8 +206,9 @@ table {
 }
 
 textarea {
+    appearance: none;
     border: 2px solid rgb(67, 131, 199);
-    width: 70%;
+    width: 90%;
     height: 30vh;
     font-size: 13px;
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
@@ -271,6 +285,7 @@ a.link_color:hover {
 }
 
 .button {
+    appearance: none;
     text-align: center;
     text-decoration: none;
     background: rgb(255, 255, 255);
@@ -347,6 +362,7 @@ a.link_color:hover {
 }
 
 .button-forum {
+    appearance: none;
     text-align: center;
     text-decoration: none;
     background: rgb(255, 255, 255);
@@ -366,6 +382,7 @@ a.link_color:hover {
 }
 
 .button-point {
+    appearance: none;
     text-align: center;
     text-decoration: none;
     background: rgb(255, 255, 255);
@@ -398,20 +415,18 @@ a.link_color:hover {
 }
 
 .button-reply{
+    appearance: none;
     text-align: center;
     text-decoration: none;
     background: rgb(255, 255, 255);
     margin: auto;
-    padding: 0.3rem 0.7rem;
+    padding: 0.3rem 1.2rem;
     font-weight: bold;
     border: 2px solid rgb(67, 131, 199);
     color: rgb(67, 131, 199);
     border-radius: 100vh;
     transition: 0.3s;
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
-    @media screen and (max-width: 768px) {
-        padding: 0.3rem 0.2rem;
-    }
 }
 
 .button-reply:hover {
@@ -420,6 +435,7 @@ a.link_color:hover {
 }
 
 .input{
+    appearance: none;
     border: 2px solid rgb(67, 131, 199);
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
     outline: none;
