@@ -1,6 +1,5 @@
 async function getip() {
     const res = await fetch('https://ipinfo.io?callback').then(res => res.json()).then(json => json.ip);
-    console.log(res);
     return res;
 }
 

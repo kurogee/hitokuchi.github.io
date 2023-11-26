@@ -6,7 +6,7 @@
     font-family: "dot_font";
     src: url('./dotFontTtf.ttf') format('truetype');
     src: url('./dotFontOtf.otf') format('opentype');
-} /* ドットフォント (一応程度の感じで...) */
+} /* ドットフォント */
 
 :root {
     --default-font-family: "Murecho", sans-serif;
@@ -63,7 +63,6 @@ small {
 	border-radius: 100vh;
 	transition: 0.3s;
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
-
 }
 
 #button:hover {
