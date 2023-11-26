@@ -83,10 +83,10 @@
             Detail<br>
             <textarea id="area" class="toiawase" style="height: 120px; font-size: 15px;"></textarea><br>
 
-            <script src="../mail/config.js"></script>
+            <script src="../config.js"></script>
             <script>
                 async function send() {
-                    const url = key.url;
+                    const url = key.mail_url;
                     const status = document.getElementById("status");
 
                     status.innerHTML = "Please wait...";

@@ -38,6 +38,7 @@
                 document.getElementById("blank").innerHTML = "　";
                 document.getElementById("left_blank").innerHTML = "⠀";
                 document.getElementById("right_blank").innerHTML = "⠀";
+                document.getElementById("send-toiawase").innerHTML = "　　　送信　　　";
             }
         });
     </script>
@@ -136,7 +137,7 @@
             件名<br>
             <input type="text" id="message_about" class="text"><br>
             お問い合わせ内容<br>
-            <textarea id="area" class="toiawase" style="height: 120px; font-size: 15px;"></textarea><br>
+            <textarea id="toiawase-area" class="toiawase" style="height: 120px; font-size: 15px;"></textarea><br>
 
             <script src="../config.js"></script>
             <script>
@@ -202,7 +203,7 @@
                 }
             </script>
             <p></p>
-            <button onclick="send()" class="button-point">　送信　</button><br>
+            <button onclick="send()" class="button-point" id="send-toiawase">　送信　</button><br>
             <small id="states"></small>
             <p></p>
         </div>
