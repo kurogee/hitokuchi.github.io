@@ -5,82 +5,67 @@
 <url>
   <loc>https://hitokuchi.f5.si/</loc>
   <priority>1.0</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
 </url>
 <url>
   <loc>https://hitokuchi.f5.si/ja-JP/index.html</loc>
   <priority>0.8</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
 </url>
 <url>
   <loc>https://hitokuchi.f5.si/en-US/index.html</loc>
   <priority>0.8</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
 </url>
 <url>
   <loc>https://hitokuchi.f5.si/tos/index.html</loc>
   <priority>0.8</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
-</url>
-<url>
-  <loc>https://hitokuchi.f5.si/ja-JP/send.html</loc>
-  <priority>0.7</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
-</url>
-<url>
-  <loc>https://hitokuchi.f5.si/ja-JP/mes.html</loc>
-  <priority>0.7</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
-</url>
-<url>
-  <loc>https://hitokuchi.f5.si/mail/index.html</loc>
-  <priority>0.7</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
-</url>
-<url>
-  <loc>https://hitokuchi.f5.si/review/index.html</loc>
-  <priority>0.7</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
-</url>
-<url>
-  <loc>https://hitokuchi.f5.si/note/index.html</loc>
-  <priority>0.7</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
-</url>
-<url>
-  <loc>https://hitokuchi.f5.si/forum/index.html</loc>
-  <priority>0.7</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
-</url>
-<url>
-  <loc>https://hitokuchi.f5.si/point/index.html</loc>
-  <priority>0.7</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
 </url>
 <url>
   <loc>https://hitokuchi.f5.si/admin_room/index.html</loc>
   <priority>0.7</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
+</url>
+<url>
+  <loc>https://hitokuchi.f5.si/en-US/send.html</loc>
+  <priority>0.7</priority>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
+</url>
+<url>
+  <loc>https://hitokuchi.f5.si/en-US/mes.html</loc>
+  <priority>0.7</priority>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
+</url>
+<url>
+  <loc>https://hitokuchi.f5.si/mail/index.html</loc>
+  <priority>0.6</priority>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
+</url>
+<url>
+  <loc>https://hitokuchi.f5.si/review/index.html</loc>
+  <priority>0.6</priority>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
+</url>
+<url>
+  <loc>https://hitokuchi.f5.si/note/index.html</loc>
+  <priority>0.6</priority>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
 </url>
 <url>
   <loc>https://hitokuchi.f5.si/mail/signup.html</loc>
-  <priority>0.6</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
+  <priority>0.5</priority>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
 </url>
 <url>
   <loc>https://hitokuchi.f5.si/note/write.html</loc>
-  <priority>0.6</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
+  <priority>0.5</priority>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
 </url>
 <url>
   <loc>https://hitokuchi.f5.si/note/read.html</loc>
-  <priority>0.6</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
-</url>
-<url>
-  <loc>https://hitokuchi.f5.si/point/account_login.html</loc>
-  <priority>0.6</priority>
-  <lastmod>2023-10-30T21:30:04+09:00</lastmod>
+  <priority>0.5</priority>
+  <lastmod>2023-11-26T08:57:40+09:00</lastmod>
 </url>
 
 </urlset>
