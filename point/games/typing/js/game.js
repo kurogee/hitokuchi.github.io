@@ -234,6 +234,8 @@ const words = [
     ["Studying English is difficult for me.", "英語を勉強するのは私にとって難しいです。"],
     ["I finished doing my homework.", "私は宿題を終えました。"],
     ["We couldn't all go to the party.", "私たちはみんなパーティーに行けませんでした。"],
+    ["Are you interested in using computers?", "コンピュータを使うことに興味がありますか？"],
+    ["You have to leave 15% as a tip in America.", "アメリカではチップとして15%を残さなければなりません。"],
 ].map(w => { return {"word" : w[0], "mean" : w[1]} });
 
 const sound = new Audio("./key_sound.mp3");
