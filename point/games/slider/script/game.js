@@ -7,20 +7,38 @@ console.log(numbers);
 let clear = false;
 const empty_place = [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)];
 
-/*function set_number_answer() {
-    let count = 1;
+function check_number(cells) {
+    // 二次元配列を一次元配列に変換
+    const finish = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15".split(",").map(Number);
+    let mem = [];
+    let num;
+    let count = 0;
 
-    for (let i = 0; i < numbers[0].length; i++) {
-        for (let j = 0; j < numbers[i].length; j++) {
-            numbers[i][j] = count;
-            count++;
-            if (i == 3 && j == 3) {
-                numbers[i][j] = 0;
-            }
+    for (let i = 0; i < cells.length; i++) {
+        for (let j = 0; j < cells[i].length; j++) {
+            if (cells[i][j] == 0) continue;
+            mem.push(cells[i][j]);
         }
     }
-    console.log(numbers);
-}*/
+
+    for (let i = 0; i < mem.length; i++) {
+        num = mem[i];
+        mem[i] = mem[mem.indexOf(i + 1)];
+        mem[mem.indexOf(i + 1, mem.indexOf(i + 1) + 1)] = num;
+        console.log(mem);
+        count++;
+
+        if (mem.toString() == finish.toString()) break;
+    }
+
+    console.log(count);
+
+    if (count % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function set_number() {
     let reminder_numbers = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15".split(",").map(Number);
@@ -39,6 +57,9 @@ function set_number() {
         }
     }
     console.log(numbers);
+    if (!check_number(numbers)) {
+        set_number();
+    }
 }
 
 function put_number() {
