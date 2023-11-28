@@ -33,8 +33,18 @@
                 <hr>
                 <h3>ゲームで貯める！</h3>
                 <div>
-                    <button class="button-game" onclick="play_game('typing');">　タイピングゲーム　</button><br>
-                    <button class="button-game" onclick="play_game('mine')">　   マインスイーパ   　</button>
+                    <button class="button-game" onclick="play_game('typing');">
+                        <img src="./icons/typing.webp" alt="タイピング" class="button-game-image"><br>
+                        　タイピングゲーム　
+                    </button>
+                    <button class="button-game" onclick="play_game('mine');">
+                        <img src="./icons/mine.webp" alt="マインスイーパ" class="button-game-image"><br>
+                        　マインスイーパ　
+                    </button>
+                    <button class="button-game" onclick="play_game('slide');">
+                        <img src="./icons/slide.webp" alt="スライドパズル" class="button-game-image"><br>
+                        　スライドパズル　
+                    </button>
                 </div>
             </div>
             <hr>
@@ -71,6 +81,11 @@
                     case "mine":
                         sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
                         document.getElementById("url").href = "./games/mine/index.html";
+                        document.getElementById("url").click();
+                        break;
+                    case "slide":
+                    sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
+                        document.getElementById("url").href = "./games/slider/index.html";
                         document.getElementById("url").click();
                         break;
                 }
