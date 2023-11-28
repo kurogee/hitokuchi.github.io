@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>スライドパズル</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="スライドパズル">
+        <meta property="og:description" content="hitokuchi.f5.siのスライドパズル">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../../pagestyle.css">
+        <link rel="shortcut icon" href="../../../hitokuchi_logo.webp" type="image/webp">
+        <script src="../../../jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <div id="box">
+            <h2>スライドパズル</h2>
+            <a href="../../index.html" class="link_color">〈　ポイントポータルへ戻る　〉</a>　<a href="../../../ja-JP/index.html" class="link_color">〈　日本語ホームへ戻る　〉</a>
+            <br><br>
+        </div>
+        <br>
+        <div class="box">
+            <h3>ルール</h3>
+            <div class="box">
+                <p></p>
+                数字をクリックして、1〜15の数字を順番に並べ替えよう！
+                <p></p>
+            </div>
+            <hr>
+            <h3>ゲーム</h3>
+            <div class="display box">
+                <br>
+                <button class="button-game" onclick="new_game();">　New Game　</button>
+                <p></p>
+            </div>
+            <p class="status"></p>
+            <p id="uuid_code"></p>
+            <br>
+        </div>
+
+        <script src="../../../config.js"></script>
+        <script src="../../point.js"></script>
+        <script src="./script/game.js"></script>
+
+        <style>
+            .number_cell {
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+                text-align: center;
+                font-size: 60px;
+                background-color: white;
+            }
+        </style>
+    </body>
+</html>
