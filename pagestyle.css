@@ -263,7 +263,8 @@ a.link_color:hover {
 }
 /* ボタン */
 
-.button, .button-forum, .button-game, .button-reply, .button-point, #button {
+.button, .button-forum, .button-game,
+ .button-reply, .button-point, #button {
     appearance: none;
     text-align: center;
     text-decoration: none;
@@ -276,13 +277,13 @@ a.link_color:hover {
     transition: 0.3s;
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
 }
-.button {
-    padding: 0.6rem 0.8rem;
-}
-
-.button:hover {
+.button:hover, .button-forum:hover, .button-game:hover,
+ .button-reply:hover,  #button:hover, .button-point:hover {
     color: #fff;
     background: rgb(67, 131, 199);
+}
+.button {
+    padding: 0.6rem 0.8rem;
 }
 
 #button {
@@ -291,13 +292,9 @@ a.link_color:hover {
 	padding: 0.5rem 3rem;
 } 
 
-#button:hover {
-	color: #fff;
-	background: rgb(67, 131, 199);
-}
-
 .button-game {
 	padding: 0.5rem 2rem;
+	border-radius: 10px;
 }
 
 .button-game-image {
@@ -305,18 +302,8 @@ a.link_color:hover {
     height: 50px;
 }
 
-.button-game:hover {
-	color: #fff;
-	background: rgb(67, 131, 199);
-}
-
 .button-forum {
     padding: 0.6rem 2rem;
-}
-
-.button-forum:hover {
-    color: #fff;
-    background: rgb(67, 131, 199);
 }
 
 .button-point {
@@ -326,20 +313,9 @@ a.link_color:hover {
     }
 }
 
-.button-point:hover {
-    color: #fff;
-    background: rgb(67, 131, 199);
-}
-
 .button-reply{
     padding: 0.3rem 1.2rem;
 }
-
-.button-reply:hover {
-    color: #fff;
-    background: rgb(67, 131, 199);
-}
-
 /* ボタンここまで */
 
 .buttons {
