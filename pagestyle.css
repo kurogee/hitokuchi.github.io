@@ -56,28 +56,6 @@ max-width: 90%;
     }
 }
 
-#button {
-    appearance: none;
-    font-size: 25px;
-	display: block;
-    text-align: center;
-	text-decoration: none;
-	background: rgb(255, 255, 255);
-	margin: auto;
-	padding: 0.5rem 3rem;
-	font-weight: bold;
-	border: 2px solid rgb(67, 131, 199);
-	color: rgb(67, 131, 199);
-	border-radius: 100vh;
-	transition: 0.3s;
-    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
-} 
-
-#button:hover {
-	color: #fff;
-	background: rgb(67, 131, 199);
-}
-
 .icons {
     display: flex;  
     gap: 0px;
@@ -120,11 +98,11 @@ max-width: 90%;
     outline: none;
 }
 
-.text#user_id{
+.text #user_id{
     width: 30%;
 }
 
-.text#user_pass{
+.text #user_pass{
     width: 30%;
 }
 
@@ -283,26 +261,86 @@ a.link_color:hover {
         font-size: 20px;
     }
 }
+/* ボタン */
 
-.button {
+.button, .button-forum, .button-game, .button-reply, .button-point, #button {
     appearance: none;
     text-align: center;
     text-decoration: none;
     background: rgb(255, 255, 255);
     margin: auto;
-    padding: 0.6rem 0.8rem;
     font-weight: bold;
-    border: 2px solid rgb(67, 131, 199);
-    color: rgb(67, 131, 199);
+	border: 2px solid rgb(67, 131, 199);
+	color: rgb(67, 131, 199);
     border-radius: 100vh;
     transition: 0.3s;
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
+}
+.button {
+    padding: 0.6rem 0.8rem;
 }
 
 .button:hover {
     color: #fff;
     background: rgb(67, 131, 199);
 }
+
+#button {
+    font-size: 25px;
+	display: block;
+	padding: 0.5rem 3rem;
+} 
+
+#button:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
+}
+
+.button-game {
+	padding: 0.5rem 2rem;
+}
+
+.button-game-image {
+    width: 50px;
+    height: 50px;
+}
+
+.button-game:hover {
+	color: #fff;
+	background: rgb(67, 131, 199);
+}
+
+.button-forum {
+    padding: 0.6rem 2rem;
+}
+
+.button-forum:hover {
+    color: #fff;
+    background: rgb(67, 131, 199);
+}
+
+.button-point {
+    padding: 0.6rem 2rem;
+    @media screen and (max-width: 768px) {
+        padding: 0.3rem 0.2rem;
+    }
+}
+
+.button-point:hover {
+    color: #fff;
+    background: rgb(67, 131, 199);
+}
+
+.button-reply{
+    padding: 0.3rem 1.2rem;
+}
+
+.button-reply:hover {
+    color: #fff;
+    background: rgb(67, 131, 199);
+}
+
+/* ボタンここまで */
 
 .buttons {
     display: flex;  
@@ -341,73 +379,6 @@ a.link_color:hover {
     font-size: 15px;
 }
 
-.button-game {
-    text-align: center;
-	text-decoration: none;
-	background: rgb(255, 255, 255);
-	margin: auto;
-	padding: 0.5rem 2rem;
-	font-weight: bold;
-	border: 2px solid rgb(67, 131, 199);
-	color: rgb(67, 131, 199);
-	border-radius: 10px;
-	transition: 0.3s;
-    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
-}
-
-.button-game-image {
-    width: 50px;
-    height: 50px;
-}
-
-.button-game:hover {
-	color: #fff;
-	background: rgb(67, 131, 199);
-}
-
-.button-forum {
-    appearance: none;
-    text-align: center;
-    text-decoration: none;
-    background: rgb(255, 255, 255);
-    margin: auto;
-    padding: 0.6rem 2rem;
-    font-weight: bold;
-    border: 2px solid rgb(67, 131, 199);
-    color: rgb(67, 131, 199);
-    border-radius: 100vh;
-    transition: 0.3s;
-    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
-}
-
-.button-forum:hover {
-    color: #fff;
-    background: rgb(67, 131, 199);
-}
-
-.button-point {
-    appearance: none;
-    text-align: center;
-    text-decoration: none;
-    background: rgb(255, 255, 255);
-    margin: auto;
-    padding: 0.6rem 2rem;
-    font-weight: bold;
-    border: 2px solid rgb(67, 131, 199);
-    color: rgb(67, 131, 199);
-    border-radius: 100vh;
-    transition: 0.3s;
-    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
-    @media screen and (max-width: 768px) {
-        padding: 0.3rem 0.2rem;
-    }
-}
-
-.button-point:hover {
-    color: #fff;
-    background: rgb(67, 131, 199);
-}
-
 .forum_image, .note_image {
     width: 35%;
     height: auto;
@@ -416,26 +387,6 @@ a.link_color:hover {
 .tool_icon {
     width: 30px;
     height: 30px;
-}
-
-.button-reply{
-    appearance: none;
-    text-align: center;
-    text-decoration: none;
-    background: rgb(255, 255, 255);
-    margin: auto;
-    padding: 0.3rem 1.2rem;
-    font-weight: bold;
-    border: 2px solid rgb(67, 131, 199);
-    color: rgb(67, 131, 199);
-    border-radius: 100vh;
-    transition: 0.3s;
-    box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
-}
-
-.button-reply:hover {
-    color: #fff;
-    background: rgb(67, 131, 199);
 }
 
 .input{
