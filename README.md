@@ -46,6 +46,13 @@ Hitokuchi note is a service that allows anyone to share their expertise and wisd
 
 "ひとくち!" is a completely free simple bulletin board service.
 
+## hitokuchi Premium
+
+Hitokuchi Premium can be used using points.
+This is a service that allows you to use convenient functions all at once.
+
+Various plans are available, and by purchasing you will be able to use more advanced text decorations.
+
 ## License 
 
 hitokuchi is licensed under the GPL-2.0 license.

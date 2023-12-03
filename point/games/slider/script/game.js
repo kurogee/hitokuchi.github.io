@@ -2,43 +2,59 @@ let numbers = [];
 for (let i = 0; i < 4; i++) {
     numbers[i] = new Array(4).fill(0);
 }
-console.log(numbers);
 
 let clear = false;
 const empty_place = [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)];
 
-function check_number(cells) {
-    // 二次元配列を一次元配列に変換
-    const finish = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15".split(",").map(Number);
-    let mem = [];
-    let num;
-    let count = 0;
+const solvabled = arr => {
+  const SPACE = "0"
+  const DEST_ARR = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", SPACE]
+  const SIZE = Math.floor(Math.sqrt(DEST_ARR.length))
 
-    for (let i = 0; i < cells.length; i++) {
-        for (let j = 0; j < cells[i].length; j++) {
-            if (cells[i][j] == 0) continue;
-            mem.push(cells[i][j]);
-        }
-    }
+  const point = index =>({x:index % SIZE, y:Math.floor(index / SIZE)})
 
-    for (let i = 0; i < mem.length; i++) {
-        num = mem[i];
-        mem[i] = mem[mem.indexOf(i + 1)];
-        mem[mem.indexOf(i + 1, mem.indexOf(i + 1) + 1)] = num;
-        console.log(mem);
-        count++;
+  const DEST_POINT = point(DEST_ARR.length-1)
 
-        if (mem.toString() == finish.toString()) break;
-    }
+  const correctToSolvable = arr =>
+    isSolvable(arr) ? arr
+    : [0,1].includes(arr.indexOf(SPACE)) ? exchanged(2)(3)(arr)
+    : exchanged(0)(1)(arr)
 
-    console.log(count);
+  const isSolvable =  arr =>
+    exchangeParity(arr) === spaceMovementParity(arr) 
 
-    if (count % 2 == 0) {
-        return true;
-    } else {
-        return false;
-    }
+  const spaceMovementParity =  arr => 
+    distance(DEST_POINT)(point(arr.indexOf(SPACE))) % 2
+
+  const distance = a => b => Math.abs( a.x - b.x ) + Math.abs(a.y - b.y)
+
+  const exchangeParity = arr =>
+    arr.reduce(updateEP, {array:arr, parity:0}).parity
+
+  const updateEP = ({array, parity}, e, i) => 
+    array[i] === DEST_ARR[i] ? {array, parity}
+    : {array:exchanged(i)(array.indexOf(DEST_ARR[i]))(array)
+       ,  parity:parity?0:1}
+  const exchanged = i => j => arr =>{
+    const array = [...arr];
+    [array[i], array[j]] = [array[j], array[i]]
+    return array
+  }
+
+  return correctToSolvable(arr)
 }
+
+// 一次元配列に戻す関数
+const flatten = arr => arr.reduce((acc, val) => acc.concat(val), []);
+
+// 一次元配列を二次元配列に戻す関数
+const unflatten = (arr, size) => {
+    const result = [];
+    for (let i = 0; i < arr.length; i += size) {
+        result.push(arr.slice(i, i + size));
+    }
+    return result;
+};
 
 function set_number() {
     let reminder_numbers = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15".split(",").map(Number);
@@ -56,10 +72,10 @@ function set_number() {
             reminder_numbers.splice(x, 1);
         }
     }
+    
     console.log(numbers);
-    if (!check_number(numbers)) {
-        set_number();
-    }
+    numbers = unflatten(solvabled(flatten(numbers)).map(Number), 4);
+    console.log(numbers);
 }
 
 function put_number() {
@@ -68,9 +84,9 @@ function put_number() {
     for (let i = 0; i < numbers[0].length; i++) {
         for (let j = 0; j < numbers[i].length; j++) {
             if (numbers[i][j] == 0) {
-                display.append("<button class='number_cell' id='cell_" + i + "_" + j + "' onclick='move_number(" + i + "," + j + ");'>　</button>");
+                display.append("<button class='number_cell' id='cell_" + j + "_" + i + "' onclick='move_number(" + j + "," + i + ");'>　</button>");
             } else {
-                display.append("<button class='number_cell' id='cell_" + i + "_" + j + "' onclick='move_number(" + i + "," + j + ");'>" + numbers[i][j] + "</button>");
+                display.append("<button class='number_cell' id='cell_" + j + "_" + i + "' onclick='move_number(" + j + "," + i + ");'>" + numbers[i][j] + "</button>");
             }
         }
         display.append("<br>");
@@ -92,7 +108,7 @@ function check_clear() {
     }
     clear = true;
     $(".status").text("クリア！");
-    create_point_code(20);
+    create_point_code(15);
 
     return;
 }
@@ -101,16 +117,18 @@ function move_number(x, y) {
     if (clear) return;
 
     for (let i = -1; i <= y + 1; i++) {
-        for (let j = -2; j <= x + 1; j++) {
-            if (i + x > 3 || i + x < 0 || j + y > 3 || j + y < 0) continue;
-            if (i != 0 && j != 0) continue;
-
-            if (numbers[i + x][j + y] == 0) {
-                numbers[i + x][j + y] = numbers[x][y];
-                numbers[x][y] = 0;
-                put_number();
-                check_clear();
-                return;
+        for (let j = -1; j <= x + 1; j++) {
+            if (i + y > 3 || i + y < 0 || j + x > 3 || j + x < 0) continue;
+            if (i != 0 && j != 0) {
+                continue;
+            } else {
+                if (numbers[i + y][j + x] == 0) {
+                    numbers[i + y][j + x] = numbers[y][x];
+                    numbers[y][x] = 0;
+                    put_number();
+                    check_clear();
+                    return;
+                }
             }
         }
     }
