@@ -57,25 +57,25 @@ function put_mines() {
 function output_board(board) {
     let x, y;
     let display = $(".display");
-
-    display.html("");
+    let html = "";
 
     y = 0;
     board.forEach((line) => {
         x = 0;
         line.forEach((cell) => {
             if (check_cells[y][x]) {
-                display.append(`<button class="button_for_mine white" value="${x},${y}">${cell == -1 ? "💣" : cell == 0 ? "　" : cell}</button>`);
+                html += `<button class="button_for_mine white" value="${x},${y}">${cell == -1 ? "💣" : cell == 0 ? "　" : cell}</button>`;
             } else {
-                display.append(`<button class="button_for_mine black" value="${x},${y}">${flag_checked_map[y][x] ? "🚩" : "　"}</button>`);
+                html += `<button class="button_for_mine black" value="${x},${y}">${flag_checked_map[y][x] ? "🚩" : "　"}</button>`;
             }
             x++;
         });
 
-        display.append("<br>");
+        html += "<br>";
         y++;
     });
 
+    display.html(html);
     $(".status").text(`${checked_count} / ${weight * height - bom}`);
 }
 
@@ -93,39 +93,46 @@ function gameover_action() {
 }
 
 function open_cell(x, y) {
-    if (gameover || flag_checked_map[y][x]) return;
-    
-    
-    if (board_cells[y][x] == -1) {
-        gameover = true;
-        gameover_action();
-        return;
-    }
+    let queue = [{x: x, y: y}];
 
-    console.log(check_cells[y][x]);
-    check_cells[y][x] = true;
-    checked_count++;
+    while (queue.length > 0) {
+        let cell = queue.shift();
+        let x = cell.x;
+        let y = cell.y;
 
-    if (checked_count >= weight * height - bom) {
-        gameover = true;
-        $(".status").text("Game Clear");
-        create_point_code(15);
-        return;
-    }
+        if (check_cells[y][x]) continue;
+        if (check_cells[y][x] == false && board_cells[y][x] == -1) {
+            gameover = true;
+            gameover_action();
+            return;
+        }
 
-    if (board_cells[y][x] == 0) {
-        for (let cy = -1; cy <= 1; cy++) {
-            for (let cx = -1; cx <= 1; cx++) {
-                if (cx != 0 || cy != 0) {
-                    if (x + cx < weight &&
-                        y + cy < height &&
-                        x + cx >= 0 &&
-                        y + cy >= 0) {
-                            if (check_cells[cy + y][cx + x] == false) {
-                                open_cell(x + cx, y + cy);
-                                console.log(check_cells[cy + y][cx + x])
-                            }
+        console.log(check_cells[y][x]);
+        check_cells[y][x] = true;
+        checked_count++;
+
+        if (checked_count >= weight * height - bom) {
+            gameover = true;
+            $(".status").text("Game Clear");
+            create_point_code(15);
+            return;
+        }
+
+        if (board_cells[y][x] == 0) {
+            for (let cy = -1; cy <= 1; cy++) {
+                for (let cx = -1; cx <= 1; cx++) {
+                    // Skip the current cell
+                    if (cx == 0 && cy == 0) continue;
+
+                    let nx = x + cx;
+                    let ny = y + cy;
+
+                    // Check the boundaries first to avoid unnecessary calculations
+                    if (nx >= 0 && ny >= 0 && nx < weight && ny < height) {
+                        if (!check_cells[ny][nx]) {
+                            queue.push({x: nx, y: ny});
                         }
+                    }
                 }
             }
         }
