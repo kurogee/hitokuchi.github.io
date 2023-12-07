@@ -236,6 +236,12 @@ const words = [
     ["We couldn't all go to the party.", "私たちはみんなパーティーに行けませんでした。"],
     ["Are you interested in using computers?", "コンピュータを使うことに興味がありますか？"],
     ["You have to leave 15% as a tip in America.", "アメリカではチップとして15%を残さなければなりません。"],
+    ["I have not eaten lunch yet today.", "私は今日まだ昼食を食べていません。"],
+    ["I've been working at this school for 5 years.", "私はこの学校で5年間働いています。"],
+    ["I've never been abroad before.", "私は今まで海外に行ったことがありません。"],
+    ["She's afraid of flying.", "彼女は飛行機に乗るのが怖いです。"],
+    ["I will be absent from this party.", "私はこのパーティーを欠席します。"],
+    ["I should've eaten breakfast.", "私は朝食を食べるべきでした。"],
 ].map(w => { return {"word" : w[0], "mean" : w[1]} });
 
 const sound = new Audio("./key_sound.mp3");
