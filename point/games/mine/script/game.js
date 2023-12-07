@@ -93,6 +93,8 @@ function gameover_action() {
 }
 
 function open_cell(x, y) {
+    if (gameover || check_cells[y][x] || flag_checked_map[y][x]) return;
+
     let queue = [{x: x, y: y}];
 
     while (queue.length > 0) {
@@ -129,7 +131,7 @@ function open_cell(x, y) {
 
                     // Check the boundaries first to avoid unnecessary calculations
                     if (nx >= 0 && ny >= 0 && nx < weight && ny < height) {
-                        if (!check_cells[ny][nx]) {
+                        if (!check_cells[ny][nx] && !flag_checked_map[ny][nx]) {
                             queue.push({x: nx, y: ny});
                         }
                     }

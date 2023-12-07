@@ -76,7 +76,7 @@ function check_clear() {
     }
     clear = true;
     $(".status").text("クリア！");
-    create_point_code(15);
+    create_point_code(10);
 
     return;
 }
