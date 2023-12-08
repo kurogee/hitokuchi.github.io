@@ -37,8 +37,8 @@
                     <label><input type="radio" name="plan" class="plans" value="hmn,10,25" checked>【お得】オールプレミアム × 10回分 [25pt]</label><br>
                     <small>すべてに使えるプレミアム利用券が10回分手に入ります</small><br>
 
-                    <label><input type="radio" name="plan" class="plans" value="h,5,15">メッセージプレミアム × 5回分 [15pt]</label><br>
-                    <small>hitokuchiのメインサービスである「メッセージ」に使えるプレミアム利用券が5回分手に入ります</small><br>
+                    <label><input type="radio" name="plan" class="plans" value="h,8,15">メッセージプレミアム × 8回分 [15pt]</label><br>
+                    <small>hitokuchiのメインサービスである「メッセージ」に使えるプレミアム利用券が8回分手に入ります</small><br>
 
                     <label><input type="radio" name="plan" class="plans" value="n,8,15">noteプレミアム × 8回分 [15pt]</label><br>
                     <small>hitokuchi noteのプレミアム利用券が8回分手に入ります</small><br>
@@ -57,6 +57,7 @@
 
         <script src="../config.js"></script>
         <script src="../point/point.js"></script>
+
         <script>
             async function get_point(user) {
                 const res = await fetch(key.point_fetch_url,
@@ -72,6 +73,7 @@
                 return res;
             }
         </script>
+
         <script>
             async function buy_a_premium() {
                 const username = $("#username").val();

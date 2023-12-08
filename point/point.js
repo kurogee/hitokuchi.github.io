@@ -185,6 +185,30 @@ async function create_point_code(point) {
     return uuid_code;
 }
 
+async function create_point_code_return_only_code(point) {
+    const response = await fetch(point_url,
+        {
+            method: "POST",
+            body: JSON.stringify({
+                "req": "create_point_code",
+                "point": point
+            })
+        })
+        .then(res => {
+            return res.text();
+        })
+        .then(data => {
+            return JSON.parse(data);
+        })
+        .catch(err => {
+            console.log(err);
+            return "no";
+        });
+    
+    const uuid_code = response.result;
+    return uuid_code;
+}
+
 function logout() {
     localStorage.setItem("login_data_name", "");
     location.reload();
