@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>ポイントギフト</title>
+        <meta charset="utf-8">
+        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+        <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../pagestyle.css">
+        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+
+        <!-- jQuery 3.7.1 -->
+        <script src="../jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <div id="box">
+            <br>
+            <a href="./index.html" class="link_color">◀︎ ポイントポータルへ戻る</a>
+            <h2>ポイントギフト</h2>
+            <p>
+                ポイントを他のユーザーへ贈ることができます！
+            </p>
+        </div>
+        <br>
+
+        <div id="box">
+            <h3>ポイントを送る</h3>
+            <div class="box">
+                <p>
+                    <label><input type="radio" name="how_to_send" class="how_to_send" value="only_code">ポイントコードのみ発行する</label><br>
+                    <label><input type="radio" name="how_to_send" class="how_to_send" value="send_code_by_mail">hitokuchiメールでポイントコードを送る</label>
+                </p>
+                <div id="inputs">
+                </div>
+                <p id="point_code">ポイントコードはここに表示されます</p>
+            </div>
+            <br>
+        </div>
+
+        <script src="../config.js"></script>
+        <script src="./point.js"></script>
+        <script>
+            async function send_mail(from, to, main_message) {
+                    const url = key.mail_url;
+
+                    const user_id = to;
+                    const from_id = from;
+
+                    let message = main_message;
+                    message = message.split("&").join("&amp;"); // 下の&と一緒にreplaceされてしまうので修正
+                    message = message.split("<").join("&lt;"); // &lt;&gt;
+                    message = message.split(">").join("&gt;");
+                    message = message.split("\n").join("<br>");
+
+                    message = message.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
+                    message = message.replace(/\[b (.+?)\]/g, "<span class='hutoji'>$1</span>");
+                    message = message.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
+                    message = message.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
+
+                    const today = new Date();
+                    const today_text = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
+                    message = message.replace(/:DATE:/g, `<span>${today_text}</span>`);
+
+                    if (true) {
+                        const response = await fetch(
+                            url,
+                            {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    "to": user_id,
+                                    "from": from_id,
+                                    "message": message,
+                                    "request": "send"
+                                })
+                            }
+                        )
+                            .then((response) => response.text())
+
+                            .then((data) => {
+                                return JSON.parse(data);
+                            })
+                            .catch((error) => {
+                                return "posterror";
+                            });
+
+                        if (response.result.match("wrong_to") != null) {
+                            return "wrong_to";
+                        } else if (response.result.match("ok") != null) {
+                            return "ok";
+                        } else {
+                            return "no";
+                        }
+                    }
+                }
+        </script>
+        <script>
+            let how_to_send = "";
+            let inputs = $("#inputs");
+
+            $(".how_to_send").on("click", () => {
+                how_to_send = $("input[name=how_to_send]:checked").val();
+                if (how_to_send == "only_code") {
+                    inputs.html(`
+                        <p>ユーザー名: <input type="text" class="text" name="username" id="username" style="width: 50%;"></p>
+                        <p>あいことば: <input type="password" class="text" name="password" id="password" style="width: 50%;"></p>
+                        <p>使用ポイント: <input type="text" class="text" name="use_point" id="use_point" style="width: 50%;"></p>
+                        <br>
+                        <input type="button" value="送信" onclick="send_gift_only_code()" class="button">
+                        <br>
+                        <small id="status"></small>
+                    `);
+                } else if (how_to_send == "send_code_by_mail") {
+                    inputs.html(`
+                        <p>ユーザー名: <input type="text" class="text" name="username" id="username" style="width: 50%;"></p>
+                        <p>あいことば: <input type="password" class="text" name="password" id="password" style="width: 50%;"></p>
+                        <p>使用ポイント: <input type="text" class="text" name="use_point" id="use_point" style="width: 50%;"></p>
+                        <hr>
+                        <p>相手のhitokuchiメールアドレス: <input type="text" class="text" name="mail_address" id="mail_address" style="width: 50%;"></p>
+                        <p>送信元の名前: <input type="text" class="text" name="name_as" id="name_as" style="width: 50%;"></p>
+                        <p>
+                            <p>メッセージ(任意)</p>
+                            <textarea name="message" id="area"></textarea>
+                        </p>
+                        <br>
+                        <input type="button" value="送信" class="button" onclick="send_code_by_mail()">
+                        <br>
+                        <small id="status"></small>
+                    `);
+                } else {
+                    inputs.html("");
+                }
+            });
+        </script>
+
+        <script>
+            async function get_point(user) {
+                const res = await fetch(key.point_fetch_url,
+                            {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    "id": user,
+                                    "req": "check_point"
+                                })
+                            })
+                            .then(res => { return res.text() })
+                            .then(data => { return JSON.parse(data) });
+                return res;
+            }
+        </script>
+
+        <script>
+            async function send_gift_only_code(){
+                const username = $("#username").val();
+                const password = $("#password").val();
+                const point = $("#use_point").val();
+
+                const status = $("#status");
+
+                status.text("お待ちください...");
+
+                if (username.trim() == "" || password.trim() == "" || point.trim() == "") {
+                    status.text("全ての値を入力してください！");
+                    return;
+                }
+
+                const now_point = parseInt(await get_point(username).result);
+                if (now_point < parseInt(point)) {
+                    status.text("ポイントが足りません");
+                    return;
+                }
+
+                const auth_account = await account_auth(username, password);
+                if (auth_account.result.match("no") != null) {
+                    status.text("ユーザー名またはあいことばが違います");
+                    return;
+                } else {
+                    const use_auth = await use_point(username, point);
+                    if (!use_auth) {
+                        status.text("ポイントを使用できませんでした");
+                        return;
+                    } else {
+                        const res = await create_point_code_return_only_code(point);
+
+                        if (res != "no") {
+                            status.text("送信完了");
+                            $("#point_code").text(`ポイントコード: ${res}`);
+
+                            $("#username").val("");
+                            $("#password").val("");
+                            $("#use_point").val("");
+                        } else {
+                            status.text("エラー: ポイントコードを発行できませんでした");
+                        }
+                    }
+                }
+            }
+
+            async function send_code_by_mail() {
+                const username = $("#username").val();
+                const password = $("#password").val();
+                const point = $("#use_point").val();
+
+                const mail_address = $("#mail_address").val();
+                const name_as = $("#name_as").val();
+
+                const message = $("#area").val();
+                console.log(message);
+
+                const status = $("#status");
+
+                status.text("お待ちください(しばらくかかります)...");
+
+                if (username.trim() == "" || password.trim() == "" || point.trim() == ""
+                        || mail_address.trim() == "" || name_as.trim() == "") {
+                    status.text("全ての値を入力してください！");
+                    return;
+                }
+
+                const now_point = parseInt(await get_point(username).result);
+                if (now_point < parseInt(point)) {
+                    status.text("ポイントが足りません");
+                    return;
+                }
+
+                const auth_account = await account_auth(username, password);
+                if (auth_account.result.match("no") != null) {
+                    status.text("ユーザー名またはあいことばが違います");
+                    return;
+                } else {
+                    const use_auth = await use_point(username, point);
+                    if (!use_auth) {
+                        status.text("ポイントを使用できませんでした");
+                        return;
+                    } else {
+                        const res = await create_point_code_return_only_code(point);
+
+                        if (res != "no") {
+                            let mail_text = `${name_as} さんからポイントギフトが届きました！\nポイントコード: ${res}`;
+                            if (message.trim() != "") mail_text += "\n〜メッセージ〜\n" + message;
+
+                            const mail = await send_mail("運営", mail_address, mail_text);
+                            status.text("送信完了");
+
+                            $("#username").val("");
+                            $("#password").val("");
+                            $("#use_point").val("");
+                            $("#mail_address").val("");
+                            $("#name_as").val("");
+                            $("#area").val("");
+                        } else {
+                            status.text("エラー: ポイントコードを発行できませんでした");
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

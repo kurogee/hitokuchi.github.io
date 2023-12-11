@@ -60,7 +60,8 @@ async function use_premium(request_auth, uuid) {
             return JSON.parse(data);
         });
 
-    return response.result == "ok" ? true : false;
+    console.log(response);
+    return response.result == "ok";
 }
 
 async function send_change() {
@@ -182,6 +183,30 @@ async function create_point_code(point) {
     
     const uuid_code = response.result;
     document.getElementById("uuid_code").innerText = "ポイントコード: " + uuid_code;
+    return uuid_code;
+}
+
+async function create_point_code_return_only_code(point) {
+    const response = await fetch(point_url,
+        {
+            method: "POST",
+            body: JSON.stringify({
+                "req": "create_point_code",
+                "point": point
+            })
+        })
+        .then(res => {
+            return res.text();
+        })
+        .then(data => {
+            return JSON.parse(data);
+        })
+        .catch(err => {
+            console.log(err);
+            return "no";
+        });
+    
+    const uuid_code = response.result;
     return uuid_code;
 }
 

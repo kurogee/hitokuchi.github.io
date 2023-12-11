@@ -48,9 +48,8 @@ small {
 }
 
 #box, .box {
+    width: 70%;
     border: 3px solid white;
-    height: 100%;
-    width: 60%;
     background-color: darkblue;
 }
 

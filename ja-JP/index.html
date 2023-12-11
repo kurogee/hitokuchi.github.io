@@ -48,9 +48,8 @@
     <div class="box">
         <h2>Welcome to hitokuchi!</h2>
         <small>表示が崩れた場合はF5+Shift(もしくはShiftを押しながらリロードボタンを押す)を試してください</small><br>
-        <a href="../index.html" class="link_color" id="back-to-index"> 〈 Back to index 〉</a>
-        <a href="../dot/index.html" class="link_color" id="dot">〈 　 ？？？ 　 〉</a>
-        <p></p>
+        <a href="../index.html" class="link_color" id="back-to-index"> 〈 Back to index 〉</a><br>
+        <br>
     </div>
     <br>
 
@@ -79,7 +78,7 @@
             <a href="../note/index.html"><img src="../index_icon/Note_icon.webp" width="70" height="70"
                     class="icons_image_webp"></a>
              <a href="../forum/index.html"><img src="../index_icon/Forum_icon.webp" width="70" height="70"
-                     class="icons_image_webp"></a>
+                    class="icons_image_webp"></a>
         </div>
         <div class="icons_text">
             <h3>Mail</h3>
@@ -100,12 +99,19 @@
     <div class="box">
         <h3>拡散してね！</h3>
         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="hitokuchi"
-            data-show-count="false" data-related="test0170474925" id="share_button">Tweet</a>
+            data-show-count="false" data-related="The_X_Corp" id="share_button">Tweet</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <br>
+
+        <div class="fb-like" data-href="https://hitokuchi.f5.si" data-width="" data-layout="button" data-action="" data-size="" data-share="true"></div>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v18.0" nonce="CqfwdqQc"></script>
+
         <br>
 
         <small>hitokuchi 総合index</small><br>
         <input type="url" id="copy-url" class="text" onclick="this.select()" value="https://hitokuchi.f5.si" readonly><br>
+
         <small>hitokuchi 日本語index</small><br>
         <input type="url" id="copy-url-jp" class="text" onclick="this.select()" value="https://hitokuchi.f5.si/ja-JP/index.html" readonly><br>
         <hr>
@@ -215,13 +221,7 @@
             <br><br>
         </div>
         <br>
-
-        <script>
-            window.onload = () => {
-                const day = new Date().getDay();
-                // document.getElementById("events").innerHTML = "";
-            }
-        </script>
+        
         <style>
             #special_box {
                 border: 3px none black;

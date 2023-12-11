@@ -19,7 +19,7 @@ async function use_premium(request_auth, uuid) {
             return JSON.parse(data);
         });
 
-    return response.result == "ok" ? true : false;
+    return response.result == "ok";
 }
 
 async function send_note() {
@@ -28,7 +28,7 @@ async function send_note() {
     let auth = false;
     const premium_uuid = document.getElementById("premium_code").value;
     if (premium_uuid != "") {
-        auth = use_premium("n", premium_uuid);
+        auth = await use_premium("n", premium_uuid);
         if (!auth) {
             document.getElementById("status_for_premium").innerText = "プレミアムコードが無効です！";
             return;
