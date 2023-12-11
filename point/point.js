@@ -60,7 +60,8 @@ async function use_premium(request_auth, uuid) {
             return JSON.parse(data);
         });
 
-    return response.result == "ok" ? true : false;
+    console.log(response);
+    return response.result == "ok";
 }
 
 async function send_change() {

@@ -126,7 +126,8 @@
                     return JSON.parse(data);
                 });
             
-            return response.result == "ok" ? true : false;
+            console.log(response.result);
+            return response.result == "ok";
         }
 
         async function get_messages(user_id, user_pass) { // メッセージを受信
@@ -240,11 +241,14 @@
 
         async function send() {
             const status = document.getElementById("status");
+            document.getElementById("status_for_premium").innerText = "";
 
             let auth = false;
             const premium_uuid = document.getElementById("premium_code").value;
+            
             if (premium_uuid != "") {
-                auth = use_premium("m", premium_uuid);
+                auth = await use_premium("m", premium_uuid);
+                console.log(auth);
                 if (!auth) {
                     document.getElementById("status_for_premium").innerText = "プレミアムコードが無効です！";
                     return;
