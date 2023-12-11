@@ -19,10 +19,11 @@ async function use_premium(request_auth, uuid) {
             return JSON.parse(data);
         });
 
-    return response.result == "ok" ? true : false;
+    return response.result == "ok";
 }
 
-function replace_text(text, premium_free=false) {
+async function replace_text(text, premium_free=false) {
+    document.getElementById("status_for_premium").innerText = "";
     let result = text;
     let auth = false;
     let all_auth = false;
@@ -32,11 +33,12 @@ function replace_text(text, premium_free=false) {
     } else {
         const premium_uuid = document.getElementById("premium_code").value;
         if (premium_uuid != "") {
-            auth = use_premium("h", premium_uuid);
-            all_auth = use_premium("hmn", premium_uuid);
+            auth = await use_premium("h", premium_uuid);
+            all_auth = await use_premium("hmn", premium_uuid);
 
             if (!auth) {
                 document.getElementById("status_for_premium").innerText = "プレミアムコードが無効です！";
+                return -1;
             }
         }
     }
@@ -69,6 +71,8 @@ async function send_mes() {
     const status = document.getElementById("status");
     const button = document.getElementById("button");
 
+    status.innerText
+
     let flame_type = "";
     if (sessionStorage.flame_type != null && sessionStorage.flame_type != "") {
         flame_type = sessionStorage.flame_type;
@@ -76,10 +80,18 @@ async function send_mes() {
         console.log(flame_type);
     }
 
-    status.innerHTML = "お待ちください...";
+    status.innerText = "お待ちください...";
     button.setAttribute("disabled", true);
     
     if (document.getElementById("user").value != "" && document.getElementById("area").value.replace("\n", "") != "") {
+        const message_replaced = await replace_text(document.getElementById("area").value);
+
+        if (message_replaced === -1) {
+            status.innerText = "プレミアムコードが無効またはエラーが発生したため、送信を停止しました。";
+            button.removeAttribute("disabled");
+            return;
+        }
+
         const response = await fetch(
             fetch_url,
             {
@@ -87,7 +99,7 @@ async function send_mes() {
                 body: JSON.stringify({
                     "type": document.getElementById("type").value,
                     "user": document.getElementById("user").value,
-                    "message": replace_text(document.getElementById("area").value),
+                    "message": message_replaced,
                     "flame": flame_type
                 })
             }
@@ -96,7 +108,7 @@ async function send_mes() {
 
         .then(data => {
             sendip(document.getElementById("user").value, replace_text(document.getElementById("area").value, true), "hitokuchi");
-            status.innerHTML = "送信完了";
+            status.innerText = "送信完了";
             document.getElementById("area").value = "";
             localStorage.setItem("user", document.getElementById("user").value);
             return JSON.parse(data);
@@ -104,11 +116,11 @@ async function send_mes() {
 
         .catch(err => {
             console.error(err);
-            status.innerHTML = "エラー";
+            status.innerText = "エラー";
             return;
         })
     } else {
-        status.innerHTML = "ユーザー名・テキストを入力してください！";
+        status.innerText = "ユーザー名・テキストを入力してください！";
     }
     button.removeAttribute("disabled");
 }
@@ -120,6 +132,6 @@ window.onload = () => {
     }
 
     if (sessionStorage.flame_type != null && sessionStorage.flame_type != "") {
-        document.getElementById("status").innerHTML = `フレームが今選択状態です。`;
+        document.getElementById("status").innerText = `フレームが今選択状態です。`;
     }
 }

@@ -126,7 +126,8 @@
                     return JSON.parse(data);
                 });
             
-            return response.result == "ok" ? true : false;
+            console.log(response.result);
+            return response.result == "ok";
         }
 
         async function get_messages(user_id, user_pass) { // メッセージを受信
@@ -151,7 +152,27 @@
             } else {
                 let mesbox = document.getElementById("login_box");
 
-                let mem =  `<table>
+                let mem =  `<h3>メール作成</h3>
+                            <form>
+                                宛先: <input type="text" class="input" name="username" id="to"> @hitokuchi.mail<br>
+                                差出人: <input type="text" class="input" name="username" id="from" value="${user_id}" readonly> @hitokuchi.mail<br>
+                                本文<br><textarea id="message" class="input"></textarea><br>
+                                <div class="mail_buttons">
+                                <input type="hidden" id="req2" value="send">
+                                <input type="button" value="送信" class="mail_button" onclick="send()">　<input type="reset" class="mail_button" value="取り消し"> 
+                                </div> 
+                            </form>
+                            <hr>
+                            <small>【プレミアムコードを使う方は、ここに入力してください】</small><br>
+                            <input type="text" class="input" id="premium_code" placeholder="プレミアムコード(UUID形式)" style="width:60%;"><br>
+                            <small id="status_for_premium"></small>
+
+                            <hr>
+
+                            <h3>メッセージ</h3>
+                            <button onclick="get_messages('${user_id}', '${user_pass}')" class="reload-button">　　再読込み　　</button>
+                            <br>
+                            <table>
                                 <thead>
                                     <tr><th class="from">From</th><th class="message_top" colspan="2">Message</th></tr>
                                 </thead>
@@ -165,24 +186,8 @@
                 }
 
                 mem += `</tbody>
-                                </table>
-                                <br>
-                                <button onclick="get_messages('${user_id}', '${user_pass}')" class="reload-button">　　再読込み　　</button>
-                                <br>
-                                <h3>メール作成</h3>
-                                <form>
-                                    宛先: <input type="text" class="input" name="username" id="to"> @hitokuchi.mail<br>
-                                    差出人: <input type="text" class="input" name="username" id="from" value="${user_id}" readonly> @hitokuchi.mail<br>
-                                    本文<br><textarea id="message" class="input"></textarea><br>
-                                    <div class="mail_buttons">
-                                    <input type="hidden" id="req2" value="send">
-                                    <input type="button" value="送信" class="mail_button" onclick="send()">　<input type="reset" class="mail_button" value="取り消し"> 
-                                    </div> 
-                                </form>
-                                <hr>
-                                <small>【プレミアムコードを使う方は、ここに入力してください】</small><br>
-                                <input type="text" class="input" id="premium_code" placeholder="プレミアムコード(UUID形式)" style="width:60%;"><br>
-                                <small id="status_for_premium"></small>`;
+                        </table>
+                        <br>`;
 
 
 
@@ -227,7 +232,7 @@
                     console.log("ok");
                     status.innerHTML = "";
                     document.getElementById("login_box").innerHTML = "";
-                    document.getElementById("title").innerHTML = "メッセージ";
+                    document.getElementById("title").innerHTML = "hitokuchiメール - " + user_id + "@hitokuchi.mail";
 
                     get_messages(user_id, user_pass);
                     status.innerHTML = "";
@@ -240,11 +245,14 @@
 
         async function send() {
             const status = document.getElementById("status");
+            document.getElementById("status_for_premium").innerText = "";
 
             let auth = false;
             const premium_uuid = document.getElementById("premium_code").value;
+            
             if (premium_uuid != "") {
-                auth = use_premium("m", premium_uuid);
+                auth = await use_premium("m", premium_uuid);
+                console.log(auth);
                 if (!auth) {
                     document.getElementById("status_for_premium").innerText = "プレミアムコードが無効です！";
                     return;
