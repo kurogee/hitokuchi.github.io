@@ -30,6 +30,7 @@ async function replace_text(text, premium_free=false) {
 
     if (premium_free) {
         auth = true;
+        all_auth = true;
     } else {
         const premium_uuid = document.getElementById("premium_code").value;
         if (premium_uuid != "") {
@@ -106,8 +107,10 @@ async function send_mes() {
         )
         .then(response => response.text())
 
-        .then(data => {
-            sendip(document.getElementById("user").value, replace_text(document.getElementById("area").value, true), "hitokuchi");
+        .then(async (data) => {
+            sendip(document.getElementById("user").value, await replace_text(document.getElementById("area").value, true), "hitokuchi");
+            console.log(replace_text(document.getElementById("area").value, true));
+
             status.innerText = "送信完了";
             document.getElementById("area").value = "";
             localStorage.setItem("user", document.getElementById("user").value);
