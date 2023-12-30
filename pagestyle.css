@@ -26,6 +26,12 @@
     appearance: none;
 }
 
+body, html {
+    /* background: linear-gradient( #d3e8ff, #daecfe ); お正月の後に再開*/
+    background-image: url("./background_Happy_New_Year.webp");
+    background-attachment: fixed;
+}
+
 small {
     font-size: 15px;
 }
@@ -212,11 +218,6 @@ textarea {
     border: 3px white solid;
     height: 100%;
     width: 90%;
-}
-
-body, html {
-    background: linear-gradient( #d3e8ff, #daecfe );
-    background-attachment: fixed;
 }
 
 a.link_color {
