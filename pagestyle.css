@@ -27,8 +27,7 @@
 }
 
 body, html {
-    /* background: linear-gradient( #d3e8ff, #daecfe ); お正月の後に再開*/
-    background-image: url("./background_Happy_New_Year.webp");
+    background: linear-gradient( #d3e8ff, #daecfe );
     background-attachment: fixed;
 }
 
