@@ -131,7 +131,7 @@ small {
 .card {
     border: 2px solid rgb(67, 131, 199);
     width: 95%;
-    height: 80vh;
+    height: fit-content;
     border-radius: 10px 10px;
     background-size: cover;
     box-shadow: 0px 2.5px 2.5px 0px rgba(0, 0, 0, 0.35);
