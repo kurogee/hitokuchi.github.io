@@ -54,7 +54,7 @@ small {
     /*スマホに合わせて調整*/
     width: 70%;
     @media screen and (max-width: 768px) {
-        width: 90%;
+        width: 95%;
         height: 130%;
     }
 }
@@ -243,19 +243,17 @@ a.link_color:hover {
 }
 
 .icons_image_webp:hover {
-    opacity: 0.5 ;
+    opacity: 0.5;
 }
 
 .catchphrase_color {
     color:#4383c7;
 
     @media screen and (max-width: 768px) {
-
         font-size: 27px;
     }
 
     @media screen and (max-width: 350px) {
-
         font-size: 20px;
     }
 }
