@@ -23,7 +23,10 @@ async function use_premium(request_auth, uuid) {
 }
 
 async function send_note() {
+    const send_button = document.getElementById("button");
     const status = document.getElementById("status");
+
+    send_button.setAttribute("disabled", true);
 
     let auth = false;
     const premium_uuid = document.getElementById("premium_code").value;
@@ -31,6 +34,7 @@ async function send_note() {
         auth = await use_premium("n", premium_uuid);
         if (!auth) {
             document.getElementById("status_for_premium").innerText = "プレミアムコードが無効です！";
+            send_button.removeAttribute("disabled");
             return;
         }
     }
@@ -81,4 +85,6 @@ async function send_note() {
     } else {
         status.innerHTML = "Note内容を入力してください<br>または文字数が少なすぎです";
     }
+
+    send_button.removeAttribute("disabled");
 }

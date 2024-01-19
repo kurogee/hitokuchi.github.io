@@ -39,7 +39,7 @@
         Comment<br>
         <textarea id="area"></textarea><br>
         <p></p>
-        <button onclick="get_review();" id="button">投稿する</button>
+        <button onclick="send_review();" id="button">投稿する</button>
         <br>
         <p></p>
         <small id="status"></small>
@@ -48,9 +48,12 @@
     <script>
         const url = key.url;
 
-        async function get_review() {
+        async function send_review() {
+            const send_button = document.getElementById("button");
             const status = document.getElementById("status");
             status.innerHTML = "送信中...";
+
+            send_button.setAttribute("disabled", true);
 
             let send_url = document.getElementById("send_url").value;
 
@@ -60,7 +63,7 @@
             comment = comment.split(">").join("&gt;");
             comment = comment.split("\n").join("<br>");
 
-            if (send_url.match(/https?:\/\/.+/) && comment.trim() != "") {
+            if (send_url.match(/https?:\/\/.+/) != null && comment.trim() != "") {
                 const response = await fetch(
                     url,
                     {
@@ -79,13 +82,14 @@
 
                 sendip("-", comment + "\n\nURL: " + send_url, "review");
 
-                status.innerHTML = "";
+                status.innerHTML = "送信完了";
                 document.getElementById("send_url").value = "";
                 document.getElementById("area").value = "";
             } else {
                 status.innerHTML = "URLもしくはcommentを正しく入力してください。"
             }
 
+            send_button.removeAttribute("disabled");
         }
     </script>
 </body>

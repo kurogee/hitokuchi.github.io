@@ -27,8 +27,7 @@
 }
 
 body, html {
-    /* background: linear-gradient( #d3e8ff, #daecfe ); お正月の後に再開*/
-    background-image: url("./background_Happy_New_Year.webp");
+    background: linear-gradient( #d3e8ff, #daecfe );
     background-attachment: fixed;
 }
 
@@ -55,7 +54,7 @@ small {
     /*スマホに合わせて調整*/
     width: 70%;
     @media screen and (max-width: 768px) {
-        width: 90%;
+        width: 95%;
         height: 130%;
     }
 }
@@ -132,7 +131,7 @@ small {
 .card {
     border: 2px solid rgb(67, 131, 199);
     width: 95%;
-    height: 80vh;
+    height: fit-content;
     border-radius: 10px 10px;
     background-size: cover;
     box-shadow: 0px 2.5px 2.5px 0px rgba(0, 0, 0, 0.35);
@@ -244,19 +243,17 @@ a.link_color:hover {
 }
 
 .icons_image_webp:hover {
-    opacity: 0.5 ;
+    opacity: 0.5;
 }
 
 .catchphrase_color {
     color:#4383c7;
 
     @media screen and (max-width: 768px) {
-
         font-size: 27px;
     }
 
     @media screen and (max-width: 350px) {
-
         font-size: 20px;
     }
 }
