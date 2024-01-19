@@ -159,7 +159,7 @@
                                 本文<br><textarea id="message" class="input"></textarea><br>
                                 <div class="mail_buttons">
                                 <input type="hidden" id="req2" value="send">
-                                <input type="button" value="送信" class="mail_button" onclick="send()">　<input type="reset" class="mail_button" value="取り消し"> 
+                                <input type="button" value="送信" class="mail_button" id="send" onclick="send()">　<input type="reset" class="mail_button" value="取り消し"> 
                                 </div> 
                             </form>
                             <hr>
@@ -244,6 +244,10 @@
         }
 
         async function send() {
+            const send_button = document.getElementById("send");
+
+            send_button.setAttribute("disabled", true);
+
             const status = document.getElementById("status");
             document.getElementById("status_for_premium").innerText = "";
 
@@ -255,6 +259,7 @@
                 console.log(auth);
                 if (!auth) {
                     document.getElementById("status_for_premium").innerText = "プレミアムコードが無効です！";
+                    send_button.removeAttribute("disabled");
                     return;
                 }
             }
@@ -323,7 +328,8 @@
             } else {
                 status.innerHTML = "エラー: 宛先またはメッセージ等を入力してください";
             }
-
+            
+            send_button.removeAttribute("disabled");
         }
 
         async function delete_message(uuid) {
