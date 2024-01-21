@@ -21,6 +21,9 @@
         
           gtag('config', 'G-FCB1XEM56C');
         </script>
+
+        <!-- JQuery -->
+        <script src="../jquery-3.7.1.min.js"></script>
     </head>
     <body>
         <div id="box">
@@ -39,6 +42,14 @@
             <small>ヒント: 最初の1行がそのNoteの見出しとして表示されるので最初の1行で見る人の興味を引いてみましょう！</small><br>
             <textarea id="area" style="font-size: 18px;"></textarea><br>
             <div>検索結果に <label>表示する: <input type="radio" name="check" id="radiobox" class="radio" value="1" checked></label> / <label><label>表示しない: <input type="radio" name="check" id="radiobox" class="radio" value="0"></label></div><br>
+
+            <br><button onclick="get_preview();" class="button-reply">プレビュー</button><br>
+            <span id="preview_newline"></span>
+            <div id="preview" class="box">
+                <div id="note"></div>
+            </div>
+
+            <br>
             <button onclick="send_note();" id="button">投稿する</button><br>
             <small id="status"></small>
             <br>
@@ -88,5 +99,43 @@
         <script src="../config.js"></script>
         <script src="../point/point.js"></script>
         <script src="./write_note.js"></script>
+
+        <script>
+            onload = function() {
+                $("#preview").hide();
+            }
+
+            function get_preview() {
+                function replace_note(text) {
+                    let note = text;
+                    note = note.split("&").join("&amp;");
+                    note = note.split("<").join("&lt;"); // &lt;&gt;
+                    note = note.split(">").join("&gt;");
+                    note = note.split("\n").join("<br>");
+
+                    note = note.replace(/\$\((.+?)\)\[(.+?)\]/g, "<a href='$1' target='_blank'>$2</a>");
+                    note = note.replace(/\[b (.+?)\]/g, "<span class='hutoji'>$1</span>");
+                    note = note.replace(/\[d (.+?)\]/g, "<span class='torikeshi'>$1</span>");
+                    note = note.replace(/\[i (.+?)\]/g, "<span class='shatai'>$1</span>");
+                
+                    note = note.replace(/\[color (\#)?(.+?) (.+?)\]/g, "<span style='color: #$2;'>$3</span>");
+                    note = note.replace(/\[big (.+?)\]/g, "<span class='big'>$1</span>");
+                    note = note.replace(/\[small (.+?)\]/g, "<span class='small'>$1</span>");
+                
+                    note = note.replace(/\[[ ]?img (.+?)\]/g, "<br><img src='$1' class='note_image'><br>");
+
+                    return note;
+                }
+
+                $("#preview").show();
+                $("#preview_newline").html("<br>");
+
+                let pre_note = $("#preview > #note");
+                const note = replace_note($("#area").val());
+                const url = $("#url").val();
+
+                pre_note.html(`<h2>本文</h2><p>${note}</p><hr><p>URL・出典: ${url}</p>`);
+            }
+        </script>
     </body>
 </html>
