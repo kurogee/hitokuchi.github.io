@@ -328,6 +328,10 @@ a.link_color:hover {
     text-align: center;
 }
 
+#buttons-index { 
+    max-width: 95%;
+}
+
 .phone_share{
     @media screen and (max-width: 768px) {
         display: none;
