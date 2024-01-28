@@ -110,6 +110,15 @@ small {
     width: 30%;
 }
 
+.point-text{
+    appearance: none;
+    width: 50%;
+    border: 2px solid rgb(67, 131, 199);
+    box-shadow: 0px 0.5px 0.5px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 10px 10px;
+    outline: none;
+}
+
 .text#copy-url{
     width: 50%;
     @media screen and (max-width: 768px) {
@@ -308,7 +317,7 @@ a.link_color:hover {
 .button-point {
     padding: 0.6rem 2rem;
     @media screen and (max-width: 768px) {
-        padding: 0.3rem 0.2rem;
+        padding: 0.5rem 0.3rem;
     }
 }
 
@@ -326,6 +335,10 @@ a.link_color:hover {
     width: 550px;
     margin-top: 10px;
     text-align: center;
+}
+
+#buttons-index { 
+    max-width: 95%;
 }
 
 .phone_share{
@@ -392,7 +405,7 @@ a.link_color:hover {
 
 .select{
 height:60px;
-width:px;
+width: 450px;
     border-radius: 10px 10px;
     background: rgb(255, 255, 255);
     margin: auto;

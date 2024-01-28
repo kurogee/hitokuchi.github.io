@@ -116,16 +116,18 @@
                     現在のポイント数: ${res.result}<br>
                     <form>
                         <input type="hidden" name="type" value="logout">
-                        <input type="button" value="ログアウト" onclick="logout()">
+                        <br>
+                        <input type="button" class="button-point"  value="ログアウト" onclick="logout()">
                     </form>
 
                     <hr>
 
                     <h3>ポイント追加</h3>
                     <form>
-                        <input type="text" name="uuid" id="uuid" placeholder="ポイント交換ID" class="text"><br>
+                        <input type="text" name="uuid" id="uuid" placeholder="ポイント交換ID" class="text" style="width: 300px;"><br>
+                        <br>
                         <input type="hidden" id="user_id" value="${user}">
-                        <input type="button" value="ポイントを追加する！" onclick="send_change()">　<input type="reset" value="取り消し">
+                        <input type="button" class="button-point" value="ポイントを追加する！" onclick="send_change()">　<input type="reset" class="button-point" value="取り消し">
                     </form>
                     <small id="status"></small>
 
@@ -139,93 +141,85 @@
                         <h3>ポイントを使う</h3>
                         <small id="status2"></small>
                         <div>
+                            <select class="select" id="flame-select">
+                            <option> 草花フレーム[5pt]</option>
+                            <option>コーヒーフレーム [5pt]</option>
+                            <option>おしゃれモノクロフレーム [5pt]</option>
+                            <option>ひまわりフレーム [5pt]</option>
+                            <option>ポップな音符フレーム [5pt]</option>
+                            <option>スターフレーム(By ei-max) [5pt]</option>
+                            <option>ト音フレーム [5pt]</option>
+                            <option>シンプルフラワーフレーム [5pt]</option>
+                            <option>お正月フレーム [8pt] </option>
+
+                            </select>
+                            <br><br>
+                            <button type="button" id="flame-sendbutton" class="button" style="width: 300px;" onclick="prepare_send_use()">交換してメッセージを送る</button>
                             <form>
-                                <small>草花フレーム [5pt]</small>
                                 <input type="hidden" class="use_point" value="5">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('kusabana', 0)">
                             </form>
 
                             <form>
-                                <small>コーヒーフレーム [5pt]</small>
                                 <input type="hidden" class="use_point" value="5">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('coffee', 1)">
                             </form>
 
                             <form>
-                                <small>おしゃれモノクロフレーム [5pt]</small>
                                 <input type="hidden" class="use_point" value="5">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('mono', 2)">
                             </form>
 
                             <form>
-                                <small>ひまわりフレーム [5pt]</small>
                                 <input type="hidden" class="use_point" value="5">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('himawari', 3)">
                             </form>
 
                             <form>
-                                <small>ポップな音符フレーム [5pt]</small>
                                 <input type="hidden" class="use_point" value="5">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('onpu', 4)">
                             </form>
 
                             <form>
-                                <small>スターフレーム(By ei-max) [5pt]</small>
                                 <input type="hidden" class="use_point" value="5">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('star', 5)">
                             </form>
 
                             <form>
-                                <small>ト音フレーム [5pt]</small>
                                 <input type="hidden" class="use_point" value="5">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('toon', 6)">
                             </form>
 
                             <form>
-                                <small>シンプルフラワーフレーム [5pt]</small>
                                 <input type="hidden" class="use_point" value="5">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('flower', 7)">
                             </form>
 
                             <!-- クリスマス用
                             <form>
-                                <small>スノーフレーム [8pt]</small>
                                 <input type="hidden" class="use_point" value="8">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('snow', )">
                             </form>
 
                             <form>
-                                <small>クリスマスリボンフレーム [8pt]</small>
                                 <input type="hidden" class="use_point" value="8">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('ribbon', )">
                             </form>-->
 
                             <form>
-                                <small>お正月フレーム [8pt]</small>
                                 <input type="hidden" class="use_point" value="8">
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
-                                <input type="button" value="交換してメッセージを送る" onclick="send_use('shogatsu', 8)">
                             </form>
                         </div>
                     </div>
