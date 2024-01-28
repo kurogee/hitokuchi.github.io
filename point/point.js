@@ -98,6 +98,21 @@ async function send_change() {
     document.getElementById("uuid").value = "";
 }
 
+//send_useの準備
+async function prepare_send_use(){
+    let element=document.getElementById("flame-select");
+    let selectedIndex = element.selectedIndex;
+    let flame_types = ["kusabana","coffee","mono","himawari","onpu","star","toon","flower","shogatsu"];
+    //呼ぶ
+    
+    send_use(flame_types[selectedIndex], selectedIndex)
+
+    //ボタン消すよ！
+    let flamesendbutton = document.getElementById("flame-sendbutton")
+    flamesendbutton.style.display = "none";
+
+}
+
 async function send_use(flame_type, number) {
     document.getElementById("status2").innerText = "お待ちください...";
 
