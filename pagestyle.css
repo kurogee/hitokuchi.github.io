@@ -303,6 +303,11 @@ a.link_color:hover {
 .button-game {
 	padding: 0.5rem 2rem;
 	border-radius: 10px;
+    margin: 5px;
+    width: 230px;
+    @media screen and (max-width: 768px) {
+        margin: 5px;
+    }
 }
 
 .button-game-image {
@@ -420,4 +425,10 @@ width: 450px;
 .select:hover{
     color: #fff;
     background: rgb(67, 131, 199);
+}
+
+.select#flame-select{
+    @media screen and (max-width: 768px) {
+        width: 350px;
+    }
 }
