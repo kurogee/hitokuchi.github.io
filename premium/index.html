@@ -10,6 +10,12 @@
         <link rel="stylesheet" href="../pagestyle.css">
         <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
         <script src="../jquery-3.7.1.min.js"></script>
+        <script>
+            window.onload = function () {
+                const mySelect = document.getElementById('plan-select');
+                mySelect.selectedIndex = 0; 
+            };
+        </script>
     </head>
     <body>
         <div id="box">
@@ -32,7 +38,7 @@
                 <p>
                     プラン<br><br>
                     <div class="select-box">
-                    <select class="select">
+                    <select class="select" id="plan-select">
                         <option name="" selected disabled>クリックして選択してください</option>
                         <option name="plan" class="plans" value="hmn,50,100">オールプレミアム × 50回分 [100pt]</option>
                         <option name="plan" class="plans" value="hmn,10,25">【お得】オールプレミアム × 10回分 [25pt]</option>
