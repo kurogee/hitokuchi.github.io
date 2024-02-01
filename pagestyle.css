@@ -110,6 +110,15 @@ small {
     width: 30%;
 }
 
+.point-text{
+    appearance: none;
+    width: 50%;
+    border: 2px solid rgb(67, 131, 199);
+    box-shadow: 0px 0.5px 0.5px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 10px 10px;
+    outline: none;
+}
+
 .text#copy-url{
     width: 50%;
     @media screen and (max-width: 768px) {
@@ -294,6 +303,11 @@ a.link_color:hover {
 .button-game {
 	padding: 0.5rem 2rem;
 	border-radius: 10px;
+    margin: 5px;
+    width: 230px;
+    @media screen and (max-width: 768px) {
+        margin: 5px;
+    }
 }
 
 .button-game-image {
@@ -308,7 +322,7 @@ a.link_color:hover {
 .button-point {
     padding: 0.6rem 2rem;
     @media screen and (max-width: 768px) {
-        padding: 0.3rem 0.2rem;
+        padding: 0.5rem 0.3rem;
     }
 }
 
@@ -326,6 +340,10 @@ a.link_color:hover {
     width: 550px;
     margin-top: 10px;
     text-align: center;
+}
+
+#buttons-index { 
+    max-width: 95%;
 }
 
 .phone_share{
@@ -392,7 +410,7 @@ a.link_color:hover {
 
 .select{
 height:60px;
-width:px;
+width: 500px;
     border-radius: 10px 10px;
     background: rgb(255, 255, 255);
     margin: auto;
@@ -401,10 +419,21 @@ width:px;
     color: rgb(67, 131, 199);
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
     transition: 0.3s;
-
+    text-align: center;
+    @media screen and (max-width: 768px) {
+        width: 300px;
+        font-size: 20px;
+    }
 }
+
 
 .select:hover{
     color: #fff;
     background: rgb(67, 131, 199);
+}
+
+.select#flame-select{
+    @media screen and (max-width: 768px) {
+        width: 350px;
+    }
 }
