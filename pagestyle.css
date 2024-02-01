@@ -438,3 +438,13 @@ a.link_color:hover {
         width: 315px;
     }
 }
+
+.br-sp {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .br-sp {
+        display: block;
+    }
+}
