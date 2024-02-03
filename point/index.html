@@ -1,118 +1,126 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <title>ポイントポータル</title>
-        <meta charset="utf-8">
-        <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
-        <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../pagestyle.css">
-        <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
-    </head>
-    <body>
-        <div class="box">
-            <p></p>
-            <a href="../ja-JP/index.html" class="link_color">◀︎ hitokuchiへ戻る</a>
-            <h2>ポイントポータル</h2>
-        </div>
-        <br>
-        <div class="box">
-            <h2>現在開催中のポイントイベント</h2>
-            <p>注意: アカウント登録をしないと、アンケートに答えてもポイントを獲得できません。</p>
-            <div>
-                <h3>アンケート</h3>
-                <!--
+
+<head>
+    <title>ポイントポータル</title>
+    <meta charset="utf-8">
+    <meta property="og:title" content="まるで風船につけた手紙のようなSNSサービス - hitokuchi">
+    <meta property="og:description" content="hitokuchi(ひとくち)とは登録不要で知らない誰かにメッセージを送ったり、知らない誰かから受け取ったりできるメッセージングサービスです！">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../pagestyle.css">
+    <link rel="shortcut icon" href="../hitokuchi_logo.webp" type="image/webp">
+    <script>
+        window.onload = function () {
+            const mySelect = document.getElementById('flame-select');
+            mySelect.selectedIndex = 0; 
+        };
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <p></p>
+        <a href="../ja-JP/index.html" class="link_color">◀︎ hitokuchiへ戻る</a>
+        <h2>ポイントポータル</h2>
+    </div>
+    <br>
+    <div class="box">
+        <h2>現在開催中の<br class="br-sp">ポイントイベント</h2>
+        <p>注意: アカウント登録をしないと、アンケートに答えてもポイントを獲得できません。</p>
+        <div>
+            <h3>アンケート</h3>
+            <!--
                     <a href="https://forms.gle/sq1ZTNSEqaZaWoHH8" target="_blank" class="link_color">野菜に関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/ijkzZWJ1BhuqPEGAA" target="_blank" class="link_color">IT・ネットに関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/onXoo59MJeohJhXz7" target="_blank" class="link_color">SNSに関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/eCaukz43za649SCD8" target="_blank" class="link_color">AIに関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/hQKWYKD1zrcmifnd7" target="_blank" class="link_color">スマホに関するアンケート [10pt]</a><br>
                 -->
-                    <p>再開に向けた準備中...</p>
-                <hr>
-                <h3>ゲームで貯める！</h3>
-                <div>
-                    <button class="button-game" onclick="play_game('typing');">
-                        <img src="./icons/typing.webp" alt="タイピング" class="button-game-image"><br>
-                        　タイピングゲーム　
-                    </button>
-                    <button class="button-game" onclick="play_game('mine');">
-                        <img src="./icons/mine.webp" alt="マインスイーパ" class="button-game-image"><br>
-                        　マインスイーパ　
-                    </button>
-                    <button class="button-game" onclick="play_game('slide');">
-                        <img src="./icons/slide.webp" alt="スライドパズル" class="button-game-image"><br>
-                        　スライドパズル　
-                    </button>
-                </div>
-            </div>
+            <p>再開に向けた準備中...</p>
             <hr>
-            <h2>hitokuchiプレミアム</h2>
+            <h3>ゲームで貯める！</h3>
             <div>
-                <p>
-                    「hitokuchiプレミアム」とは、ポイントを使って<br>
-                    hitokuchiでちょっと便利な機能を使えるようにするサービスです。
-                </p>
-                <a href="../premium/index.html" class="button-point">ポイントを使って購入する</a><br>
-                <br>
+                <button class="button-game" onclick="play_game('typing');">
+                    <img src="./icons/typing.webp" alt="タイピング" class="button-game-image"><br>
+                    　タイピングゲーム　
+                </button>
+                <button class="button-game" onclick="play_game('mine');">
+                    <img src="./icons/mine.webp" alt="マインスイーパ" class="button-game-image"><br>
+                    　マインスイーパ　
+                </button>
+                <button class="button-game" onclick="play_game('slide');">
+                    <img src="./icons/slide.webp" alt="スライドパズル" class="button-game-image"><br>
+                    　スライドパズル　
+                </button>
             </div>
         </div>
-        <br>
-        <div id="box">
-            <h3>アカウントステータス</h3>
-            <div id="alert">
-                しばらくお待ちください...
-            </div>
+        <hr>
+        <h2>hitokuchiプレミアム</h2>
+        <div>
+            <p>
+                「hitokuchiプレミアム」とは、ポイントを使って<br>
+                hitokuchiでちょっと便利な機能を使えるようにするサービスです。
+            </p>
+            <a href="../premium/index.html" class="button-point">ポイントを使って購入する</a><br>
+            <br>
         </div>
-        <a href="" id="url"></a>
+    </div>
+    <br>
+    <div id="box">
+        <h3>アカウントステータス</h3>
+        <div id="alert">
+            しばらくお待ちください...
+        </div>
+    </div>
+    <a href="" id="url"></a>
 
-        <script src="../config.js"></script>
-        <script src="./point.js"></script>
+    <script src="../config.js"></script>
+    <script src="./point.js"></script>
 
-        <script>
-            function play_game(type) {
-                switch (type) {
-                    case "typing":
-                        sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
-                        document.getElementById("url").href = "./games/typing/index.html";
-                        document.getElementById("url").click();
-                        break;
-                    case "mine":
-                        sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
-                        document.getElementById("url").href = "./games/mine/index.html";
-                        document.getElementById("url").click();
-                        break;
-                    case "slide":
+    <script>
+        function play_game(type) {
+            switch (type) {
+                case "typing":
                     sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
-                        document.getElementById("url").href = "./games/slider/index.html";
-                        document.getElementById("url").click();
-                        break;
-                }
+                    document.getElementById("url").href = "./games/typing/index.html";
+                    document.getElementById("url").click();
+                    break;
+                case "mine":
+                    sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
+                    document.getElementById("url").href = "./games/mine/index.html";
+                    document.getElementById("url").click();
+                    break;
+                case "slide":
+                    sessionStorage.setItem("id", localStorage.getItem("login_data_name"));
+                    document.getElementById("url").href = "./games/slider/index.html";
+                    document.getElementById("url").click();
+                    break;
             }
-        </script>
-        <script>
-            async function get_point(user) {
-                const res = await fetch(point_url,
-                            {
-                                method: "POST",
-                                body: JSON.stringify({
-                                    "id": user,
-                                    "req": "check_point"
-                                })
-                            })
-                            .then(res => { return res.text() })
-                            .then(data => { return JSON.parse(data) });
-                return res;
-            }
+        }
+    </script>
+    <script>
+        async function get_point(user) {
+            const res = await fetch(point_url,
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        "id": user,
+                        "req": "check_point"
+                    })
+                })
+                .then(res => { return res.text() })
+                .then(data => { return JSON.parse(data) });
+            return res;
+        }
 
-            window.onload = async () => {
-                const alert = document.getElementById("alert");
-                const user = localStorage.getItem("login_data_name");
-                const res = await get_point(user);
+        window.onload = async () => {
+            const alert = document.getElementById("alert");
+            const user = localStorage.getItem("login_data_name");
+            const res = await get_point(user);
 
-                if (user != null && user != "") {
-                    alert.innerHTML = `現在 ${user} としてログインしています<br>
+            if (user != null && user != "") {
+                alert.innerHTML = `現在 ${user} としてログインしています<br>
                     現在のポイント数: ${res.result}<br>
                     <form>
                         <input type="hidden" name="type" value="logout">
@@ -143,6 +151,7 @@
                         <div>
                             <div class="select-box">
                             <select class="select" id="flame-select">
+                            <option name="" selected disabled>クリックして選択してください</option>
                             <option name="selected"> 草花フレーム[5pt]</option>
                             <option name="selected">コーヒーフレーム [5pt]</option>
                             <option name="selected">おしゃれモノクロフレーム [5pt]</option>
@@ -153,7 +162,6 @@
                             <option name="selected">シンプルフラワーフレーム [5pt]</option>
                             <option name="selected">お正月フレーム [8pt] </option>
                             </select>
-                            <button class="select" style="width:50px; pointer-events: none;"><i class="bi bi-caret-down-fill"></i></button>
                             </div>
                             <br><br>
                             <button type="button" id="flame-sendbutton" class="button" style="width: 300px;" onclick="prepare_send_use()">交換してメッセージを送る</button>
@@ -226,14 +234,15 @@
                         </div>
                     </div>
                     <br>`;
-                } else {
-                    alert.innerHTML = `アカウント登録がお済みでない方は、ここから登録してください<br>
+            } else {
+                alert.innerHTML = `アカウント登録がお済みでない方は、ここから登録してください<br>
                     <p></p>
                     <a href="./account.html" class="link_color">アカウント登録</a> | <a href="./account_login.html" class="link_color">ログイン</a>
                     <p></p>
                     <br>`;
-                }
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
+
 </html>

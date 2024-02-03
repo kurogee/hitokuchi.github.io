@@ -62,11 +62,11 @@ small {
 
 .icons {
     display: flex;  
-    gap: 0px;
+    gap: 15px;
     justify-content: center;
     align-items: center;
     max-width: 100%;
-    width: 430px;
+
     margin-top: 10px;
     text-align: center;
 }
@@ -74,11 +74,12 @@ small {
 .icons_text {
     margin-top: -20px;
     display: flex;  
-    width: 440px;
+    width: 400px;
+    text-align: center;
 
     @media screen and (max-width: 768px) {
-        width: 340px;
         font-size: 15px;
+        width: 395px;
     }
 
     @media screen and (max-width: 350px) {
@@ -270,7 +271,7 @@ a.link_color:hover {
 /* ボタン */
 
 .button, .button-forum, .button-game,
- .button-reply, .button-point, #button {
+ .button-reply, .button-point, #button, .button-service {
     appearance: none;
     text-align: center;
     text-decoration: none;
@@ -285,7 +286,7 @@ a.link_color:hover {
 }
 
 .button:hover, .button-forum:hover, .button-game:hover,
- .button-reply:hover,  #button:hover, .button-point:hover {
+ .button-reply:hover,  #button:hover, .button-point:hover, .button-service:hover {
     color: #fff;
     background: rgb(67, 131, 199);
 }
@@ -328,6 +329,20 @@ a.link_color:hover {
 
 .button-reply{
     padding: 0.3rem 1.2rem;
+}
+
+.button-service {
+	border-radius: 10px;
+    margin: 5px;
+    width: 70px;
+    height: 70px;
+    vertical-align: -50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 768px) {
+        margin: 5px;
+    }
 }
 /* ボタンここまで */
 
@@ -409,8 +424,8 @@ a.link_color:hover {
 }
 
 .select{
-height:60px;
-width: 500px;
+    height:60px;
+    width: 500px;
     border-radius: 10px 10px;
     background: rgb(255, 255, 255);
     margin: auto;
@@ -420,9 +435,10 @@ width: 500px;
     box-shadow: 0px 1.5px 1.5px 0px rgba(0, 0, 0, 0.35);
     transition: 0.3s;
     text-align: center;
+    text-align-last: center;
     @media screen and (max-width: 768px) {
-        width: 300px;
-        font-size: 20px;
+        width: 330px;
+        font-size: 15px;
     }
 }
 
@@ -434,6 +450,16 @@ width: 500px;
 
 .select#flame-select{
     @media screen and (max-width: 768px) {
-        width: 350px;
+        width: 315px;
+    }
+}
+
+.br-sp {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .br-sp {
+        display: block;
     }
 }
