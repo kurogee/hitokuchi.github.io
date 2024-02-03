@@ -62,11 +62,11 @@ small {
 
 .icons {
     display: flex;  
-    gap: 0px;
+    gap: 15px;
     justify-content: center;
     align-items: center;
     max-width: 100%;
-    width: 430px;
+
     margin-top: 10px;
     text-align: center;
 }
@@ -74,10 +74,10 @@ small {
 .icons_text {
     margin-top: -20px;
     display: flex;  
-    width: 440px;
+    width: 410px;
+    text-align: center;
 
     @media screen and (max-width: 768px) {
-        width: 340px;
         font-size: 15px;
     }
 
@@ -270,7 +270,7 @@ a.link_color:hover {
 /* ボタン */
 
 .button, .button-forum, .button-game,
- .button-reply, .button-point, #button {
+ .button-reply, .button-point, #button, .button-service {
     appearance: none;
     text-align: center;
     text-decoration: none;
@@ -285,7 +285,7 @@ a.link_color:hover {
 }
 
 .button:hover, .button-forum:hover, .button-game:hover,
- .button-reply:hover,  #button:hover, .button-point:hover {
+ .button-reply:hover,  #button:hover, .button-point:hover, .button-service:hover {
     color: #fff;
     background: rgb(67, 131, 199);
 }
@@ -328,6 +328,20 @@ a.link_color:hover {
 
 .button-reply{
     padding: 0.3rem 1.2rem;
+}
+
+.button-service {
+	border-radius: 10px;
+    margin: 5px;
+    width: 70px;
+    height: 70px;
+    vertical-align: -50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 768px) {
+        margin: 5px;
+    }
 }
 /* ボタンここまで */
 
