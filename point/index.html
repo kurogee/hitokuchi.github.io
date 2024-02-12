@@ -26,20 +26,19 @@
     </div>
     <br>
     <div class="box">
-        <h2>現在開催中の<br class="br-sp">ポイントイベント</h2>
-        <p>注意: アカウント登録をしないと、アンケートに答えてもポイントを獲得できません。</p>
+        <h2>ポイントをためる！</h2>
+        <p>注意: ポイントを獲得するには、ログインしている必要があります。</p>
+        <br>
         <div>
-            <h3>アンケート</h3>
-            <!--
+           <!-- <h3>アンケート</h3>
+            
                     <a href="https://forms.gle/sq1ZTNSEqaZaWoHH8" target="_blank" class="link_color">野菜に関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/ijkzZWJ1BhuqPEGAA" target="_blank" class="link_color">IT・ネットに関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/onXoo59MJeohJhXz7" target="_blank" class="link_color">SNSに関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/eCaukz43za649SCD8" target="_blank" class="link_color">AIに関するアンケート [10pt]</a><br>
                     <a href="https://forms.gle/hQKWYKD1zrcmifnd7" target="_blank" class="link_color">スマホに関するアンケート [10pt]</a><br>
-                -->
-            <p>再開に向けた準備中...</p>
-            <hr>
-            <h3>ゲームで貯める！</h3>
+              
+            <p>再開に向けた準備中...</p>-->
             <div>
                 <button class="button-game" onclick="play_game('typing');">
                     <img src="./icons/typing.webp" alt="タイピング" class="button-game-image"><br>
@@ -61,14 +60,14 @@
             <p>
                 「hitokuchiプレミアム」とは、ポイントを使って<br>
                 hitokuchiでちょっと便利な機能を使えるようにするサービスです。
-            </p>
+            </p><br>
             <a href="../premium/index.html" class="button-point">ポイントを使って購入する</a><br>
             <br>
         </div>
     </div>
     <br>
     <div id="box">
-        <h3>アカウントステータス</h3>
+        <h2>アカウントステータス</h2>
         <div id="alert">
             しばらくお待ちください...
         </div>
@@ -130,7 +129,7 @@
 
                     <hr>
 
-                    <h3>ポイント追加</h3>
+                    <h3>ポイントを追加する</h3>
                     <form>
                         <input type="text" name="uuid" id="uuid" placeholder="ポイント交換ID" class="text" style="width: 300px;"><br>
                         <br>
@@ -138,13 +137,12 @@
                         <input type="button" class="button-point" value="ポイントを追加する！" onclick="send_change()">　<input type="reset" class="button-point" value="取り消し">
                     </form>
                     <small id="status"></small>
-
-                    <h3>ポイントギフト</h3>
-                    <a href="./gift_point.html" class="link_color">〈　他のユーザーにポイントを送ろう！　〉</a>
-                    <br><br>
-
-                    <hr>
                     
+                    <h3>ポイントギフト</h3>
+                    <br>
+                    <a href="./gift_point.html" class="button">　　ポイントを贈る！　　</a>
+                    <br><br>
+                    <hr>
                     <div>
                         <h3>ポイントを使う</h3>
                         <small id="status2"></small>
@@ -231,6 +229,7 @@
                                 <input type="hidden" class="req2" value="use_point">
                                 <input type="hidden" class="user_id2" value="${user}">
                             </form>
+
                         </div>
                     </div>
                     <br>`;
