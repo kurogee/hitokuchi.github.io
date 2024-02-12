@@ -348,7 +348,7 @@ a.link_color:hover {
 
 .buttons {
     display: flex;  
-    gap: 0px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     max-width: 100%;
