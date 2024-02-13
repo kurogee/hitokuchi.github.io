@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
-@import url('https://fonts.googleapis.com/css2?family=Murecho:wght@260&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@320&display=swap'); 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 @font-face {
@@ -10,7 +10,7 @@
 } /* ドットフォント */
 
 :root {
-    --default-font-family: "Murecho", sans-serif;
+    --default-font-family: "M PLUS 2", sans-serif;
     --dot-font-family: "dot_font", monospace;
     --source-code-font: "Source Code Pro", monospace;
 }
@@ -348,7 +348,7 @@ a.link_color:hover {
 
 .buttons {
     display: flex;  
-    gap: 0px;
+    gap: 50px;
     justify-content: center;
     align-items: center;
     max-width: 100%;
