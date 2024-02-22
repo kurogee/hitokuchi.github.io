@@ -216,7 +216,7 @@ textarea {
 
 #code > code > pre {
     font-family: var(--source-code-font);
-    font-size: 15px;
+    font-size: 14px;
     text-align: left;
     overflow: scroll;
 }
@@ -225,9 +225,9 @@ textarea {
     background-color: rgb(26, 26, 26);
     color: white;
 
-    border: 3px white solid;
+    border-radius: 10px;
     height: 100%;
-    width: 90%;
+    width: 70%;
 }
 
 a.link_color {
